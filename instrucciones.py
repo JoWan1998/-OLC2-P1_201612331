@@ -1,27 +1,19 @@
 #definicion de clases para implementacion de AUGUS
 #Jose Wannan @2020
 #UNIVERSIDAD DE SAN CARLOS DE GUATEMALA
-from enumeradores import *
+from AST import Nodo
 
 class instruccion:
     def information(self):
         self.information = "instruccion of augus"
 
-class principal(instruccion):
+class etiqueta(instruccion):
 
-    def __init__(self, enum, instrucciones = []):
-        self.tipo_instruccion = enum
-        self.instrucciones = instrucciones
-
-    def implements(self):
-        print("menu principal")
-
-class bandera(instruccion):
-
-    def __init__(self, nombre,enum, instrucciones=[]):
+    def __init__(self, nombre,enum, instrucciones=[],principal=False):
         self.tipo_intruccion = enum
         self.nombre = nombre
         self.instrucciones = instrucciones
+        self.principal = principal
 
     def implements(self):
         print("bandera")
@@ -37,13 +29,24 @@ class salto_bandera(instruccion):
 
 class asignacion(instruccion):
 
-    def __init__(self,enum,variable,valor):
+    def __init__(self,enum,variable,valor,pos=-1):
         self.tipo_instruccion = enum
         self.variable = variable
         self.valor = valor
+        self.pos = pos
 
     def implements(self):
         print("asignacion")
+
+class sentencia_control(instruccion):
+
+    def __init__(self,enum,condicion,bandera):
+        self.tipo_instruccion = enum
+        self.condicion = condicion
+        self.bandera = bandera
+
+    def implements(self):
+        print("sentencia de control")
 
 class destructor(instruccion):
 

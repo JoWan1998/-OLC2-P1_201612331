@@ -1,0 +1,9 @@
+if(5+5==10)
+
+$t0 = 5
+$t1 = 5
+$t2 = $t0 + $t1
+$t3 = $t2 == 10
+if($t3) goto bandera
+
+if($t2 == 10) goto bandera

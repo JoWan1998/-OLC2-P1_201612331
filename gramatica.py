@@ -16,7 +16,10 @@ RESERVED_WORDS =\
     'exit',
     'abs',
     'array',
-    'main'
+    'main',
+    'int',
+    'float',
+    'char'
 }
 
 TOKENS = RESERVED_WORDS + {
@@ -28,7 +31,7 @@ TOKENS = RESERVED_WORDS + {
     'ORB','XORB','SHIFTA','SHITB',
     'IGUALR','NOIGUALR','MAYORIGUALR',
     'MENORIGUALR','MAYORR','MENORR',
-    'CORA','CORB','ID','VARIABLE'
+    'CORA','CORB','ID','VARIABLE','AMPERSON'
 }
 
 t_ignore = ' \t'
@@ -83,7 +86,7 @@ t_MULTIPLICACION = r'*'
 t_NOTL = r'!'
 t_ANDL = r'&&'
 t_ORL = r'||'
-t_XORL = r'^'
+t_XORL = r'xor'
 t_NOTB = r'~'
 t_ANDB = r'&'
 t_ORB = r'|'
@@ -98,6 +101,7 @@ t_MAYORR = r'>'
 t_MENORR = r'<'
 t_CORA = r'('
 t_CORB = r')'
+t_AMPERSON = r'&'
 
 def t_NEWLINE(t):
     r'\n'

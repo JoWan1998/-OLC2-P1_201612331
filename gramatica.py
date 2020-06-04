@@ -5,7 +5,9 @@
 
 from ply import *
 import re
+from ply import errotk
 
+lexicos = []
 keywords =(
     'if',
     'goto',
@@ -114,7 +116,9 @@ def t_error(t):
         val = val[temp:]
         i +=1
     value = len(val)
-    print("Illegal character "+t.value[0]+" at index: "+str(value))
+    msg = "Illegal character "+t.value[0]+", linea: "+str(t.lexer.lineno)+" ,columna: "+str(value)
+    lexicos.append(errotk.error(t.lexer.lineno,msg,str(value),t.value[0]))
+    #print("Illegal character "+t.value[0]+" columna: "+str(value))
     t.lexer.skip(1)
 
 

@@ -7,7 +7,7 @@ import gramatica
 from instrucciones import *
 from operaciones import *
 from estructuras import *
-from ply import errores
+from ply import errotk
 
 caracteres = 0
 
@@ -327,7 +327,7 @@ def p_ESTRUCTURA_IF(p):
     p[0] = sentencia_control(TIPO_INSTRUCCION.IFCONTROL,p[3],p[6])
 
 def p_DESTRUYE_VARIABLE(p):
-    '''DESTRUYE_VARIABLE : unset PARA VARIABLE PARB'''
+    '''DESTRUYE_VARIABLE : unset PARA VALOR PARB'''
     
     p[0] = destructor(TIPO_INSTRUCCION.DESTRUCTOR,p[3])
 
@@ -346,11 +346,12 @@ def p_EXIT(p):
 
 parser = yacc.yacc()
 
-def parse(data,debug=0,errors=errores):
+
+def parse(errors,data,debug=0):
     parser.error = 0
-    print("inicio_analisis")
-    p = parser.parse(errors,data,debug=0)
-    print("fin_analisis")
+    p = parser.parse(data)
+    errors.errores_sintacticos = parser.getErrores()
+    errors.errores_lexicos = gramatica.lexicos
     if parser.error:
         return None
     return p

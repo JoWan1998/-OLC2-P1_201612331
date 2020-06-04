@@ -4,7 +4,6 @@
 from enum import Enum
 
 class TIPO_INSTRUCCION(Enum):
-    PRINCIPAL = 0
     BANDERA = 1
     SALTO_BANDERA = 2
     ASIGNACION = 3
@@ -53,11 +52,33 @@ class TYPE_VALUE(Enum):
     NUMERIC = 1
     CHARACTER = 2
     ARREGLO = 3
+    APUNTADOR = 4
 
 class METHOD_VALUE(Enum):
     VARIABLE = 1
     ARREGLO = 2
     VALOR_UNICO = 3
     READ  = 4
+    CONVERSION = 5
+    APUNTADOR = 6
 
+####################################STACK##########################3
+##### [direccion, valor]
+####### [0x001, valor: { "valor": value}]
+
+
+##########################TABLA DE SIMBOLOS#########################
+##### [direccion, id, valor, tipo, registro] ->
+# tipo -> nunerico, caracter, arreglo, apuntador
+# direccion -> direccion de memoria de la variable
+
+###variable
+##  direccion: 0x000, id: t0, valor: 12, tipo: numerico, registro: temporal
+##  direccion: 0x003, id: t3, valor: 'a', tipo: caracter, registro: parametro
+
+###apuntador
+## direccion: 0x001, id: t1, valor: 0x000, tipo: apuntador, registro: retorno
+
+###arreglo
+## direccion: 0x002, id: t2, valor: 0x001, tipo: arreglo, registro: pila
 

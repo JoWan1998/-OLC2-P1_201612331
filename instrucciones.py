@@ -9,10 +9,10 @@ class instruccion:
 
 class etiqueta(instruccion):
 
-    def __init__(self, nombre,enum, instrucciones=[],principal=False):
+    def __init__(self,nombre,enum, instrucciones=list,principal=False):
         self.tipo_intruccion = enum
         self.nombre = nombre
-        self.instrucciones = instrucciones
+        self.instruccionesd = instrucciones
         self.principal = principal
 
     def implements(self):

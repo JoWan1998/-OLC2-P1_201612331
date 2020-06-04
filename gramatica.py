@@ -6,8 +6,7 @@
 from ply import *
 import re
 
-RESERVED_WORDS =\
-{
+keywords =(
     'if',
     'goto',
     'read',
@@ -20,33 +19,59 @@ RESERVED_WORDS =\
     'int',
     'float',
     'char'
-}
+)
 
-TOKENS = RESERVED_WORDS + {
-    'IGUAL','INT','FLOAT','CHAR'
-    'MAS','MENOS','PARENA','PARENB','PTCOMA',
+tokens = keywords + (
+    'IGUAL','INT','FLOAT','CHAR',
+    'MAS','MENOS','PARA','PARB','PTCOMA',
     'NEWLINE','DIVIDIR', 'RESIDUO',
     'MULTIPLICACION','NOTL',
     'ANDL','ORL','XORL','NOTB','ANDB',
-    'ORB','XORB','SHIFTA','SHITB',
-    'IGUALR','NOIGUALR','MAYORIGUALR',
-    'MENORIGUALR','MAYORR','MENORR',
-    'CORA','CORB','ID','VARIABLE','AMPERSON'
-}
+    'ORB','XORB',
+    'IGUALR','NOIGUALR',
+    'MAYORR','MENORR',
+    'CORA','CORB','ID','VARIABLE','DOSPUNTOS'
+)
 
 t_ignore = ' \t'
 
 def t_ID(t):
-    r'[A-Z][A-Z0-9]*'
-    if t.value in RESERVED_WORDS:
+    r'[a-zA-Z][a-zA-Z0-9]*'
+    if t.value in keywords:
         t.type = t.value
     return t
 
 def t_VARIABLE(t):
-    r'($)(a|t|v|ra|s|sp)([0-9]?)'
-    match = re.search('($)(?P<variable>(a|t|v|ra|s|sp) ([0-9]?))',t.value)
-    t.value = match.groups('variable')
+    r'(\$)(a|t|v|ra|s|sp)([0-9]+)'
+    value = t.value[1:]
+    t.value = value
     return t
+
+t_DOSPUNTOS = r':'
+t_IGUAL = r'='
+t_MAS = r'\+'
+t_MENOS = r'-'
+t_PARA = r'\('
+t_PARB = r'\)'
+t_PTCOMA = r';'
+t_DIVIDIR = r'/'
+t_RESIDUO = r'%'
+t_MULTIPLICACION = r'\*'
+t_NOTL = r'\!'
+t_ANDL = r'\&\&'
+t_ORL = r'\|\|'
+t_XORL = r'xor'
+t_NOTB = r'\~'
+t_ANDB = r'\&'
+t_ORB = r'\|'
+t_XORB = r'\^'
+t_IGUALR = r'=='
+t_NOIGUALR = r'!='
+t_MAYORR = r'>'
+t_MENORR = r'<'
+t_CORA = r'\['
+t_CORB = r'\]'
+
 
 def t_INT(t):
     r'\d+'
@@ -70,38 +95,9 @@ def t_FLOAT(t):
         print("Not a Valid %d", t.value)
     return 0
 
-def t_comentario(t):
-    r'#.*'
+def t_COMENTARIO(t):
+    r'(\#)(\w+)\n'
     t.lexer.lineno += 1
-
-t_IGUAL = r'='
-t_MAS = r'+'
-t_MENOS = r'-'
-t_PARENA = r'('
-t_PARENB = r')'
-t_PTCOMA = r';'
-t_DIVIDIR = r'/'
-t_RESIDUO = r'%'
-t_MULTIPLICACION = r'*'
-t_NOTL = r'!'
-t_ANDL = r'&&'
-t_ORL = r'||'
-t_XORL = r'xor'
-t_NOTB = r'~'
-t_ANDB = r'&'
-t_ORB = r'|'
-t_XORB = r'^'
-t_SHIFTA = r'<<'
-t_SHIFTB = r'>>'
-t_IGUALR = r'=='
-t_NOIGUALR = r'!='
-t_MAYORIGUAL = r'>='
-t_MENORIGUAL = r'<='
-t_MAYORR = r'>'
-t_MENORR = r'<'
-t_CORA = r'('
-t_CORB = r')'
-t_AMPERSON = r'&'
 
 def t_NEWLINE(t):
     r'\n'

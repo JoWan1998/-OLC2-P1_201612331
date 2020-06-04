@@ -63,7 +63,7 @@ class LexError(Exception):
 # Token class.  This class is used to represent the tokens produced.
 class LexToken(object):
     def __str__(self):
-        return 'LexToken(%s,%r,%d,%d)' % (self.type, self.value, self.lineno, self.lexpos)
+        return 'LexToken(%s,%r,%d,%d,%d)' % (self.type, self.value, self.lineno, self.lexpos,self.early)
 
     def __repr__(self):
         return str(self)
@@ -130,6 +130,7 @@ class Lexer:
         self.lexstateeoff = {}        # Dictionary of eof functions for each state
         self.lexreflags = 0           # Optional re compile flags
         self.lexdata = None           # Actual input data (as a string)
+        self.lexearly = 0             # modify to get pos token - [Scholar implement]
         self.lexpos = 0               # Current position in input text
         self.lexlen = 0               # Length of the input text
         self.lexerrorf = None         # Error rule (if any)
@@ -308,8 +309,10 @@ class Lexer:
         lexlen    = self.lexlen
         lexignore = self.lexignore
         lexdata   = self.lexdata
+        lexearly  = lexpos
 
         while lexpos < lexlen:
+
             # This code provides some short-circuit code for whitespace, tabs, and other ignored characters
             if lexdata[lexpos] in lexignore:
                 lexpos += 1
@@ -322,11 +325,13 @@ class Lexer:
                     continue
 
                 # Create a token for return
+                lexearly = lexpos
+
                 tok = LexToken()
                 tok.value = m.group()
                 tok.lineno = self.lineno
                 tok.lexpos = lexpos
-
+                tok.early = lexearly
                 i = m.lastindex
                 func, tok.type = lexindexfunc[i]
 
@@ -371,6 +376,8 @@ class Lexer:
                     tok.lineno = self.lineno
                     tok.type = tok.value
                     tok.lexpos = lexpos
+                    tok.early = lexearly
+
                     self.lexpos = lexpos + 1
                     return tok
 
@@ -382,11 +389,12 @@ class Lexer:
                     tok.type = 'error'
                     tok.lexer = self
                     tok.lexpos = lexpos
+                    tok.early = lexearly
                     self.lexpos = lexpos
                     newtok = self.lexerrorf(tok)
                     if lexpos == self.lexpos:
                         # Error method didn't change text position at all. This is an error.
-                        raise LexError("Scanning error. Illegal character '%s'" % (lexdata[lexpos]), lexdata[lexpos:])
+                        raise LexError("Scanning error. Illegal character '%s' at index %d" % (lexdata[lexpos], tok.early) , lexdata[lexpos:])
                     lexpos = self.lexpos
                     if not newtok:
                         continue
@@ -402,6 +410,7 @@ class Lexer:
             tok.lineno = self.lineno
             tok.lexpos = lexpos
             tok.lexer = self
+            tok.early = lexearly
             self.lexpos = lexpos
             newtok = self.lexeoff(tok)
             return newtok

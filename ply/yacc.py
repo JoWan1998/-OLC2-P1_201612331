@@ -58,13 +58,14 @@
 # consider to be good Python "coding style."   Modify the code at your
 # own risk!
 # ----------------------------------------------------------------------------
-
+from ply.errores import *
 import re
 import types
 import sys
 import os.path
 import inspect
 import warnings
+
 
 __version__    = '3.11'
 __tabversion__ = '3.10'
@@ -235,6 +236,8 @@ class YaccProduction:
         self.stack = stack
         self.lexer = None
         self.parser = None
+        self.linea = None
+        self.columna = None
 
     def __getitem__(self, n):
         if isinstance(n, slice):
@@ -259,9 +262,11 @@ class YaccProduction:
     def set_lineno(self, n, lineno):
         self.slice[n].lineno = lineno
 
+
     def linespan(self, n):
         startline = getattr(self.slice[n], 'lineno', 0)
         endline = getattr(self.slice[n], 'endlineno', startline)
+        self.linea = startline
         return startline, endline
 
     def lexpos(self, n):
@@ -273,6 +278,7 @@ class YaccProduction:
     def lexspan(self, n):
         startpos = getattr(self.slice[n], 'lexpos', 0)
         endpos = getattr(self.slice[n], 'endlexpos', startpos)
+        self.columna = endpos - startpos
         return startpos, endpos
 
     def error(self):
@@ -292,6 +298,7 @@ class LRParser:
         self.errorfunc = errorf
         self.set_defaulted_states()
         self.errorok = True
+        self.errores = None
 
     def errok(self):
         self.errorok = True
@@ -322,7 +329,8 @@ class LRParser:
     def disable_defaulted_states(self):
         self.defaulted_states = {}
 
-    def parse(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None):
+    def parse(self, error = errores, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None):
+        self.errores = error
         if debug or yaccdevel:
             if isinstance(debug, int):
                 debug = PlyLogger(sys.stderr)
@@ -331,6 +339,19 @@ class LRParser:
             return self.parseopt(input, lexer, debug, tracking, tokenfunc)
         else:
             return self.parseopt_notrack(input, lexer, debug, tracking, tokenfunc)
+
+    #def parse(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None):
+    #    if debug or yaccdevel:
+    #        if isinstance(debug, int):
+    #            debug = PlyLogger(sys.stderr)
+    #        return self.parsedebug(input, lexer, debug, tracking, tokenfunc)
+    #    elif tracking:
+    #        return self.parseopt(input, lexer, debug, tracking, tokenfunc)
+    #    else:
+    #        return self.parseopt_notrack(input, lexer, debug, tracking, tokenfunc)
+
+
+
 
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -487,6 +508,7 @@ class LRParser:
                             t1 = targ[-1]
                             sym.endlineno = getattr(t1, 'endlineno', t1.lineno)
                             sym.endlexpos = getattr(t1, 'endlexpos', t1.lexpos)
+
                         #--! TRACKING
 
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -504,6 +526,7 @@ class LRParser:
                             del statestack[-plen:]
                             #--! DEBUG
                             debug.info('Result : %s', format_result(pslice[0]))
+                            debug.info(format_result(pslice.lexer.lexpos))
                             #--! DEBUG
                             symstack.append(sym)
                             state = goto[statestack[-1]][pname]
@@ -545,7 +568,8 @@ class LRParser:
                             self.state = state
                             p.callable(pslice)
                             #--! DEBUG
-                            debug.info('Result : %s', format_result(pslice[0]))
+                            debug.info('Result : %s ', format_result(pslice[0]))
+
                             #--! DEBUG
                             symstack.append(sym)
                             state = goto[statestack[-1]][pname]
@@ -614,8 +638,19 @@ class LRParser:
                                 lineno = lookahead.lineno
                             else:
                                 lineno = 0
+
                             if lineno:
-                                sys.stderr.write('yacc: Syntax error at line %d, token=%s\n' % (lineno, errtoken.type))
+                                long = errtoken.lexer.lexdata.find(errtoken.value) + 1
+                                long1 = errtoken.lexer.lexdata[:long]
+                                long2 = long1.count('\n')
+                                val = long1
+                                for i in range(long2):
+                                    temp = val.find('\n') + 1
+                                    val = val[temp:]
+                                    i += 1
+                                value = len(val)
+                                sys.stderr.write('yacc: Syntax error at line %d, columna %d, token=%s\n' % (lineno, value, str(errtoken.value)))
+                                self.errores.addSintactico(lineno,"[-] Syntax error at line "+str(lineno)+", token= "+str(errtoken.lexpos)+"\n")
                             else:
                                 sys.stderr.write('yacc: Syntax error, token=%s' % errtoken.type)
                         else:
@@ -921,7 +956,16 @@ class LRParser:
                             else:
                                 lineno = 0
                             if lineno:
-                                sys.stderr.write('yacc: Syntax error at line %d, token=%s\n' % (lineno, errtoken.type))
+                                long = errtoken.lexer.lexdata.find(errtoken.value) + 1
+                                long1 = errtoken.lexer.lexdata[:long]
+                                long2 = long1.count('\n')
+                                val = long1
+                                for i in range(long2):
+                                    temp = val.find('\n') + 1
+                                    val = val[temp:]
+                                    i += 1
+                                value = len(val)
+                                sys.stderr.write('yacc: Syntax error at line %d, columna %d, token=%s\n' % (lineno, value, str(errtoken.value)))
                             else:
                                 sys.stderr.write('yacc: Syntax error, token=%s' % errtoken.type)
                         else:

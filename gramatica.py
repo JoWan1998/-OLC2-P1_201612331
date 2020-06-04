@@ -102,10 +102,22 @@ def t_COMENTARIO(t):
 def t_NEWLINE(t):
     r'\n'
     t.lexer.lineno += 1
+    t.lexer.lexearly = t.lexer.lexpos
 
 def t_error(t):
-    print("Illegal character %s",t.value[0])
+    long = t.lexer.lexdata.find(t.value[0])+1
+    long1 = t.lexer.lexdata[:long]
+    long2 = long1.count('\n')
+    val = long1
+    for i in range(long2):
+        temp = val.find('\n')+1
+        val = val[temp:]
+        i +=1
+    value = len(val)
+    print("Illegal character "+t.value[0]+" at index: "+str(value))
     t.lexer.skip(1)
+
+
 
 lex.lex(debug=0)
 

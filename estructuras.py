@@ -4,9 +4,11 @@
 
 
 class array_s:
-    def __init__(self, enum, valor = list, **kwars):
+    def __init__(self, enum,valor=list,variable=None,posicion=None):
         self.value = valor
         self.method = enum
+        self.variable = variable
+        self.posicion = posicion
 
     def implements(self):
         print('implementing operations array')

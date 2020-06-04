@@ -1,7 +1,7 @@
 #CONSTRUCTORES PARA OPERACIONES, AUGUS
 #JOSE WANNAN @2020
 #UNIVERSIDAD DE SAN CARLOS DE GUATEMALA
-from array import *
+from estructuras import *
 from enumeradores import *
 
 class operaciones:

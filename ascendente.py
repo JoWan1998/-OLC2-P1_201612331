@@ -7,7 +7,6 @@ import gramatica
 from instrucciones import *
 from operaciones import *
 from estructuras import *
-from ply import errotk
 
 caracteres = 0
 

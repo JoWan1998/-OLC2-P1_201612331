@@ -140,12 +140,12 @@ class wlex:
             line = list(linea)
             value = ''
 
-            columnainicio= 0
-            columnafin = 0
+            columnainicio= 1
+            columnafin = 1
 
 
             for ln in line:
-                #print(value)
+                #print(ln)
                 intro = False
                 for nn in symbols:
                     if ln == nn:
@@ -306,7 +306,7 @@ class wlex:
                                 vals.linea = numline
                                 vals.value = value
                                 words.append(vals)
-                                value = ''
+
                                 columnafin += 1
                                 columnainicio = columnafin
                                 vals = wSymbols()
@@ -338,7 +338,6 @@ class wlex:
                         else:
                             columnafin += 1
                             columnainicio = columnafin
-
                     elif re.match(r'[a-zA-Z0-9]',ln):
                         value += ln
                         #print(value)
@@ -368,10 +367,18 @@ class wlex:
                             vals.columnafin = columnafin
                             vals.columnainicio = columnainicio
                             vals.linea = numline
-                            vals.value = value
+                            vals.value = ln
                             words.append(vals)
                             value = ''
                             columnainicio = columnafin
+                    elif ln == '\n':
+                        vals = wSymbols()
+                        vals.columnafin = columnafin
+                        vals.columnainicio = columnainicio
+                        vals.linea = numline
+                        vals.value = value
+                        words.append(vals)
+                        value = ''
                     else:
                         #print("salto")
                         vals = wSymbols()
@@ -381,6 +388,14 @@ class wlex:
                         vals.value = value
                         words.append(vals)
                         value = ''
+
+            vals = wSymbols()
+            vals.columnafin = columnafin
+            vals.columnainicio = columnainicio
+            vals.linea = numline
+            vals.value = value
+            words.append(vals)
+            value = ''
 
 
             numline += 1
@@ -398,6 +413,7 @@ class wlex:
         tokenization = []
         errors = []
         for symbol in symbols:
+            #print(symbol.value)
             if not re.search(r'#',symbol.value):
                 iserror = True
                 for token in tokens:
@@ -418,11 +434,12 @@ class wlex:
                             break
 
                 if iserror:
-                    print("Syntax Error  '" + symbol.value + "' in  linea: " + str(symbol.linea) + ", columna: " + str(symbol.columnainicio))
+                    print("Illegal Character  '" + symbol.value + "' in  linea: " + str(symbol.linea) + ", columna: " + str(symbol.columnainicio))
                     errors.append(symbol)
 
         self.tokens = tokenization
         self.lexicalErrors = errors
+
 
     def wlexs(self):
         self.generateSymbols()

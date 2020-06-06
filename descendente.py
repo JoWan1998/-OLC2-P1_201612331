@@ -226,4 +226,4 @@ def parserDes(data):
     lexico.lexems = tokens
     lexico.symbols = simbolos
     lexico.wlexs()
-    
+

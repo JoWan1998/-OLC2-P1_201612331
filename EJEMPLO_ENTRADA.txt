@@ -1,4 +1,4 @@
-main:
+main: ?_
 $t0: 5; #gol
 $t1 = (char) 5;
 $t2 = $t0 + $t1;

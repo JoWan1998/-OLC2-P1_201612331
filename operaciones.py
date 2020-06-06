@@ -1,6 +1,7 @@
 #CONSTRUCTORES PARA OPERACIONES, AUGUS
 #JOSE WANNAN @2020
 #UNIVERSIDAD DE SAN CARLOS DE GUATEMALA
+
 from estructuras import *
 from enumeradores import *
 
@@ -25,7 +26,7 @@ class valor(operaciones):
         return self.metodo
 
     def get_Value(self):
-        if isinstance(self.value,array) and self.metodo == METHOD_VALUE.ARREGLO:
+        if isinstance(self.value,array_s) and self.metodo == METHOD_VALUE.ARREGLO:
             return self.value.implements
         elif self.metodo == METHOD_VALUE.VARIABLE:
             print('getting value of variable')

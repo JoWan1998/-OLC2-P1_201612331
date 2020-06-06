@@ -24,29 +24,27 @@ class Nodo:
 class Parser:
     def __init__(self):
         self.numlinea = 0
-        self.tableProductions = []
+        self.tokens = []
         self.estado_incial = None
         self.raiz = None
+        self.errores = []
 
-    def inicio(self,tokens):
-        tk = tokens.pop()
+    def inicio(self):
+        tk = self.tokens.pop()
+        if tk.id == 'variable':
+            valor = tk
+            tk = self.tokens.pop()
 
 
 
 
-    def parse(self,tokens):
-        tk = tokens.pop()
+    def parse(self):
+        tk = self.tokens.pop()
         if tk.id == 'main':
             main = tk
-            tk = tokens.pop()
+            tk = self.tokens.pop()
             if tk.id == 'dospuntos':
-                tk = tokens.pop()
-                self.raiz = etiqueta(main.value,TIPO_INSTRUCCION.BANDERA,self.inicio(tokens),True)
-
-
-
-
-
-
-
+                tk = self.tokens.pop()
+                self.raiz = etiqueta(main.value,TIPO_INSTRUCCION.BANDERA,self.inicio(),True)
+            
 

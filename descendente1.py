@@ -382,7 +382,7 @@ def p_EXIT(p):
 parser = yacc.yacc()
 
 
-def parseas(errors, data, debug=0):
+def parsedes(errors, data, debug=0):
     parser.error = 0
     p = parser.parse(data)
     errors.errores_sintacticos = parser.getErrores()

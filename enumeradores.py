@@ -62,6 +62,15 @@ class METHOD_VALUE(Enum):
     CONVERSION = 5
     APUNTADOR = 6
 
+class REGISTRO(Enum):
+    TEMPORAL = 1
+    PARAMETRO = 2
+    RETORNO = 3
+    PILA = 4
+    APUNTADORPILA = 5
+    RA = 6
+    FUNCION = 7
+
 ####################################STACK##########################3
 ##### [direccion, valor]
 ####### [0x001, valor: { "valor": value}]

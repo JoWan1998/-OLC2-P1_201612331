@@ -362,7 +362,7 @@ def p_ESTRUCTURA_IF(p):
 
 
 def p_DESTRUYE_VARIABLE(p):
-    '''DESTRUYE_VARIABLE : unset PARA VALOR PARB'''
+    '''DESTRUYE_VARIABLE : unset PARA VALOR PARB PTCOMA'''
 
     p[0] = destructor(TIPO_INSTRUCCION.DESTRUCTOR,p.lexer.lineno, p[3])
 

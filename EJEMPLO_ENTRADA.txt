@@ -1,12 +1,3 @@
-main: ?_
-$t0: 5; #gol
-$t1 = (char) 5;
-$t2 = $t0 + $t1;
-$t3 = $t2 == 10;
-$t5['a'][6][7] = $t1;
-$t7 = $t5['b']['a'][8];
-if($t3) goto bandera1;
-if($t2 == 10) goto bandera2;
-unset($t1[20])
-bandera1:
-    print($t1);
+main:
+$t0 = 5;
+$t0 = 6;

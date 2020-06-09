@@ -13,148 +13,2496 @@ Rule 3     ESTRUCTURAMAIN -> main DOSPUNTOS PRECUERPO
 Rule 4     ESTRUCTURAMAIN -> error DOSPUNTOS PRECUERPO
 Rule 5     ESTRUCTURAMAIN -> main error PRECUERPO
 Rule 6     ESTRUCTURAMAIN -> main DOSPUNTOS error
-Rule 7     PRECUERPO -> CUERPO PRECUERPO_F
-Rule 8     PRECUERPO_F -> CUERPO PRECUERPO_2
-Rule 9     PRECUERPO_F -> <empty>
-Rule 10    CUERPO -> ETIQUETA
-Rule 11    CUERPO -> GOTO_LABEL
-Rule 12    CUERPO -> ASIGNACION
-Rule 13    CUERPO -> DESTRUYE_VARIABLE
-Rule 14    CUERPO -> IMPRIME
-Rule 15    CUERPO -> ESTRUCTURA_IF
-Rule 16    CUERPO -> EXIT
-Rule 17    ETIQUETA -> ID DOSPUNTOS PRECUERPO
-Rule 18    GOTO_LABEL -> goto ID PTCOMA
-Rule 19    ASIGNACION -> NORMAL PTCOMA
-Rule 20    ASIGNACION -> ARRAY PTCOMA
-Rule 21    NORMAL -> VARIABLE IGUAL EXPRESION
-Rule 22    ARRAY -> VARIABLE LISTA_POS IGUAL EXPRESION
-Rule 23    EXPRESION -> VALOR
-Rule 24    VALOR -> VARIABLE
-Rule 25    VALOR -> LLAMADA_ARREGLO
-Rule 26    VALOR -> INT
-Rule 27    VALOR -> FLOAT
-Rule 28    VALOR -> CHAR
-Rule 29    VALOR -> array PARA PARB
-Rule 30    VALOR -> read PARA PARB
-Rule 31    EXPRESION -> ARITMETICAS
-Rule 32    ARITMETICAS -> MENOS VALOR
-Rule 33    ARITMETICAS -> VALOR MAS VALOR
-Rule 34    ARITMETICAS -> VALOR MENOS VALOR
-Rule 35    ARITMETICAS -> VALOR MULTIPLICACION VALOR
-Rule 36    ARITMETICAS -> VALOR DIVIDIR VALOR
-Rule 37    ARITMETICAS -> VALOR RESIDUO VALOR
-Rule 38    ARITMETICAS -> abs PARA VALOR PARB
-Rule 39    EXPRESION -> LOGICAS
-Rule 40    LOGICAS -> NOTL VALOR
-Rule 41    LOGICAS -> VALOR ANDL VALOR
-Rule 42    LOGICAS -> VALOR ORL VALOR
-Rule 43    LOGICAS -> VALOR XORL VALOR
-Rule 44    EXPRESION -> RELACIONAL
-Rule 45    RELACIONAL -> VALOR IGUALR VALOR
-Rule 46    RELACIONAL -> VALOR NOIGUALR VALOR
-Rule 47    RELACIONAL -> VALOR MAYORR IGUALR VALOR
-Rule 48    RELACIONAL -> VALOR MENORR IGUALR VALOR
-Rule 49    RELACIONAL -> VALOR MAYORR VALOR
-Rule 50    RELACIONAL -> VALOR MENORR VALOR
-Rule 51    EXPRESION -> BIT
-Rule 52    BIT -> NOTB VALOR
-Rule 53    BIT -> VALOR ANDB VALOR
-Rule 54    BIT -> VALOR ORB VALOR
-Rule 55    BIT -> VALOR XORB VALOR
-Rule 56    BIT -> VALOR MENORR MENORR VALOR
-Rule 57    BIT -> VALOR MAYORR MAYORR VALOR
-Rule 58    LLAMADA_ARREGLO -> VARIABLE LISTA_POS
-Rule 59    LISTA_POS -> POS LISTA_POS_F
-Rule 60    LISTA_POS_F -> POS LISTA_POS_F
-Rule 61    LISTA_POS_F -> <empty>
-Rule 62    POS -> CORA EXPRESION CORB
-Rule 63    EXPRESION -> CONVERSION
-Rule 64    CONVERSION -> PARA TIPO_CONVERSION PARB VALOR
-Rule 65    TIPO_CONVERSION -> int
-Rule 66    TIPO_CONVERSION -> char
-Rule 67    TIPO_CONVERSION -> float
-Rule 68    EXPRESION -> PUNTERO
-Rule 69    PUNTERO -> ANDB VARIABLE
-Rule 70    ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA
-Rule 71    DESTRUYE_VARIABLE -> unset PARA VALOR PARB
-Rule 72    IMPRIME -> print PARA VALOR PARB PTCOMA
-Rule 73    EXIT -> exit PTCOMA
+Rule 7     PRECUERPO -> PRECUERPO CUERPO
+Rule 8     PRECUERPO -> CUERPO
+Rule 9     CUERPO -> ETIQUETA
+Rule 10    CUERPO -> GOTO_LABEL
+Rule 11    CUERPO -> ASIGNACION
+Rule 12    CUERPO -> DESTRUYE_VARIABLE
+Rule 13    CUERPO -> IMPRIME
+Rule 14    CUERPO -> ESTRUCTURA_IF
+Rule 15    CUERPO -> EXIT
+Rule 16    ETIQUETA -> ID DOSPUNTOS PRECUERPO
+Rule 17    GOTO_LABEL -> goto ID PTCOMA
+Rule 18    ASIGNACION -> NORMAL PTCOMA
+Rule 19    ASIGNACION -> ARRAY PTCOMA
+Rule 20    NORMAL -> VARIABLE IGUAL EXPRESION
+Rule 21    ARRAY -> VARIABLE LISTA_POS IGUAL EXPRESION
+Rule 22    EXPRESION -> VALOR
+Rule 23    VALOR -> VARIABLE
+Rule 24    VALOR -> LLAMADA_ARREGLO
+Rule 25    VALOR -> INT
+Rule 26    VALOR -> FLOAT
+Rule 27    VALOR -> CHAR
+Rule 28    VALOR -> array PARA PARB
+Rule 29    VALOR -> read PARA PARB
+Rule 30    EXPRESION -> ARITMETICAS
+Rule 31    ARITMETICAS -> MENOS VALOR
+Rule 32    ARITMETICAS -> VALOR MAS VALOR
+Rule 33    ARITMETICAS -> VALOR MENOS VALOR
+Rule 34    ARITMETICAS -> VALOR MULTIPLICACION VALOR
+Rule 35    ARITMETICAS -> VALOR DIVIDIR VALOR
+Rule 36    ARITMETICAS -> VALOR RESIDUO VALOR
+Rule 37    ARITMETICAS -> abs PARA VALOR PARB
+Rule 38    EXPRESION -> LOGICAS
+Rule 39    LOGICAS -> NOTL VALOR
+Rule 40    LOGICAS -> VALOR ANDL VALOR
+Rule 41    LOGICAS -> VALOR ORL VALOR
+Rule 42    LOGICAS -> VALOR XORL VALOR
+Rule 43    EXPRESION -> RELACIONAL
+Rule 44    RELACIONAL -> VALOR IGUALR VALOR
+Rule 45    RELACIONAL -> VALOR NOIGUALR VALOR
+Rule 46    RELACIONAL -> VALOR MAYORR IGUALR VALOR
+Rule 47    RELACIONAL -> VALOR MENORR IGUALR VALOR
+Rule 48    RELACIONAL -> VALOR MAYORR VALOR
+Rule 49    RELACIONAL -> VALOR MENORR VALOR
+Rule 50    EXPRESION -> BIT
+Rule 51    BIT -> NOTB VALOR
+Rule 52    BIT -> VALOR ANDB VALOR
+Rule 53    BIT -> VALOR ORB VALOR
+Rule 54    BIT -> VALOR XORB VALOR
+Rule 55    BIT -> VALOR MENORR MENORR VALOR
+Rule 56    BIT -> VALOR MAYORR MAYORR VALOR
+Rule 57    LLAMADA_ARREGLO -> VARIABLE LISTA_POS
+Rule 58    LISTA_POS -> LISTA_POS POS
+Rule 59    LISTA_POS -> POS
+Rule 60    POS -> CORA EXPRESION CORB
+Rule 61    EXPRESION -> CONVERSION
+Rule 62    CONVERSION -> PARA TIPO_CONVERSION PARB VALOR
+Rule 63    TIPO_CONVERSION -> int
+Rule 64    TIPO_CONVERSION -> char
+Rule 65    TIPO_CONVERSION -> float
+Rule 66    EXPRESION -> PUNTERO
+Rule 67    PUNTERO -> ANDB VARIABLE
+Rule 68    ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA
+Rule 69    DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA
+Rule 70    IMPRIME -> print PARA VALOR PARB PTCOMA
+Rule 71    EXIT -> exit PTCOMA
 
 Terminals, with rules where they appear
 
-ANDB                 : 53 69
-ANDL                 : 41
-CHAR                 : 28
-CORA                 : 62
-CORB                 : 62
-DIVIDIR              : 36
-DOSPUNTOS            : 3 4 6 17
-FLOAT                : 27
-ID                   : 17 18 70
-IGUAL                : 21 22
-IGUALR               : 45 47 48
-INT                  : 26
-MAS                  : 33
-MAYORR               : 47 49 57 57
-MENORR               : 48 50 56 56
-MENOS                : 32 34
-MULTIPLICACION       : 35
+ANDB                 : 52 67
+ANDL                 : 40
+CHAR                 : 27
+CORA                 : 60
+CORB                 : 60
+DIVIDIR              : 35
+DOSPUNTOS            : 3 4 6 16
+FLOAT                : 26
+ID                   : 16 17 68
+IGUAL                : 20 21
+IGUALR               : 44 46 47
+INT                  : 25
+MAS                  : 32
+MAYORR               : 46 48 56 56
+MENORR               : 47 49 55 55
+MENOS                : 31 33
+MULTIPLICACION       : 34
 NEWLINE              : 
-NOIGUALR             : 46
-NOTB                 : 52
-NOTL                 : 40
-ORB                  : 54
-ORL                  : 42
-PARA                 : 29 30 38 64 70 71 72
-PARB                 : 29 30 38 64 70 71 72
-PTCOMA               : 18 19 20 70 72 73
-RESIDUO              : 37
-VARIABLE             : 21 22 24 58 69
-XORB                 : 55
-XORL                 : 43
-abs                  : 38
-array                : 29
-char                 : 66
+NOIGUALR             : 45
+NOTB                 : 51
+NOTL                 : 39
+ORB                  : 53
+ORL                  : 41
+PARA                 : 28 29 37 62 68 69 70
+PARB                 : 28 29 37 62 68 69 70
+PTCOMA               : 17 18 19 68 69 70 71
+RESIDUO              : 36
+VARIABLE             : 20 21 23 57 67
+XORB                 : 54
+XORL                 : 42
+abs                  : 37
+array                : 28
+char                 : 64
 error                : 2 4 5 6
-exit                 : 73
-float                : 67
-goto                 : 18 70
-if                   : 70
-int                  : 65
+exit                 : 71
+float                : 65
+goto                 : 17 68
+if                   : 68
+int                  : 63
 main                 : 3 5 6
-print                : 72
-read                 : 30
-unset                : 71
+print                : 70
+read                 : 29
+unset                : 69
 
 Nonterminals, with rules where they appear
 
-ARITMETICAS          : 31
-ARRAY                : 20
-ASIGNACION           : 12
-BIT                  : 51
-CONVERSION           : 63
+ARITMETICAS          : 30
+ARRAY                : 19
+ASIGNACION           : 11
+BIT                  : 50
+CONVERSION           : 61
 CUERPO               : 7 8
-DESTRUYE_VARIABLE    : 13
+DESTRUYE_VARIABLE    : 12
 ESTRUCTURAMAIN       : 1
-ESTRUCTURA_IF        : 15
-ETIQUETA             : 10
-EXIT                 : 16
-EXPRESION            : 21 22 62 70
-GOTO_LABEL           : 11
-IMPRIME              : 14
-LISTA_POS            : 22 58
-LISTA_POS_F          : 59 60
-LLAMADA_ARREGLO      : 25
-LOGICAS              : 39
-NORMAL               : 19
-POS                  : 59 60
-PRECUERPO            : 3 4 5 17
-PRECUERPO_2          : 8
-PRECUERPO_F          : 7
-PUNTERO              : 68
-RELACIONAL           : 44
+ESTRUCTURA_IF        : 14
+ETIQUETA             : 9
+EXIT                 : 15
+EXPRESION            : 20 21 60 68
+GOTO_LABEL           : 10
+IMPRIME              : 13
+LISTA_POS            : 21 57 58
+LLAMADA_ARREGLO      : 24
+LOGICAS              : 38
+NORMAL               : 18
+POS                  : 58 59
+PRECUERPO            : 3 4 5 7 16
+PUNTERO              : 66
+RELACIONAL           : 43
 S                    : 0
-TIPO_CONVERSION      : 64
-VALOR                : 23 32 33 33 34 34 35 35 36 36 37 37 38 40 41 41 42 42 43 43 45 45 46 46 47 47 48 48 49 49 50 50 52 53 53 54 54 55 55 56 56 57 57 64 71 72
+TIPO_CONVERSION      : 62
+VALOR                : 22 31 32 32 33 33 34 34 35 35 36 36 37 39 40 40 41 41 42 42 44 44 45 45 46 46 47 47 48 48 49 49 51 52 52 53 53 54 54 55 55 56 56 62 69 70
 
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . S
+    (1) S -> . ESTRUCTURAMAIN
+    (2) S -> . error
+    (3) ESTRUCTURAMAIN -> . main DOSPUNTOS PRECUERPO
+    (4) ESTRUCTURAMAIN -> . error DOSPUNTOS PRECUERPO
+    (5) ESTRUCTURAMAIN -> . main error PRECUERPO
+    (6) ESTRUCTURAMAIN -> . main DOSPUNTOS error
+
+    error           shift and go to state 3
+    main            shift and go to state 4
+
+    S                              shift and go to state 1
+    ESTRUCTURAMAIN                 shift and go to state 2
+
+state 1
+
+    (0) S' -> S .
+
+
+
+state 2
+
+    (1) S -> ESTRUCTURAMAIN .
+
+    $end            reduce using rule 1 (S -> ESTRUCTURAMAIN .)
+
+
+state 3
+
+    (2) S -> error .
+    (4) ESTRUCTURAMAIN -> error . DOSPUNTOS PRECUERPO
+
+    $end            reduce using rule 2 (S -> error .)
+    DOSPUNTOS       shift and go to state 5
+
+
+state 4
+
+    (3) ESTRUCTURAMAIN -> main . DOSPUNTOS PRECUERPO
+    (5) ESTRUCTURAMAIN -> main . error PRECUERPO
+    (6) ESTRUCTURAMAIN -> main . DOSPUNTOS error
+
+    DOSPUNTOS       shift and go to state 6
+    error           shift and go to state 7
+
+
+state 5
+
+    (4) ESTRUCTURAMAIN -> error DOSPUNTOS . PRECUERPO
+    (7) PRECUERPO -> . PRECUERPO CUERPO
+    (8) PRECUERPO -> . CUERPO
+    (9) CUERPO -> . ETIQUETA
+    (10) CUERPO -> . GOTO_LABEL
+    (11) CUERPO -> . ASIGNACION
+    (12) CUERPO -> . DESTRUYE_VARIABLE
+    (13) CUERPO -> . IMPRIME
+    (14) CUERPO -> . ESTRUCTURA_IF
+    (15) CUERPO -> . EXIT
+    (16) ETIQUETA -> . ID DOSPUNTOS PRECUERPO
+    (17) GOTO_LABEL -> . goto ID PTCOMA
+    (18) ASIGNACION -> . NORMAL PTCOMA
+    (19) ASIGNACION -> . ARRAY PTCOMA
+    (69) DESTRUYE_VARIABLE -> . unset PARA VALOR PARB PTCOMA
+    (70) IMPRIME -> . print PARA VALOR PARB PTCOMA
+    (68) ESTRUCTURA_IF -> . if PARA EXPRESION PARB goto ID PTCOMA
+    (71) EXIT -> . exit PTCOMA
+    (20) NORMAL -> . VARIABLE IGUAL EXPRESION
+    (21) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
+
+    ID              shift and go to state 17
+    goto            shift and go to state 18
+    unset           shift and go to state 21
+    print           shift and go to state 22
+    if              shift and go to state 23
+    exit            shift and go to state 24
+    VARIABLE        shift and go to state 25
+
+    PRECUERPO                      shift and go to state 8
+    CUERPO                         shift and go to state 9
+    ETIQUETA                       shift and go to state 10
+    GOTO_LABEL                     shift and go to state 11
+    ASIGNACION                     shift and go to state 12
+    DESTRUYE_VARIABLE              shift and go to state 13
+    IMPRIME                        shift and go to state 14
+    ESTRUCTURA_IF                  shift and go to state 15
+    EXIT                           shift and go to state 16
+    NORMAL                         shift and go to state 19
+    ARRAY                          shift and go to state 20
+
+state 6
+
+    (3) ESTRUCTURAMAIN -> main DOSPUNTOS . PRECUERPO
+    (6) ESTRUCTURAMAIN -> main DOSPUNTOS . error
+    (7) PRECUERPO -> . PRECUERPO CUERPO
+    (8) PRECUERPO -> . CUERPO
+    (9) CUERPO -> . ETIQUETA
+    (10) CUERPO -> . GOTO_LABEL
+    (11) CUERPO -> . ASIGNACION
+    (12) CUERPO -> . DESTRUYE_VARIABLE
+    (13) CUERPO -> . IMPRIME
+    (14) CUERPO -> . ESTRUCTURA_IF
+    (15) CUERPO -> . EXIT
+    (16) ETIQUETA -> . ID DOSPUNTOS PRECUERPO
+    (17) GOTO_LABEL -> . goto ID PTCOMA
+    (18) ASIGNACION -> . NORMAL PTCOMA
+    (19) ASIGNACION -> . ARRAY PTCOMA
+    (69) DESTRUYE_VARIABLE -> . unset PARA VALOR PARB PTCOMA
+    (70) IMPRIME -> . print PARA VALOR PARB PTCOMA
+    (68) ESTRUCTURA_IF -> . if PARA EXPRESION PARB goto ID PTCOMA
+    (71) EXIT -> . exit PTCOMA
+    (20) NORMAL -> . VARIABLE IGUAL EXPRESION
+    (21) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
+
+    error           shift and go to state 27
+    ID              shift and go to state 17
+    goto            shift and go to state 18
+    unset           shift and go to state 21
+    print           shift and go to state 22
+    if              shift and go to state 23
+    exit            shift and go to state 24
+    VARIABLE        shift and go to state 25
+
+    PRECUERPO                      shift and go to state 26
+    CUERPO                         shift and go to state 9
+    ETIQUETA                       shift and go to state 10
+    GOTO_LABEL                     shift and go to state 11
+    ASIGNACION                     shift and go to state 12
+    DESTRUYE_VARIABLE              shift and go to state 13
+    IMPRIME                        shift and go to state 14
+    ESTRUCTURA_IF                  shift and go to state 15
+    EXIT                           shift and go to state 16
+    NORMAL                         shift and go to state 19
+    ARRAY                          shift and go to state 20
+
+state 7
+
+    (5) ESTRUCTURAMAIN -> main error . PRECUERPO
+    (7) PRECUERPO -> . PRECUERPO CUERPO
+    (8) PRECUERPO -> . CUERPO
+    (9) CUERPO -> . ETIQUETA
+    (10) CUERPO -> . GOTO_LABEL
+    (11) CUERPO -> . ASIGNACION
+    (12) CUERPO -> . DESTRUYE_VARIABLE
+    (13) CUERPO -> . IMPRIME
+    (14) CUERPO -> . ESTRUCTURA_IF
+    (15) CUERPO -> . EXIT
+    (16) ETIQUETA -> . ID DOSPUNTOS PRECUERPO
+    (17) GOTO_LABEL -> . goto ID PTCOMA
+    (18) ASIGNACION -> . NORMAL PTCOMA
+    (19) ASIGNACION -> . ARRAY PTCOMA
+    (69) DESTRUYE_VARIABLE -> . unset PARA VALOR PARB PTCOMA
+    (70) IMPRIME -> . print PARA VALOR PARB PTCOMA
+    (68) ESTRUCTURA_IF -> . if PARA EXPRESION PARB goto ID PTCOMA
+    (71) EXIT -> . exit PTCOMA
+    (20) NORMAL -> . VARIABLE IGUAL EXPRESION
+    (21) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
+
+    ID              shift and go to state 17
+    goto            shift and go to state 18
+    unset           shift and go to state 21
+    print           shift and go to state 22
+    if              shift and go to state 23
+    exit            shift and go to state 24
+    VARIABLE        shift and go to state 25
+
+    PRECUERPO                      shift and go to state 28
+    CUERPO                         shift and go to state 9
+    ETIQUETA                       shift and go to state 10
+    GOTO_LABEL                     shift and go to state 11
+    ASIGNACION                     shift and go to state 12
+    DESTRUYE_VARIABLE              shift and go to state 13
+    IMPRIME                        shift and go to state 14
+    ESTRUCTURA_IF                  shift and go to state 15
+    EXIT                           shift and go to state 16
+    NORMAL                         shift and go to state 19
+    ARRAY                          shift and go to state 20
+
+state 8
+
+    (4) ESTRUCTURAMAIN -> error DOSPUNTOS PRECUERPO .
+    (7) PRECUERPO -> PRECUERPO . CUERPO
+    (9) CUERPO -> . ETIQUETA
+    (10) CUERPO -> . GOTO_LABEL
+    (11) CUERPO -> . ASIGNACION
+    (12) CUERPO -> . DESTRUYE_VARIABLE
+    (13) CUERPO -> . IMPRIME
+    (14) CUERPO -> . ESTRUCTURA_IF
+    (15) CUERPO -> . EXIT
+    (16) ETIQUETA -> . ID DOSPUNTOS PRECUERPO
+    (17) GOTO_LABEL -> . goto ID PTCOMA
+    (18) ASIGNACION -> . NORMAL PTCOMA
+    (19) ASIGNACION -> . ARRAY PTCOMA
+    (69) DESTRUYE_VARIABLE -> . unset PARA VALOR PARB PTCOMA
+    (70) IMPRIME -> . print PARA VALOR PARB PTCOMA
+    (68) ESTRUCTURA_IF -> . if PARA EXPRESION PARB goto ID PTCOMA
+    (71) EXIT -> . exit PTCOMA
+    (20) NORMAL -> . VARIABLE IGUAL EXPRESION
+    (21) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
+
+    $end            reduce using rule 4 (ESTRUCTURAMAIN -> error DOSPUNTOS PRECUERPO .)
+    ID              shift and go to state 17
+    goto            shift and go to state 18
+    unset           shift and go to state 21
+    print           shift and go to state 22
+    if              shift and go to state 23
+    exit            shift and go to state 24
+    VARIABLE        shift and go to state 25
+
+    CUERPO                         shift and go to state 29
+    ETIQUETA                       shift and go to state 10
+    GOTO_LABEL                     shift and go to state 11
+    ASIGNACION                     shift and go to state 12
+    DESTRUYE_VARIABLE              shift and go to state 13
+    IMPRIME                        shift and go to state 14
+    ESTRUCTURA_IF                  shift and go to state 15
+    EXIT                           shift and go to state 16
+    NORMAL                         shift and go to state 19
+    ARRAY                          shift and go to state 20
+
+state 9
+
+    (8) PRECUERPO -> CUERPO .
+
+    ID              reduce using rule 8 (PRECUERPO -> CUERPO .)
+    goto            reduce using rule 8 (PRECUERPO -> CUERPO .)
+    unset           reduce using rule 8 (PRECUERPO -> CUERPO .)
+    print           reduce using rule 8 (PRECUERPO -> CUERPO .)
+    if              reduce using rule 8 (PRECUERPO -> CUERPO .)
+    exit            reduce using rule 8 (PRECUERPO -> CUERPO .)
+    VARIABLE        reduce using rule 8 (PRECUERPO -> CUERPO .)
+    $end            reduce using rule 8 (PRECUERPO -> CUERPO .)
+
+
+state 10
+
+    (9) CUERPO -> ETIQUETA .
+
+    ID              reduce using rule 9 (CUERPO -> ETIQUETA .)
+    goto            reduce using rule 9 (CUERPO -> ETIQUETA .)
+    unset           reduce using rule 9 (CUERPO -> ETIQUETA .)
+    print           reduce using rule 9 (CUERPO -> ETIQUETA .)
+    if              reduce using rule 9 (CUERPO -> ETIQUETA .)
+    exit            reduce using rule 9 (CUERPO -> ETIQUETA .)
+    VARIABLE        reduce using rule 9 (CUERPO -> ETIQUETA .)
+    $end            reduce using rule 9 (CUERPO -> ETIQUETA .)
+
+
+state 11
+
+    (10) CUERPO -> GOTO_LABEL .
+
+    ID              reduce using rule 10 (CUERPO -> GOTO_LABEL .)
+    goto            reduce using rule 10 (CUERPO -> GOTO_LABEL .)
+    unset           reduce using rule 10 (CUERPO -> GOTO_LABEL .)
+    print           reduce using rule 10 (CUERPO -> GOTO_LABEL .)
+    if              reduce using rule 10 (CUERPO -> GOTO_LABEL .)
+    exit            reduce using rule 10 (CUERPO -> GOTO_LABEL .)
+    VARIABLE        reduce using rule 10 (CUERPO -> GOTO_LABEL .)
+    $end            reduce using rule 10 (CUERPO -> GOTO_LABEL .)
+
+
+state 12
+
+    (11) CUERPO -> ASIGNACION .
+
+    ID              reduce using rule 11 (CUERPO -> ASIGNACION .)
+    goto            reduce using rule 11 (CUERPO -> ASIGNACION .)
+    unset           reduce using rule 11 (CUERPO -> ASIGNACION .)
+    print           reduce using rule 11 (CUERPO -> ASIGNACION .)
+    if              reduce using rule 11 (CUERPO -> ASIGNACION .)
+    exit            reduce using rule 11 (CUERPO -> ASIGNACION .)
+    VARIABLE        reduce using rule 11 (CUERPO -> ASIGNACION .)
+    $end            reduce using rule 11 (CUERPO -> ASIGNACION .)
+
+
+state 13
+
+    (12) CUERPO -> DESTRUYE_VARIABLE .
+
+    ID              reduce using rule 12 (CUERPO -> DESTRUYE_VARIABLE .)
+    goto            reduce using rule 12 (CUERPO -> DESTRUYE_VARIABLE .)
+    unset           reduce using rule 12 (CUERPO -> DESTRUYE_VARIABLE .)
+    print           reduce using rule 12 (CUERPO -> DESTRUYE_VARIABLE .)
+    if              reduce using rule 12 (CUERPO -> DESTRUYE_VARIABLE .)
+    exit            reduce using rule 12 (CUERPO -> DESTRUYE_VARIABLE .)
+    VARIABLE        reduce using rule 12 (CUERPO -> DESTRUYE_VARIABLE .)
+    $end            reduce using rule 12 (CUERPO -> DESTRUYE_VARIABLE .)
+
+
+state 14
+
+    (13) CUERPO -> IMPRIME .
+
+    ID              reduce using rule 13 (CUERPO -> IMPRIME .)
+    goto            reduce using rule 13 (CUERPO -> IMPRIME .)
+    unset           reduce using rule 13 (CUERPO -> IMPRIME .)
+    print           reduce using rule 13 (CUERPO -> IMPRIME .)
+    if              reduce using rule 13 (CUERPO -> IMPRIME .)
+    exit            reduce using rule 13 (CUERPO -> IMPRIME .)
+    VARIABLE        reduce using rule 13 (CUERPO -> IMPRIME .)
+    $end            reduce using rule 13 (CUERPO -> IMPRIME .)
+
+
+state 15
+
+    (14) CUERPO -> ESTRUCTURA_IF .
+
+    ID              reduce using rule 14 (CUERPO -> ESTRUCTURA_IF .)
+    goto            reduce using rule 14 (CUERPO -> ESTRUCTURA_IF .)
+    unset           reduce using rule 14 (CUERPO -> ESTRUCTURA_IF .)
+    print           reduce using rule 14 (CUERPO -> ESTRUCTURA_IF .)
+    if              reduce using rule 14 (CUERPO -> ESTRUCTURA_IF .)
+    exit            reduce using rule 14 (CUERPO -> ESTRUCTURA_IF .)
+    VARIABLE        reduce using rule 14 (CUERPO -> ESTRUCTURA_IF .)
+    $end            reduce using rule 14 (CUERPO -> ESTRUCTURA_IF .)
+
+
+state 16
+
+    (15) CUERPO -> EXIT .
+
+    ID              reduce using rule 15 (CUERPO -> EXIT .)
+    goto            reduce using rule 15 (CUERPO -> EXIT .)
+    unset           reduce using rule 15 (CUERPO -> EXIT .)
+    print           reduce using rule 15 (CUERPO -> EXIT .)
+    if              reduce using rule 15 (CUERPO -> EXIT .)
+    exit            reduce using rule 15 (CUERPO -> EXIT .)
+    VARIABLE        reduce using rule 15 (CUERPO -> EXIT .)
+    $end            reduce using rule 15 (CUERPO -> EXIT .)
+
+
+state 17
+
+    (16) ETIQUETA -> ID . DOSPUNTOS PRECUERPO
+
+    DOSPUNTOS       shift and go to state 30
+
+
+state 18
+
+    (17) GOTO_LABEL -> goto . ID PTCOMA
+
+    ID              shift and go to state 31
+
+
+state 19
+
+    (18) ASIGNACION -> NORMAL . PTCOMA
+
+    PTCOMA          shift and go to state 32
+
+
+state 20
+
+    (19) ASIGNACION -> ARRAY . PTCOMA
+
+    PTCOMA          shift and go to state 33
+
+
+state 21
+
+    (69) DESTRUYE_VARIABLE -> unset . PARA VALOR PARB PTCOMA
+
+    PARA            shift and go to state 34
+
+
+state 22
+
+    (70) IMPRIME -> print . PARA VALOR PARB PTCOMA
+
+    PARA            shift and go to state 35
+
+
+state 23
+
+    (68) ESTRUCTURA_IF -> if . PARA EXPRESION PARB goto ID PTCOMA
+
+    PARA            shift and go to state 36
+
+
+state 24
+
+    (71) EXIT -> exit . PTCOMA
+
+    PTCOMA          shift and go to state 37
+
+
+state 25
+
+    (20) NORMAL -> VARIABLE . IGUAL EXPRESION
+    (21) ARRAY -> VARIABLE . LISTA_POS IGUAL EXPRESION
+    (58) LISTA_POS -> . LISTA_POS POS
+    (59) LISTA_POS -> . POS
+    (60) POS -> . CORA EXPRESION CORB
+
+    IGUAL           shift and go to state 38
+    CORA            shift and go to state 41
+
+    LISTA_POS                      shift and go to state 39
+    POS                            shift and go to state 40
+
+state 26
+
+    (3) ESTRUCTURAMAIN -> main DOSPUNTOS PRECUERPO .
+    (7) PRECUERPO -> PRECUERPO . CUERPO
+    (9) CUERPO -> . ETIQUETA
+    (10) CUERPO -> . GOTO_LABEL
+    (11) CUERPO -> . ASIGNACION
+    (12) CUERPO -> . DESTRUYE_VARIABLE
+    (13) CUERPO -> . IMPRIME
+    (14) CUERPO -> . ESTRUCTURA_IF
+    (15) CUERPO -> . EXIT
+    (16) ETIQUETA -> . ID DOSPUNTOS PRECUERPO
+    (17) GOTO_LABEL -> . goto ID PTCOMA
+    (18) ASIGNACION -> . NORMAL PTCOMA
+    (19) ASIGNACION -> . ARRAY PTCOMA
+    (69) DESTRUYE_VARIABLE -> . unset PARA VALOR PARB PTCOMA
+    (70) IMPRIME -> . print PARA VALOR PARB PTCOMA
+    (68) ESTRUCTURA_IF -> . if PARA EXPRESION PARB goto ID PTCOMA
+    (71) EXIT -> . exit PTCOMA
+    (20) NORMAL -> . VARIABLE IGUAL EXPRESION
+    (21) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
+
+    $end            reduce using rule 3 (ESTRUCTURAMAIN -> main DOSPUNTOS PRECUERPO .)
+    ID              shift and go to state 17
+    goto            shift and go to state 18
+    unset           shift and go to state 21
+    print           shift and go to state 22
+    if              shift and go to state 23
+    exit            shift and go to state 24
+    VARIABLE        shift and go to state 25
+
+    CUERPO                         shift and go to state 29
+    ETIQUETA                       shift and go to state 10
+    GOTO_LABEL                     shift and go to state 11
+    ASIGNACION                     shift and go to state 12
+    DESTRUYE_VARIABLE              shift and go to state 13
+    IMPRIME                        shift and go to state 14
+    ESTRUCTURA_IF                  shift and go to state 15
+    EXIT                           shift and go to state 16
+    NORMAL                         shift and go to state 19
+    ARRAY                          shift and go to state 20
+
+state 27
+
+    (6) ESTRUCTURAMAIN -> main DOSPUNTOS error .
+
+    $end            reduce using rule 6 (ESTRUCTURAMAIN -> main DOSPUNTOS error .)
+
+
+state 28
+
+    (5) ESTRUCTURAMAIN -> main error PRECUERPO .
+    (7) PRECUERPO -> PRECUERPO . CUERPO
+    (9) CUERPO -> . ETIQUETA
+    (10) CUERPO -> . GOTO_LABEL
+    (11) CUERPO -> . ASIGNACION
+    (12) CUERPO -> . DESTRUYE_VARIABLE
+    (13) CUERPO -> . IMPRIME
+    (14) CUERPO -> . ESTRUCTURA_IF
+    (15) CUERPO -> . EXIT
+    (16) ETIQUETA -> . ID DOSPUNTOS PRECUERPO
+    (17) GOTO_LABEL -> . goto ID PTCOMA
+    (18) ASIGNACION -> . NORMAL PTCOMA
+    (19) ASIGNACION -> . ARRAY PTCOMA
+    (69) DESTRUYE_VARIABLE -> . unset PARA VALOR PARB PTCOMA
+    (70) IMPRIME -> . print PARA VALOR PARB PTCOMA
+    (68) ESTRUCTURA_IF -> . if PARA EXPRESION PARB goto ID PTCOMA
+    (71) EXIT -> . exit PTCOMA
+    (20) NORMAL -> . VARIABLE IGUAL EXPRESION
+    (21) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
+
+    $end            reduce using rule 5 (ESTRUCTURAMAIN -> main error PRECUERPO .)
+    ID              shift and go to state 17
+    goto            shift and go to state 18
+    unset           shift and go to state 21
+    print           shift and go to state 22
+    if              shift and go to state 23
+    exit            shift and go to state 24
+    VARIABLE        shift and go to state 25
+
+    CUERPO                         shift and go to state 29
+    ETIQUETA                       shift and go to state 10
+    GOTO_LABEL                     shift and go to state 11
+    ASIGNACION                     shift and go to state 12
+    DESTRUYE_VARIABLE              shift and go to state 13
+    IMPRIME                        shift and go to state 14
+    ESTRUCTURA_IF                  shift and go to state 15
+    EXIT                           shift and go to state 16
+    NORMAL                         shift and go to state 19
+    ARRAY                          shift and go to state 20
+
+state 29
+
+    (7) PRECUERPO -> PRECUERPO CUERPO .
+
+    ID              reduce using rule 7 (PRECUERPO -> PRECUERPO CUERPO .)
+    goto            reduce using rule 7 (PRECUERPO -> PRECUERPO CUERPO .)
+    unset           reduce using rule 7 (PRECUERPO -> PRECUERPO CUERPO .)
+    print           reduce using rule 7 (PRECUERPO -> PRECUERPO CUERPO .)
+    if              reduce using rule 7 (PRECUERPO -> PRECUERPO CUERPO .)
+    exit            reduce using rule 7 (PRECUERPO -> PRECUERPO CUERPO .)
+    VARIABLE        reduce using rule 7 (PRECUERPO -> PRECUERPO CUERPO .)
+    $end            reduce using rule 7 (PRECUERPO -> PRECUERPO CUERPO .)
+
+
+state 30
+
+    (16) ETIQUETA -> ID DOSPUNTOS . PRECUERPO
+    (7) PRECUERPO -> . PRECUERPO CUERPO
+    (8) PRECUERPO -> . CUERPO
+    (9) CUERPO -> . ETIQUETA
+    (10) CUERPO -> . GOTO_LABEL
+    (11) CUERPO -> . ASIGNACION
+    (12) CUERPO -> . DESTRUYE_VARIABLE
+    (13) CUERPO -> . IMPRIME
+    (14) CUERPO -> . ESTRUCTURA_IF
+    (15) CUERPO -> . EXIT
+    (16) ETIQUETA -> . ID DOSPUNTOS PRECUERPO
+    (17) GOTO_LABEL -> . goto ID PTCOMA
+    (18) ASIGNACION -> . NORMAL PTCOMA
+    (19) ASIGNACION -> . ARRAY PTCOMA
+    (69) DESTRUYE_VARIABLE -> . unset PARA VALOR PARB PTCOMA
+    (70) IMPRIME -> . print PARA VALOR PARB PTCOMA
+    (68) ESTRUCTURA_IF -> . if PARA EXPRESION PARB goto ID PTCOMA
+    (71) EXIT -> . exit PTCOMA
+    (20) NORMAL -> . VARIABLE IGUAL EXPRESION
+    (21) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
+
+    ID              shift and go to state 17
+    goto            shift and go to state 18
+    unset           shift and go to state 21
+    print           shift and go to state 22
+    if              shift and go to state 23
+    exit            shift and go to state 24
+    VARIABLE        shift and go to state 25
+
+    PRECUERPO                      shift and go to state 42
+    CUERPO                         shift and go to state 9
+    ETIQUETA                       shift and go to state 10
+    GOTO_LABEL                     shift and go to state 11
+    ASIGNACION                     shift and go to state 12
+    DESTRUYE_VARIABLE              shift and go to state 13
+    IMPRIME                        shift and go to state 14
+    ESTRUCTURA_IF                  shift and go to state 15
+    EXIT                           shift and go to state 16
+    NORMAL                         shift and go to state 19
+    ARRAY                          shift and go to state 20
+
+state 31
+
+    (17) GOTO_LABEL -> goto ID . PTCOMA
+
+    PTCOMA          shift and go to state 43
+
+
+state 32
+
+    (18) ASIGNACION -> NORMAL PTCOMA .
+
+    ID              reduce using rule 18 (ASIGNACION -> NORMAL PTCOMA .)
+    goto            reduce using rule 18 (ASIGNACION -> NORMAL PTCOMA .)
+    unset           reduce using rule 18 (ASIGNACION -> NORMAL PTCOMA .)
+    print           reduce using rule 18 (ASIGNACION -> NORMAL PTCOMA .)
+    if              reduce using rule 18 (ASIGNACION -> NORMAL PTCOMA .)
+    exit            reduce using rule 18 (ASIGNACION -> NORMAL PTCOMA .)
+    VARIABLE        reduce using rule 18 (ASIGNACION -> NORMAL PTCOMA .)
+    $end            reduce using rule 18 (ASIGNACION -> NORMAL PTCOMA .)
+
+
+state 33
+
+    (19) ASIGNACION -> ARRAY PTCOMA .
+
+    ID              reduce using rule 19 (ASIGNACION -> ARRAY PTCOMA .)
+    goto            reduce using rule 19 (ASIGNACION -> ARRAY PTCOMA .)
+    unset           reduce using rule 19 (ASIGNACION -> ARRAY PTCOMA .)
+    print           reduce using rule 19 (ASIGNACION -> ARRAY PTCOMA .)
+    if              reduce using rule 19 (ASIGNACION -> ARRAY PTCOMA .)
+    exit            reduce using rule 19 (ASIGNACION -> ARRAY PTCOMA .)
+    VARIABLE        reduce using rule 19 (ASIGNACION -> ARRAY PTCOMA .)
+    $end            reduce using rule 19 (ASIGNACION -> ARRAY PTCOMA .)
+
+
+state 34
+
+    (69) DESTRUYE_VARIABLE -> unset PARA . VALOR PARB PTCOMA
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 44
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 35
+
+    (70) IMPRIME -> print PARA . VALOR PARB PTCOMA
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 52
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 36
+
+    (68) ESTRUCTURA_IF -> if PARA . EXPRESION PARB goto ID PTCOMA
+    (22) EXPRESION -> . VALOR
+    (30) EXPRESION -> . ARITMETICAS
+    (38) EXPRESION -> . LOGICAS
+    (43) EXPRESION -> . RELACIONAL
+    (50) EXPRESION -> . BIT
+    (61) EXPRESION -> . CONVERSION
+    (66) EXPRESION -> . PUNTERO
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (31) ARITMETICAS -> . MENOS VALOR
+    (32) ARITMETICAS -> . VALOR MAS VALOR
+    (33) ARITMETICAS -> . VALOR MENOS VALOR
+    (34) ARITMETICAS -> . VALOR MULTIPLICACION VALOR
+    (35) ARITMETICAS -> . VALOR DIVIDIR VALOR
+    (36) ARITMETICAS -> . VALOR RESIDUO VALOR
+    (37) ARITMETICAS -> . abs PARA VALOR PARB
+    (39) LOGICAS -> . NOTL VALOR
+    (40) LOGICAS -> . VALOR ANDL VALOR
+    (41) LOGICAS -> . VALOR ORL VALOR
+    (42) LOGICAS -> . VALOR XORL VALOR
+    (44) RELACIONAL -> . VALOR IGUALR VALOR
+    (45) RELACIONAL -> . VALOR NOIGUALR VALOR
+    (46) RELACIONAL -> . VALOR MAYORR IGUALR VALOR
+    (47) RELACIONAL -> . VALOR MENORR IGUALR VALOR
+    (48) RELACIONAL -> . VALOR MAYORR VALOR
+    (49) RELACIONAL -> . VALOR MENORR VALOR
+    (51) BIT -> . NOTB VALOR
+    (52) BIT -> . VALOR ANDB VALOR
+    (53) BIT -> . VALOR ORB VALOR
+    (54) BIT -> . VALOR XORB VALOR
+    (55) BIT -> . VALOR MENORR MENORR VALOR
+    (56) BIT -> . VALOR MAYORR MAYORR VALOR
+    (62) CONVERSION -> . PARA TIPO_CONVERSION PARB VALOR
+    (67) PUNTERO -> . ANDB VARIABLE
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+    MENOS           shift and go to state 62
+    abs             shift and go to state 63
+    NOTL            shift and go to state 64
+    NOTB            shift and go to state 65
+    PARA            shift and go to state 53
+    ANDB            shift and go to state 66
+
+    EXPRESION                      shift and go to state 54
+    VALOR                          shift and go to state 55
+    ARITMETICAS                    shift and go to state 56
+    LOGICAS                        shift and go to state 57
+    RELACIONAL                     shift and go to state 58
+    BIT                            shift and go to state 59
+    CONVERSION                     shift and go to state 60
+    PUNTERO                        shift and go to state 61
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 37
+
+    (71) EXIT -> exit PTCOMA .
+
+    ID              reduce using rule 71 (EXIT -> exit PTCOMA .)
+    goto            reduce using rule 71 (EXIT -> exit PTCOMA .)
+    unset           reduce using rule 71 (EXIT -> exit PTCOMA .)
+    print           reduce using rule 71 (EXIT -> exit PTCOMA .)
+    if              reduce using rule 71 (EXIT -> exit PTCOMA .)
+    exit            reduce using rule 71 (EXIT -> exit PTCOMA .)
+    VARIABLE        reduce using rule 71 (EXIT -> exit PTCOMA .)
+    $end            reduce using rule 71 (EXIT -> exit PTCOMA .)
+
+
+state 38
+
+    (20) NORMAL -> VARIABLE IGUAL . EXPRESION
+    (22) EXPRESION -> . VALOR
+    (30) EXPRESION -> . ARITMETICAS
+    (38) EXPRESION -> . LOGICAS
+    (43) EXPRESION -> . RELACIONAL
+    (50) EXPRESION -> . BIT
+    (61) EXPRESION -> . CONVERSION
+    (66) EXPRESION -> . PUNTERO
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (31) ARITMETICAS -> . MENOS VALOR
+    (32) ARITMETICAS -> . VALOR MAS VALOR
+    (33) ARITMETICAS -> . VALOR MENOS VALOR
+    (34) ARITMETICAS -> . VALOR MULTIPLICACION VALOR
+    (35) ARITMETICAS -> . VALOR DIVIDIR VALOR
+    (36) ARITMETICAS -> . VALOR RESIDUO VALOR
+    (37) ARITMETICAS -> . abs PARA VALOR PARB
+    (39) LOGICAS -> . NOTL VALOR
+    (40) LOGICAS -> . VALOR ANDL VALOR
+    (41) LOGICAS -> . VALOR ORL VALOR
+    (42) LOGICAS -> . VALOR XORL VALOR
+    (44) RELACIONAL -> . VALOR IGUALR VALOR
+    (45) RELACIONAL -> . VALOR NOIGUALR VALOR
+    (46) RELACIONAL -> . VALOR MAYORR IGUALR VALOR
+    (47) RELACIONAL -> . VALOR MENORR IGUALR VALOR
+    (48) RELACIONAL -> . VALOR MAYORR VALOR
+    (49) RELACIONAL -> . VALOR MENORR VALOR
+    (51) BIT -> . NOTB VALOR
+    (52) BIT -> . VALOR ANDB VALOR
+    (53) BIT -> . VALOR ORB VALOR
+    (54) BIT -> . VALOR XORB VALOR
+    (55) BIT -> . VALOR MENORR MENORR VALOR
+    (56) BIT -> . VALOR MAYORR MAYORR VALOR
+    (62) CONVERSION -> . PARA TIPO_CONVERSION PARB VALOR
+    (67) PUNTERO -> . ANDB VARIABLE
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+    MENOS           shift and go to state 62
+    abs             shift and go to state 63
+    NOTL            shift and go to state 64
+    NOTB            shift and go to state 65
+    PARA            shift and go to state 53
+    ANDB            shift and go to state 66
+
+    EXPRESION                      shift and go to state 67
+    VALOR                          shift and go to state 55
+    ARITMETICAS                    shift and go to state 56
+    LOGICAS                        shift and go to state 57
+    RELACIONAL                     shift and go to state 58
+    BIT                            shift and go to state 59
+    CONVERSION                     shift and go to state 60
+    PUNTERO                        shift and go to state 61
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 39
+
+    (21) ARRAY -> VARIABLE LISTA_POS . IGUAL EXPRESION
+    (58) LISTA_POS -> LISTA_POS . POS
+    (60) POS -> . CORA EXPRESION CORB
+
+    IGUAL           shift and go to state 68
+    CORA            shift and go to state 41
+
+    POS                            shift and go to state 69
+
+state 40
+
+    (59) LISTA_POS -> POS .
+
+    IGUAL           reduce using rule 59 (LISTA_POS -> POS .)
+    CORA            reduce using rule 59 (LISTA_POS -> POS .)
+    PARB            reduce using rule 59 (LISTA_POS -> POS .)
+    MAS             reduce using rule 59 (LISTA_POS -> POS .)
+    MENOS           reduce using rule 59 (LISTA_POS -> POS .)
+    MULTIPLICACION  reduce using rule 59 (LISTA_POS -> POS .)
+    DIVIDIR         reduce using rule 59 (LISTA_POS -> POS .)
+    RESIDUO         reduce using rule 59 (LISTA_POS -> POS .)
+    ANDL            reduce using rule 59 (LISTA_POS -> POS .)
+    ORL             reduce using rule 59 (LISTA_POS -> POS .)
+    XORL            reduce using rule 59 (LISTA_POS -> POS .)
+    IGUALR          reduce using rule 59 (LISTA_POS -> POS .)
+    NOIGUALR        reduce using rule 59 (LISTA_POS -> POS .)
+    MAYORR          reduce using rule 59 (LISTA_POS -> POS .)
+    MENORR          reduce using rule 59 (LISTA_POS -> POS .)
+    ANDB            reduce using rule 59 (LISTA_POS -> POS .)
+    ORB             reduce using rule 59 (LISTA_POS -> POS .)
+    XORB            reduce using rule 59 (LISTA_POS -> POS .)
+    PTCOMA          reduce using rule 59 (LISTA_POS -> POS .)
+    CORB            reduce using rule 59 (LISTA_POS -> POS .)
+
+
+state 41
+
+    (60) POS -> CORA . EXPRESION CORB
+    (22) EXPRESION -> . VALOR
+    (30) EXPRESION -> . ARITMETICAS
+    (38) EXPRESION -> . LOGICAS
+    (43) EXPRESION -> . RELACIONAL
+    (50) EXPRESION -> . BIT
+    (61) EXPRESION -> . CONVERSION
+    (66) EXPRESION -> . PUNTERO
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (31) ARITMETICAS -> . MENOS VALOR
+    (32) ARITMETICAS -> . VALOR MAS VALOR
+    (33) ARITMETICAS -> . VALOR MENOS VALOR
+    (34) ARITMETICAS -> . VALOR MULTIPLICACION VALOR
+    (35) ARITMETICAS -> . VALOR DIVIDIR VALOR
+    (36) ARITMETICAS -> . VALOR RESIDUO VALOR
+    (37) ARITMETICAS -> . abs PARA VALOR PARB
+    (39) LOGICAS -> . NOTL VALOR
+    (40) LOGICAS -> . VALOR ANDL VALOR
+    (41) LOGICAS -> . VALOR ORL VALOR
+    (42) LOGICAS -> . VALOR XORL VALOR
+    (44) RELACIONAL -> . VALOR IGUALR VALOR
+    (45) RELACIONAL -> . VALOR NOIGUALR VALOR
+    (46) RELACIONAL -> . VALOR MAYORR IGUALR VALOR
+    (47) RELACIONAL -> . VALOR MENORR IGUALR VALOR
+    (48) RELACIONAL -> . VALOR MAYORR VALOR
+    (49) RELACIONAL -> . VALOR MENORR VALOR
+    (51) BIT -> . NOTB VALOR
+    (52) BIT -> . VALOR ANDB VALOR
+    (53) BIT -> . VALOR ORB VALOR
+    (54) BIT -> . VALOR XORB VALOR
+    (55) BIT -> . VALOR MENORR MENORR VALOR
+    (56) BIT -> . VALOR MAYORR MAYORR VALOR
+    (62) CONVERSION -> . PARA TIPO_CONVERSION PARB VALOR
+    (67) PUNTERO -> . ANDB VARIABLE
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+    MENOS           shift and go to state 62
+    abs             shift and go to state 63
+    NOTL            shift and go to state 64
+    NOTB            shift and go to state 65
+    PARA            shift and go to state 53
+    ANDB            shift and go to state 66
+
+    EXPRESION                      shift and go to state 70
+    VALOR                          shift and go to state 55
+    ARITMETICAS                    shift and go to state 56
+    LOGICAS                        shift and go to state 57
+    RELACIONAL                     shift and go to state 58
+    BIT                            shift and go to state 59
+    CONVERSION                     shift and go to state 60
+    PUNTERO                        shift and go to state 61
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 42
+
+    (16) ETIQUETA -> ID DOSPUNTOS PRECUERPO .
+    (7) PRECUERPO -> PRECUERPO . CUERPO
+    (9) CUERPO -> . ETIQUETA
+    (10) CUERPO -> . GOTO_LABEL
+    (11) CUERPO -> . ASIGNACION
+    (12) CUERPO -> . DESTRUYE_VARIABLE
+    (13) CUERPO -> . IMPRIME
+    (14) CUERPO -> . ESTRUCTURA_IF
+    (15) CUERPO -> . EXIT
+    (16) ETIQUETA -> . ID DOSPUNTOS PRECUERPO
+    (17) GOTO_LABEL -> . goto ID PTCOMA
+    (18) ASIGNACION -> . NORMAL PTCOMA
+    (19) ASIGNACION -> . ARRAY PTCOMA
+    (69) DESTRUYE_VARIABLE -> . unset PARA VALOR PARB PTCOMA
+    (70) IMPRIME -> . print PARA VALOR PARB PTCOMA
+    (68) ESTRUCTURA_IF -> . if PARA EXPRESION PARB goto ID PTCOMA
+    (71) EXIT -> . exit PTCOMA
+    (20) NORMAL -> . VARIABLE IGUAL EXPRESION
+    (21) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
+
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for goto resolved as shift
+  ! shift/reduce conflict for unset resolved as shift
+  ! shift/reduce conflict for print resolved as shift
+  ! shift/reduce conflict for if resolved as shift
+  ! shift/reduce conflict for exit resolved as shift
+  ! shift/reduce conflict for VARIABLE resolved as shift
+    $end            reduce using rule 16 (ETIQUETA -> ID DOSPUNTOS PRECUERPO .)
+    ID              shift and go to state 17
+    goto            shift and go to state 18
+    unset           shift and go to state 21
+    print           shift and go to state 22
+    if              shift and go to state 23
+    exit            shift and go to state 24
+    VARIABLE        shift and go to state 25
+
+  ! ID              [ reduce using rule 16 (ETIQUETA -> ID DOSPUNTOS PRECUERPO .) ]
+  ! goto            [ reduce using rule 16 (ETIQUETA -> ID DOSPUNTOS PRECUERPO .) ]
+  ! unset           [ reduce using rule 16 (ETIQUETA -> ID DOSPUNTOS PRECUERPO .) ]
+  ! print           [ reduce using rule 16 (ETIQUETA -> ID DOSPUNTOS PRECUERPO .) ]
+  ! if              [ reduce using rule 16 (ETIQUETA -> ID DOSPUNTOS PRECUERPO .) ]
+  ! exit            [ reduce using rule 16 (ETIQUETA -> ID DOSPUNTOS PRECUERPO .) ]
+  ! VARIABLE        [ reduce using rule 16 (ETIQUETA -> ID DOSPUNTOS PRECUERPO .) ]
+
+    CUERPO                         shift and go to state 29
+    ETIQUETA                       shift and go to state 10
+    GOTO_LABEL                     shift and go to state 11
+    ASIGNACION                     shift and go to state 12
+    DESTRUYE_VARIABLE              shift and go to state 13
+    IMPRIME                        shift and go to state 14
+    ESTRUCTURA_IF                  shift and go to state 15
+    EXIT                           shift and go to state 16
+    NORMAL                         shift and go to state 19
+    ARRAY                          shift and go to state 20
+
+state 43
+
+    (17) GOTO_LABEL -> goto ID PTCOMA .
+
+    ID              reduce using rule 17 (GOTO_LABEL -> goto ID PTCOMA .)
+    goto            reduce using rule 17 (GOTO_LABEL -> goto ID PTCOMA .)
+    unset           reduce using rule 17 (GOTO_LABEL -> goto ID PTCOMA .)
+    print           reduce using rule 17 (GOTO_LABEL -> goto ID PTCOMA .)
+    if              reduce using rule 17 (GOTO_LABEL -> goto ID PTCOMA .)
+    exit            reduce using rule 17 (GOTO_LABEL -> goto ID PTCOMA .)
+    VARIABLE        reduce using rule 17 (GOTO_LABEL -> goto ID PTCOMA .)
+    $end            reduce using rule 17 (GOTO_LABEL -> goto ID PTCOMA .)
+
+
+state 44
+
+    (69) DESTRUYE_VARIABLE -> unset PARA VALOR . PARB PTCOMA
+
+    PARB            shift and go to state 71
+
+
+state 45
+
+    (23) VALOR -> VARIABLE .
+    (57) LLAMADA_ARREGLO -> VARIABLE . LISTA_POS
+    (58) LISTA_POS -> . LISTA_POS POS
+    (59) LISTA_POS -> . POS
+    (60) POS -> . CORA EXPRESION CORB
+
+    PARB            reduce using rule 23 (VALOR -> VARIABLE .)
+    MAS             reduce using rule 23 (VALOR -> VARIABLE .)
+    MENOS           reduce using rule 23 (VALOR -> VARIABLE .)
+    MULTIPLICACION  reduce using rule 23 (VALOR -> VARIABLE .)
+    DIVIDIR         reduce using rule 23 (VALOR -> VARIABLE .)
+    RESIDUO         reduce using rule 23 (VALOR -> VARIABLE .)
+    ANDL            reduce using rule 23 (VALOR -> VARIABLE .)
+    ORL             reduce using rule 23 (VALOR -> VARIABLE .)
+    XORL            reduce using rule 23 (VALOR -> VARIABLE .)
+    IGUALR          reduce using rule 23 (VALOR -> VARIABLE .)
+    NOIGUALR        reduce using rule 23 (VALOR -> VARIABLE .)
+    MAYORR          reduce using rule 23 (VALOR -> VARIABLE .)
+    MENORR          reduce using rule 23 (VALOR -> VARIABLE .)
+    ANDB            reduce using rule 23 (VALOR -> VARIABLE .)
+    ORB             reduce using rule 23 (VALOR -> VARIABLE .)
+    XORB            reduce using rule 23 (VALOR -> VARIABLE .)
+    PTCOMA          reduce using rule 23 (VALOR -> VARIABLE .)
+    CORB            reduce using rule 23 (VALOR -> VARIABLE .)
+    CORA            shift and go to state 41
+
+    LISTA_POS                      shift and go to state 72
+    POS                            shift and go to state 40
+
+state 46
+
+    (24) VALOR -> LLAMADA_ARREGLO .
+
+    PARB            reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    MAS             reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    MENOS           reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    MULTIPLICACION  reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    DIVIDIR         reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    RESIDUO         reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    ANDL            reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    ORL             reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    XORL            reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    IGUALR          reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    NOIGUALR        reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    MAYORR          reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    MENORR          reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    ANDB            reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    ORB             reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    XORB            reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    PTCOMA          reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+    CORB            reduce using rule 24 (VALOR -> LLAMADA_ARREGLO .)
+
+
+state 47
+
+    (25) VALOR -> INT .
+
+    PARB            reduce using rule 25 (VALOR -> INT .)
+    MAS             reduce using rule 25 (VALOR -> INT .)
+    MENOS           reduce using rule 25 (VALOR -> INT .)
+    MULTIPLICACION  reduce using rule 25 (VALOR -> INT .)
+    DIVIDIR         reduce using rule 25 (VALOR -> INT .)
+    RESIDUO         reduce using rule 25 (VALOR -> INT .)
+    ANDL            reduce using rule 25 (VALOR -> INT .)
+    ORL             reduce using rule 25 (VALOR -> INT .)
+    XORL            reduce using rule 25 (VALOR -> INT .)
+    IGUALR          reduce using rule 25 (VALOR -> INT .)
+    NOIGUALR        reduce using rule 25 (VALOR -> INT .)
+    MAYORR          reduce using rule 25 (VALOR -> INT .)
+    MENORR          reduce using rule 25 (VALOR -> INT .)
+    ANDB            reduce using rule 25 (VALOR -> INT .)
+    ORB             reduce using rule 25 (VALOR -> INT .)
+    XORB            reduce using rule 25 (VALOR -> INT .)
+    PTCOMA          reduce using rule 25 (VALOR -> INT .)
+    CORB            reduce using rule 25 (VALOR -> INT .)
+
+
+state 48
+
+    (26) VALOR -> FLOAT .
+
+    PARB            reduce using rule 26 (VALOR -> FLOAT .)
+    MAS             reduce using rule 26 (VALOR -> FLOAT .)
+    MENOS           reduce using rule 26 (VALOR -> FLOAT .)
+    MULTIPLICACION  reduce using rule 26 (VALOR -> FLOAT .)
+    DIVIDIR         reduce using rule 26 (VALOR -> FLOAT .)
+    RESIDUO         reduce using rule 26 (VALOR -> FLOAT .)
+    ANDL            reduce using rule 26 (VALOR -> FLOAT .)
+    ORL             reduce using rule 26 (VALOR -> FLOAT .)
+    XORL            reduce using rule 26 (VALOR -> FLOAT .)
+    IGUALR          reduce using rule 26 (VALOR -> FLOAT .)
+    NOIGUALR        reduce using rule 26 (VALOR -> FLOAT .)
+    MAYORR          reduce using rule 26 (VALOR -> FLOAT .)
+    MENORR          reduce using rule 26 (VALOR -> FLOAT .)
+    ANDB            reduce using rule 26 (VALOR -> FLOAT .)
+    ORB             reduce using rule 26 (VALOR -> FLOAT .)
+    XORB            reduce using rule 26 (VALOR -> FLOAT .)
+    PTCOMA          reduce using rule 26 (VALOR -> FLOAT .)
+    CORB            reduce using rule 26 (VALOR -> FLOAT .)
+
+
+state 49
+
+    (27) VALOR -> CHAR .
+
+    PARB            reduce using rule 27 (VALOR -> CHAR .)
+    MAS             reduce using rule 27 (VALOR -> CHAR .)
+    MENOS           reduce using rule 27 (VALOR -> CHAR .)
+    MULTIPLICACION  reduce using rule 27 (VALOR -> CHAR .)
+    DIVIDIR         reduce using rule 27 (VALOR -> CHAR .)
+    RESIDUO         reduce using rule 27 (VALOR -> CHAR .)
+    ANDL            reduce using rule 27 (VALOR -> CHAR .)
+    ORL             reduce using rule 27 (VALOR -> CHAR .)
+    XORL            reduce using rule 27 (VALOR -> CHAR .)
+    IGUALR          reduce using rule 27 (VALOR -> CHAR .)
+    NOIGUALR        reduce using rule 27 (VALOR -> CHAR .)
+    MAYORR          reduce using rule 27 (VALOR -> CHAR .)
+    MENORR          reduce using rule 27 (VALOR -> CHAR .)
+    ANDB            reduce using rule 27 (VALOR -> CHAR .)
+    ORB             reduce using rule 27 (VALOR -> CHAR .)
+    XORB            reduce using rule 27 (VALOR -> CHAR .)
+    PTCOMA          reduce using rule 27 (VALOR -> CHAR .)
+    CORB            reduce using rule 27 (VALOR -> CHAR .)
+
+
+state 50
+
+    (28) VALOR -> array . PARA PARB
+
+    PARA            shift and go to state 73
+
+
+state 51
+
+    (29) VALOR -> read . PARA PARB
+
+    PARA            shift and go to state 74
+
+
+state 52
+
+    (70) IMPRIME -> print PARA VALOR . PARB PTCOMA
+
+    PARB            shift and go to state 75
+
+
+state 53
+
+    (62) CONVERSION -> PARA . TIPO_CONVERSION PARB VALOR
+    (63) TIPO_CONVERSION -> . int
+    (64) TIPO_CONVERSION -> . char
+    (65) TIPO_CONVERSION -> . float
+
+    int             shift and go to state 77
+    char            shift and go to state 78
+    float           shift and go to state 79
+
+    TIPO_CONVERSION                shift and go to state 76
+
+state 54
+
+    (68) ESTRUCTURA_IF -> if PARA EXPRESION . PARB goto ID PTCOMA
+
+    PARB            shift and go to state 80
+
+
+state 55
+
+    (22) EXPRESION -> VALOR .
+    (32) ARITMETICAS -> VALOR . MAS VALOR
+    (33) ARITMETICAS -> VALOR . MENOS VALOR
+    (34) ARITMETICAS -> VALOR . MULTIPLICACION VALOR
+    (35) ARITMETICAS -> VALOR . DIVIDIR VALOR
+    (36) ARITMETICAS -> VALOR . RESIDUO VALOR
+    (40) LOGICAS -> VALOR . ANDL VALOR
+    (41) LOGICAS -> VALOR . ORL VALOR
+    (42) LOGICAS -> VALOR . XORL VALOR
+    (44) RELACIONAL -> VALOR . IGUALR VALOR
+    (45) RELACIONAL -> VALOR . NOIGUALR VALOR
+    (46) RELACIONAL -> VALOR . MAYORR IGUALR VALOR
+    (47) RELACIONAL -> VALOR . MENORR IGUALR VALOR
+    (48) RELACIONAL -> VALOR . MAYORR VALOR
+    (49) RELACIONAL -> VALOR . MENORR VALOR
+    (52) BIT -> VALOR . ANDB VALOR
+    (53) BIT -> VALOR . ORB VALOR
+    (54) BIT -> VALOR . XORB VALOR
+    (55) BIT -> VALOR . MENORR MENORR VALOR
+    (56) BIT -> VALOR . MAYORR MAYORR VALOR
+
+    PARB            reduce using rule 22 (EXPRESION -> VALOR .)
+    PTCOMA          reduce using rule 22 (EXPRESION -> VALOR .)
+    CORB            reduce using rule 22 (EXPRESION -> VALOR .)
+    MAS             shift and go to state 81
+    MENOS           shift and go to state 82
+    MULTIPLICACION  shift and go to state 83
+    DIVIDIR         shift and go to state 84
+    RESIDUO         shift and go to state 85
+    ANDL            shift and go to state 86
+    ORL             shift and go to state 87
+    XORL            shift and go to state 88
+    IGUALR          shift and go to state 89
+    NOIGUALR        shift and go to state 90
+    MAYORR          shift and go to state 91
+    MENORR          shift and go to state 92
+    ANDB            shift and go to state 93
+    ORB             shift and go to state 94
+    XORB            shift and go to state 95
+
+
+state 56
+
+    (30) EXPRESION -> ARITMETICAS .
+
+    PARB            reduce using rule 30 (EXPRESION -> ARITMETICAS .)
+    PTCOMA          reduce using rule 30 (EXPRESION -> ARITMETICAS .)
+    CORB            reduce using rule 30 (EXPRESION -> ARITMETICAS .)
+
+
+state 57
+
+    (38) EXPRESION -> LOGICAS .
+
+    PARB            reduce using rule 38 (EXPRESION -> LOGICAS .)
+    PTCOMA          reduce using rule 38 (EXPRESION -> LOGICAS .)
+    CORB            reduce using rule 38 (EXPRESION -> LOGICAS .)
+
+
+state 58
+
+    (43) EXPRESION -> RELACIONAL .
+
+    PARB            reduce using rule 43 (EXPRESION -> RELACIONAL .)
+    PTCOMA          reduce using rule 43 (EXPRESION -> RELACIONAL .)
+    CORB            reduce using rule 43 (EXPRESION -> RELACIONAL .)
+
+
+state 59
+
+    (50) EXPRESION -> BIT .
+
+    PARB            reduce using rule 50 (EXPRESION -> BIT .)
+    PTCOMA          reduce using rule 50 (EXPRESION -> BIT .)
+    CORB            reduce using rule 50 (EXPRESION -> BIT .)
+
+
+state 60
+
+    (61) EXPRESION -> CONVERSION .
+
+    PARB            reduce using rule 61 (EXPRESION -> CONVERSION .)
+    PTCOMA          reduce using rule 61 (EXPRESION -> CONVERSION .)
+    CORB            reduce using rule 61 (EXPRESION -> CONVERSION .)
+
+
+state 61
+
+    (66) EXPRESION -> PUNTERO .
+
+    PARB            reduce using rule 66 (EXPRESION -> PUNTERO .)
+    PTCOMA          reduce using rule 66 (EXPRESION -> PUNTERO .)
+    CORB            reduce using rule 66 (EXPRESION -> PUNTERO .)
+
+
+state 62
+
+    (31) ARITMETICAS -> MENOS . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 96
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 63
+
+    (37) ARITMETICAS -> abs . PARA VALOR PARB
+
+    PARA            shift and go to state 97
+
+
+state 64
+
+    (39) LOGICAS -> NOTL . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 98
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 65
+
+    (51) BIT -> NOTB . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 99
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 66
+
+    (67) PUNTERO -> ANDB . VARIABLE
+
+    VARIABLE        shift and go to state 100
+
+
+state 67
+
+    (20) NORMAL -> VARIABLE IGUAL EXPRESION .
+
+    PTCOMA          reduce using rule 20 (NORMAL -> VARIABLE IGUAL EXPRESION .)
+
+
+state 68
+
+    (21) ARRAY -> VARIABLE LISTA_POS IGUAL . EXPRESION
+    (22) EXPRESION -> . VALOR
+    (30) EXPRESION -> . ARITMETICAS
+    (38) EXPRESION -> . LOGICAS
+    (43) EXPRESION -> . RELACIONAL
+    (50) EXPRESION -> . BIT
+    (61) EXPRESION -> . CONVERSION
+    (66) EXPRESION -> . PUNTERO
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (31) ARITMETICAS -> . MENOS VALOR
+    (32) ARITMETICAS -> . VALOR MAS VALOR
+    (33) ARITMETICAS -> . VALOR MENOS VALOR
+    (34) ARITMETICAS -> . VALOR MULTIPLICACION VALOR
+    (35) ARITMETICAS -> . VALOR DIVIDIR VALOR
+    (36) ARITMETICAS -> . VALOR RESIDUO VALOR
+    (37) ARITMETICAS -> . abs PARA VALOR PARB
+    (39) LOGICAS -> . NOTL VALOR
+    (40) LOGICAS -> . VALOR ANDL VALOR
+    (41) LOGICAS -> . VALOR ORL VALOR
+    (42) LOGICAS -> . VALOR XORL VALOR
+    (44) RELACIONAL -> . VALOR IGUALR VALOR
+    (45) RELACIONAL -> . VALOR NOIGUALR VALOR
+    (46) RELACIONAL -> . VALOR MAYORR IGUALR VALOR
+    (47) RELACIONAL -> . VALOR MENORR IGUALR VALOR
+    (48) RELACIONAL -> . VALOR MAYORR VALOR
+    (49) RELACIONAL -> . VALOR MENORR VALOR
+    (51) BIT -> . NOTB VALOR
+    (52) BIT -> . VALOR ANDB VALOR
+    (53) BIT -> . VALOR ORB VALOR
+    (54) BIT -> . VALOR XORB VALOR
+    (55) BIT -> . VALOR MENORR MENORR VALOR
+    (56) BIT -> . VALOR MAYORR MAYORR VALOR
+    (62) CONVERSION -> . PARA TIPO_CONVERSION PARB VALOR
+    (67) PUNTERO -> . ANDB VARIABLE
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+    MENOS           shift and go to state 62
+    abs             shift and go to state 63
+    NOTL            shift and go to state 64
+    NOTB            shift and go to state 65
+    PARA            shift and go to state 53
+    ANDB            shift and go to state 66
+
+    EXPRESION                      shift and go to state 101
+    VALOR                          shift and go to state 55
+    ARITMETICAS                    shift and go to state 56
+    LOGICAS                        shift and go to state 57
+    RELACIONAL                     shift and go to state 58
+    BIT                            shift and go to state 59
+    CONVERSION                     shift and go to state 60
+    PUNTERO                        shift and go to state 61
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 69
+
+    (58) LISTA_POS -> LISTA_POS POS .
+
+    IGUAL           reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    CORA            reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    PARB            reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    MAS             reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    MENOS           reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    MULTIPLICACION  reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    DIVIDIR         reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    RESIDUO         reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    ANDL            reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    ORL             reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    XORL            reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    IGUALR          reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    NOIGUALR        reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    MAYORR          reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    MENORR          reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    ANDB            reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    ORB             reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    XORB            reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    PTCOMA          reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+    CORB            reduce using rule 58 (LISTA_POS -> LISTA_POS POS .)
+
+
+state 70
+
+    (60) POS -> CORA EXPRESION . CORB
+
+    CORB            shift and go to state 102
+
+
+state 71
+
+    (69) DESTRUYE_VARIABLE -> unset PARA VALOR PARB . PTCOMA
+
+    PTCOMA          shift and go to state 103
+
+
+state 72
+
+    (57) LLAMADA_ARREGLO -> VARIABLE LISTA_POS .
+    (58) LISTA_POS -> LISTA_POS . POS
+    (60) POS -> . CORA EXPRESION CORB
+
+    PARB            reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    MAS             reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    MENOS           reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    MULTIPLICACION  reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    DIVIDIR         reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    RESIDUO         reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    ANDL            reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    ORL             reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    XORL            reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    IGUALR          reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    NOIGUALR        reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    MAYORR          reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    MENORR          reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    ANDB            reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    ORB             reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    XORB            reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    PTCOMA          reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    CORB            reduce using rule 57 (LLAMADA_ARREGLO -> VARIABLE LISTA_POS .)
+    CORA            shift and go to state 41
+
+    POS                            shift and go to state 69
+
+state 73
+
+    (28) VALOR -> array PARA . PARB
+
+    PARB            shift and go to state 104
+
+
+state 74
+
+    (29) VALOR -> read PARA . PARB
+
+    PARB            shift and go to state 105
+
+
+state 75
+
+    (70) IMPRIME -> print PARA VALOR PARB . PTCOMA
+
+    PTCOMA          shift and go to state 106
+
+
+state 76
+
+    (62) CONVERSION -> PARA TIPO_CONVERSION . PARB VALOR
+
+    PARB            shift and go to state 107
+
+
+state 77
+
+    (63) TIPO_CONVERSION -> int .
+
+    PARB            reduce using rule 63 (TIPO_CONVERSION -> int .)
+
+
+state 78
+
+    (64) TIPO_CONVERSION -> char .
+
+    PARB            reduce using rule 64 (TIPO_CONVERSION -> char .)
+
+
+state 79
+
+    (65) TIPO_CONVERSION -> float .
+
+    PARB            reduce using rule 65 (TIPO_CONVERSION -> float .)
+
+
+state 80
+
+    (68) ESTRUCTURA_IF -> if PARA EXPRESION PARB . goto ID PTCOMA
+
+    goto            shift and go to state 108
+
+
+state 81
+
+    (32) ARITMETICAS -> VALOR MAS . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 109
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 82
+
+    (33) ARITMETICAS -> VALOR MENOS . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 110
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 83
+
+    (34) ARITMETICAS -> VALOR MULTIPLICACION . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 111
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 84
+
+    (35) ARITMETICAS -> VALOR DIVIDIR . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 112
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 85
+
+    (36) ARITMETICAS -> VALOR RESIDUO . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 113
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 86
+
+    (40) LOGICAS -> VALOR ANDL . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 114
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 87
+
+    (41) LOGICAS -> VALOR ORL . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 115
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 88
+
+    (42) LOGICAS -> VALOR XORL . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 116
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 89
+
+    (44) RELACIONAL -> VALOR IGUALR . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 117
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 90
+
+    (45) RELACIONAL -> VALOR NOIGUALR . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 118
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 91
+
+    (46) RELACIONAL -> VALOR MAYORR . IGUALR VALOR
+    (48) RELACIONAL -> VALOR MAYORR . VALOR
+    (56) BIT -> VALOR MAYORR . MAYORR VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    IGUALR          shift and go to state 121
+    MAYORR          shift and go to state 120
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 119
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 92
+
+    (47) RELACIONAL -> VALOR MENORR . IGUALR VALOR
+    (49) RELACIONAL -> VALOR MENORR . VALOR
+    (55) BIT -> VALOR MENORR . MENORR VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    IGUALR          shift and go to state 124
+    MENORR          shift and go to state 123
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 122
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 93
+
+    (52) BIT -> VALOR ANDB . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 125
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 94
+
+    (53) BIT -> VALOR ORB . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 126
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 95
+
+    (54) BIT -> VALOR XORB . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 127
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 96
+
+    (31) ARITMETICAS -> MENOS VALOR .
+
+    PARB            reduce using rule 31 (ARITMETICAS -> MENOS VALOR .)
+    PTCOMA          reduce using rule 31 (ARITMETICAS -> MENOS VALOR .)
+    CORB            reduce using rule 31 (ARITMETICAS -> MENOS VALOR .)
+
+
+state 97
+
+    (37) ARITMETICAS -> abs PARA . VALOR PARB
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 128
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 98
+
+    (39) LOGICAS -> NOTL VALOR .
+
+    PARB            reduce using rule 39 (LOGICAS -> NOTL VALOR .)
+    PTCOMA          reduce using rule 39 (LOGICAS -> NOTL VALOR .)
+    CORB            reduce using rule 39 (LOGICAS -> NOTL VALOR .)
+
+
+state 99
+
+    (51) BIT -> NOTB VALOR .
+
+    PARB            reduce using rule 51 (BIT -> NOTB VALOR .)
+    PTCOMA          reduce using rule 51 (BIT -> NOTB VALOR .)
+    CORB            reduce using rule 51 (BIT -> NOTB VALOR .)
+
+
+state 100
+
+    (67) PUNTERO -> ANDB VARIABLE .
+
+    PARB            reduce using rule 67 (PUNTERO -> ANDB VARIABLE .)
+    PTCOMA          reduce using rule 67 (PUNTERO -> ANDB VARIABLE .)
+    CORB            reduce using rule 67 (PUNTERO -> ANDB VARIABLE .)
+
+
+state 101
+
+    (21) ARRAY -> VARIABLE LISTA_POS IGUAL EXPRESION .
+
+    PTCOMA          reduce using rule 21 (ARRAY -> VARIABLE LISTA_POS IGUAL EXPRESION .)
+
+
+state 102
+
+    (60) POS -> CORA EXPRESION CORB .
+
+    IGUAL           reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    CORA            reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    PARB            reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    MAS             reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    MENOS           reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    MULTIPLICACION  reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    DIVIDIR         reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    RESIDUO         reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    ANDL            reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    ORL             reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    XORL            reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    IGUALR          reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    NOIGUALR        reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    MAYORR          reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    MENORR          reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    ANDB            reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    ORB             reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    XORB            reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    PTCOMA          reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+    CORB            reduce using rule 60 (POS -> CORA EXPRESION CORB .)
+
+
+state 103
+
+    (69) DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .
+
+    ID              reduce using rule 69 (DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .)
+    goto            reduce using rule 69 (DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .)
+    unset           reduce using rule 69 (DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .)
+    print           reduce using rule 69 (DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .)
+    if              reduce using rule 69 (DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .)
+    exit            reduce using rule 69 (DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .)
+    VARIABLE        reduce using rule 69 (DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .)
+    $end            reduce using rule 69 (DESTRUYE_VARIABLE -> unset PARA VALOR PARB PTCOMA .)
+
+
+state 104
+
+    (28) VALOR -> array PARA PARB .
+
+    PARB            reduce using rule 28 (VALOR -> array PARA PARB .)
+    MAS             reduce using rule 28 (VALOR -> array PARA PARB .)
+    MENOS           reduce using rule 28 (VALOR -> array PARA PARB .)
+    MULTIPLICACION  reduce using rule 28 (VALOR -> array PARA PARB .)
+    DIVIDIR         reduce using rule 28 (VALOR -> array PARA PARB .)
+    RESIDUO         reduce using rule 28 (VALOR -> array PARA PARB .)
+    ANDL            reduce using rule 28 (VALOR -> array PARA PARB .)
+    ORL             reduce using rule 28 (VALOR -> array PARA PARB .)
+    XORL            reduce using rule 28 (VALOR -> array PARA PARB .)
+    IGUALR          reduce using rule 28 (VALOR -> array PARA PARB .)
+    NOIGUALR        reduce using rule 28 (VALOR -> array PARA PARB .)
+    MAYORR          reduce using rule 28 (VALOR -> array PARA PARB .)
+    MENORR          reduce using rule 28 (VALOR -> array PARA PARB .)
+    ANDB            reduce using rule 28 (VALOR -> array PARA PARB .)
+    ORB             reduce using rule 28 (VALOR -> array PARA PARB .)
+    XORB            reduce using rule 28 (VALOR -> array PARA PARB .)
+    PTCOMA          reduce using rule 28 (VALOR -> array PARA PARB .)
+    CORB            reduce using rule 28 (VALOR -> array PARA PARB .)
+
+
+state 105
+
+    (29) VALOR -> read PARA PARB .
+
+    PARB            reduce using rule 29 (VALOR -> read PARA PARB .)
+    MAS             reduce using rule 29 (VALOR -> read PARA PARB .)
+    MENOS           reduce using rule 29 (VALOR -> read PARA PARB .)
+    MULTIPLICACION  reduce using rule 29 (VALOR -> read PARA PARB .)
+    DIVIDIR         reduce using rule 29 (VALOR -> read PARA PARB .)
+    RESIDUO         reduce using rule 29 (VALOR -> read PARA PARB .)
+    ANDL            reduce using rule 29 (VALOR -> read PARA PARB .)
+    ORL             reduce using rule 29 (VALOR -> read PARA PARB .)
+    XORL            reduce using rule 29 (VALOR -> read PARA PARB .)
+    IGUALR          reduce using rule 29 (VALOR -> read PARA PARB .)
+    NOIGUALR        reduce using rule 29 (VALOR -> read PARA PARB .)
+    MAYORR          reduce using rule 29 (VALOR -> read PARA PARB .)
+    MENORR          reduce using rule 29 (VALOR -> read PARA PARB .)
+    ANDB            reduce using rule 29 (VALOR -> read PARA PARB .)
+    ORB             reduce using rule 29 (VALOR -> read PARA PARB .)
+    XORB            reduce using rule 29 (VALOR -> read PARA PARB .)
+    PTCOMA          reduce using rule 29 (VALOR -> read PARA PARB .)
+    CORB            reduce using rule 29 (VALOR -> read PARA PARB .)
+
+
+state 106
+
+    (70) IMPRIME -> print PARA VALOR PARB PTCOMA .
+
+    ID              reduce using rule 70 (IMPRIME -> print PARA VALOR PARB PTCOMA .)
+    goto            reduce using rule 70 (IMPRIME -> print PARA VALOR PARB PTCOMA .)
+    unset           reduce using rule 70 (IMPRIME -> print PARA VALOR PARB PTCOMA .)
+    print           reduce using rule 70 (IMPRIME -> print PARA VALOR PARB PTCOMA .)
+    if              reduce using rule 70 (IMPRIME -> print PARA VALOR PARB PTCOMA .)
+    exit            reduce using rule 70 (IMPRIME -> print PARA VALOR PARB PTCOMA .)
+    VARIABLE        reduce using rule 70 (IMPRIME -> print PARA VALOR PARB PTCOMA .)
+    $end            reduce using rule 70 (IMPRIME -> print PARA VALOR PARB PTCOMA .)
+
+
+state 107
+
+    (62) CONVERSION -> PARA TIPO_CONVERSION PARB . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 129
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 108
+
+    (68) ESTRUCTURA_IF -> if PARA EXPRESION PARB goto . ID PTCOMA
+
+    ID              shift and go to state 130
+
+
+state 109
+
+    (32) ARITMETICAS -> VALOR MAS VALOR .
+
+    PARB            reduce using rule 32 (ARITMETICAS -> VALOR MAS VALOR .)
+    PTCOMA          reduce using rule 32 (ARITMETICAS -> VALOR MAS VALOR .)
+    CORB            reduce using rule 32 (ARITMETICAS -> VALOR MAS VALOR .)
+
+
+state 110
+
+    (33) ARITMETICAS -> VALOR MENOS VALOR .
+
+    PARB            reduce using rule 33 (ARITMETICAS -> VALOR MENOS VALOR .)
+    PTCOMA          reduce using rule 33 (ARITMETICAS -> VALOR MENOS VALOR .)
+    CORB            reduce using rule 33 (ARITMETICAS -> VALOR MENOS VALOR .)
+
+
+state 111
+
+    (34) ARITMETICAS -> VALOR MULTIPLICACION VALOR .
+
+    PARB            reduce using rule 34 (ARITMETICAS -> VALOR MULTIPLICACION VALOR .)
+    PTCOMA          reduce using rule 34 (ARITMETICAS -> VALOR MULTIPLICACION VALOR .)
+    CORB            reduce using rule 34 (ARITMETICAS -> VALOR MULTIPLICACION VALOR .)
+
+
+state 112
+
+    (35) ARITMETICAS -> VALOR DIVIDIR VALOR .
+
+    PARB            reduce using rule 35 (ARITMETICAS -> VALOR DIVIDIR VALOR .)
+    PTCOMA          reduce using rule 35 (ARITMETICAS -> VALOR DIVIDIR VALOR .)
+    CORB            reduce using rule 35 (ARITMETICAS -> VALOR DIVIDIR VALOR .)
+
+
+state 113
+
+    (36) ARITMETICAS -> VALOR RESIDUO VALOR .
+
+    PARB            reduce using rule 36 (ARITMETICAS -> VALOR RESIDUO VALOR .)
+    PTCOMA          reduce using rule 36 (ARITMETICAS -> VALOR RESIDUO VALOR .)
+    CORB            reduce using rule 36 (ARITMETICAS -> VALOR RESIDUO VALOR .)
+
+
+state 114
+
+    (40) LOGICAS -> VALOR ANDL VALOR .
+
+    PARB            reduce using rule 40 (LOGICAS -> VALOR ANDL VALOR .)
+    PTCOMA          reduce using rule 40 (LOGICAS -> VALOR ANDL VALOR .)
+    CORB            reduce using rule 40 (LOGICAS -> VALOR ANDL VALOR .)
+
+
+state 115
+
+    (41) LOGICAS -> VALOR ORL VALOR .
+
+    PARB            reduce using rule 41 (LOGICAS -> VALOR ORL VALOR .)
+    PTCOMA          reduce using rule 41 (LOGICAS -> VALOR ORL VALOR .)
+    CORB            reduce using rule 41 (LOGICAS -> VALOR ORL VALOR .)
+
+
+state 116
+
+    (42) LOGICAS -> VALOR XORL VALOR .
+
+    PARB            reduce using rule 42 (LOGICAS -> VALOR XORL VALOR .)
+    PTCOMA          reduce using rule 42 (LOGICAS -> VALOR XORL VALOR .)
+    CORB            reduce using rule 42 (LOGICAS -> VALOR XORL VALOR .)
+
+
+state 117
+
+    (44) RELACIONAL -> VALOR IGUALR VALOR .
+
+    PARB            reduce using rule 44 (RELACIONAL -> VALOR IGUALR VALOR .)
+    PTCOMA          reduce using rule 44 (RELACIONAL -> VALOR IGUALR VALOR .)
+    CORB            reduce using rule 44 (RELACIONAL -> VALOR IGUALR VALOR .)
+
+
+state 118
+
+    (45) RELACIONAL -> VALOR NOIGUALR VALOR .
+
+    PARB            reduce using rule 45 (RELACIONAL -> VALOR NOIGUALR VALOR .)
+    PTCOMA          reduce using rule 45 (RELACIONAL -> VALOR NOIGUALR VALOR .)
+    CORB            reduce using rule 45 (RELACIONAL -> VALOR NOIGUALR VALOR .)
+
+
+state 119
+
+    (48) RELACIONAL -> VALOR MAYORR VALOR .
+
+    PARB            reduce using rule 48 (RELACIONAL -> VALOR MAYORR VALOR .)
+    PTCOMA          reduce using rule 48 (RELACIONAL -> VALOR MAYORR VALOR .)
+    CORB            reduce using rule 48 (RELACIONAL -> VALOR MAYORR VALOR .)
+
+
+state 120
+
+    (56) BIT -> VALOR MAYORR MAYORR . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 131
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 121
+
+    (46) RELACIONAL -> VALOR MAYORR IGUALR . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 132
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 122
+
+    (49) RELACIONAL -> VALOR MENORR VALOR .
+
+    PARB            reduce using rule 49 (RELACIONAL -> VALOR MENORR VALOR .)
+    PTCOMA          reduce using rule 49 (RELACIONAL -> VALOR MENORR VALOR .)
+    CORB            reduce using rule 49 (RELACIONAL -> VALOR MENORR VALOR .)
+
+
+state 123
+
+    (55) BIT -> VALOR MENORR MENORR . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 133
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 124
+
+    (47) RELACIONAL -> VALOR MENORR IGUALR . VALOR
+    (23) VALOR -> . VARIABLE
+    (24) VALOR -> . LLAMADA_ARREGLO
+    (25) VALOR -> . INT
+    (26) VALOR -> . FLOAT
+    (27) VALOR -> . CHAR
+    (28) VALOR -> . array PARA PARB
+    (29) VALOR -> . read PARA PARB
+    (57) LLAMADA_ARREGLO -> . VARIABLE LISTA_POS
+
+    VARIABLE        shift and go to state 45
+    INT             shift and go to state 47
+    FLOAT           shift and go to state 48
+    CHAR            shift and go to state 49
+    array           shift and go to state 50
+    read            shift and go to state 51
+
+    VALOR                          shift and go to state 134
+    LLAMADA_ARREGLO                shift and go to state 46
+
+state 125
+
+    (52) BIT -> VALOR ANDB VALOR .
+
+    PARB            reduce using rule 52 (BIT -> VALOR ANDB VALOR .)
+    PTCOMA          reduce using rule 52 (BIT -> VALOR ANDB VALOR .)
+    CORB            reduce using rule 52 (BIT -> VALOR ANDB VALOR .)
+
+
+state 126
+
+    (53) BIT -> VALOR ORB VALOR .
+
+    PARB            reduce using rule 53 (BIT -> VALOR ORB VALOR .)
+    PTCOMA          reduce using rule 53 (BIT -> VALOR ORB VALOR .)
+    CORB            reduce using rule 53 (BIT -> VALOR ORB VALOR .)
+
+
+state 127
+
+    (54) BIT -> VALOR XORB VALOR .
+
+    PARB            reduce using rule 54 (BIT -> VALOR XORB VALOR .)
+    PTCOMA          reduce using rule 54 (BIT -> VALOR XORB VALOR .)
+    CORB            reduce using rule 54 (BIT -> VALOR XORB VALOR .)
+
+
+state 128
+
+    (37) ARITMETICAS -> abs PARA VALOR . PARB
+
+    PARB            shift and go to state 135
+
+
+state 129
+
+    (62) CONVERSION -> PARA TIPO_CONVERSION PARB VALOR .
+
+    PARB            reduce using rule 62 (CONVERSION -> PARA TIPO_CONVERSION PARB VALOR .)
+    PTCOMA          reduce using rule 62 (CONVERSION -> PARA TIPO_CONVERSION PARB VALOR .)
+    CORB            reduce using rule 62 (CONVERSION -> PARA TIPO_CONVERSION PARB VALOR .)
+
+
+state 130
+
+    (68) ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID . PTCOMA
+
+    PTCOMA          shift and go to state 136
+
+
+state 131
+
+    (56) BIT -> VALOR MAYORR MAYORR VALOR .
+
+    PARB            reduce using rule 56 (BIT -> VALOR MAYORR MAYORR VALOR .)
+    PTCOMA          reduce using rule 56 (BIT -> VALOR MAYORR MAYORR VALOR .)
+    CORB            reduce using rule 56 (BIT -> VALOR MAYORR MAYORR VALOR .)
+
+
+state 132
+
+    (46) RELACIONAL -> VALOR MAYORR IGUALR VALOR .
+
+    PARB            reduce using rule 46 (RELACIONAL -> VALOR MAYORR IGUALR VALOR .)
+    PTCOMA          reduce using rule 46 (RELACIONAL -> VALOR MAYORR IGUALR VALOR .)
+    CORB            reduce using rule 46 (RELACIONAL -> VALOR MAYORR IGUALR VALOR .)
+
+
+state 133
+
+    (55) BIT -> VALOR MENORR MENORR VALOR .
+
+    PARB            reduce using rule 55 (BIT -> VALOR MENORR MENORR VALOR .)
+    PTCOMA          reduce using rule 55 (BIT -> VALOR MENORR MENORR VALOR .)
+    CORB            reduce using rule 55 (BIT -> VALOR MENORR MENORR VALOR .)
+
+
+state 134
+
+    (47) RELACIONAL -> VALOR MENORR IGUALR VALOR .
+
+    PARB            reduce using rule 47 (RELACIONAL -> VALOR MENORR IGUALR VALOR .)
+    PTCOMA          reduce using rule 47 (RELACIONAL -> VALOR MENORR IGUALR VALOR .)
+    CORB            reduce using rule 47 (RELACIONAL -> VALOR MENORR IGUALR VALOR .)
+
+
+state 135
+
+    (37) ARITMETICAS -> abs PARA VALOR PARB .
+
+    PARB            reduce using rule 37 (ARITMETICAS -> abs PARA VALOR PARB .)
+    PTCOMA          reduce using rule 37 (ARITMETICAS -> abs PARA VALOR PARB .)
+    CORB            reduce using rule 37 (ARITMETICAS -> abs PARA VALOR PARB .)
+
+
+state 136
+
+    (68) ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .
+
+    ID              reduce using rule 68 (ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .)
+    goto            reduce using rule 68 (ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .)
+    unset           reduce using rule 68 (ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .)
+    print           reduce using rule 68 (ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .)
+    if              reduce using rule 68 (ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .)
+    exit            reduce using rule 68 (ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .)
+    VARIABLE        reduce using rule 68 (ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .)
+    $end            reduce using rule 68 (ESTRUCTURA_IF -> if PARA EXPRESION PARB goto ID PTCOMA .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for ID in state 42 resolved as shift
+WARNING: shift/reduce conflict for goto in state 42 resolved as shift
+WARNING: shift/reduce conflict for unset in state 42 resolved as shift
+WARNING: shift/reduce conflict for print in state 42 resolved as shift
+WARNING: shift/reduce conflict for if in state 42 resolved as shift
+WARNING: shift/reduce conflict for exit in state 42 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE in state 42 resolved as shift

@@ -9,32 +9,36 @@ from ply import *
 from descendente1 import *
 from wdes import *
 from TablaSimbolos import *
-from pila import *
+from stack import *
 
 
-file = open("./EJEMPLO_ENTRADA.txt", 'r')
+file = open("./value1.txt", 'r')
 data = file.read()
 errores = errotk.errores()
 result = parseas(errores,data,1)
-print("------------[LEXICOS]-----------------")
+print('-----------------------------[LEXICOS]---------------------------------------')
 lexicos = errores.errores_lexicos
 for errorsito in lexicos:
     print(errorsito.get_value())
-print("----------[SINTACTICO]-----------------")
+print('-----------------------------[SINTACTICOS]---------------------------------------')
 sintatico = errores.errores_sintacticos
 for errorsito in sintatico:
     print(errorsito.get_value())
-print(result)
 
 tablasimbolos = ts()
+pl = pila()
 iniciar = result
-iniciar.implements(tablasimbolos)
+print('-----------------------------[SEMANTICOS]---------------------------------------')
+iniciar.implements(tablasimbolos,pl)
 
+print('--------------------------------------------------------------------')
 simbolos = tablasimbolos.simbolos
 for sm in simbolos:
-    print(sm.id)
-    print(sm.valor)
-    print(sm.direccion)
+    print('simbolo: '+str(sm.id) + '- ' + str(sm.valor) + '- ' +str(sm.registro))
+
+print('--------------------------------------------------------------------')
+for pls in pl.pila:
+    print('pila: '+str(pls.direccion) + '- ' + str(pls.valor) )
 
 
 

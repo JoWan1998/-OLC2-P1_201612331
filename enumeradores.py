@@ -70,6 +70,7 @@ class REGISTRO(Enum):
     APUNTADORPILA = 5
     RA = 6
     FUNCION = 7
+    APUNTADOR = 8
 
 ####################################STACK##########################3
 ##### [direccion, valor]

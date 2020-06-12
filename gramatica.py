@@ -44,9 +44,32 @@ def t_ID(t):
     return t
 
 def t_VARIABLE(t):
-    r'(\$)(a|t|v|ra|s|sp)([0-9]+)'
+    r'(\$)(ra|sp|a|t|v|s)([0-9]*)'
     value = t.value[1:]
     t.value = value
+    return t
+
+
+def t_FLOAT(t):
+    r'[0-9]+[.][0-9]+'
+    try:
+        t.value = float(t.value)
+    except ValueError:
+        print("Not a Valid %d", t.value)
+    return t
+
+def t_INT(t):
+    r'\d+'
+    try:
+        t.value = int(t.value)
+    except ValueError:
+        print("Not a Valid %d", t.value)
+        t.value = 0
+    return t
+
+def t_CHAR(t):
+    r'\'.*?\''
+    t.value = t.value[1:-1]
     return t
 
 t_DOSPUNTOS = r':'
@@ -68,37 +91,15 @@ t_ANDB = r'\&'
 t_ORB = r'\|'
 t_XORB = r'\^'
 t_IGUALR = r'=='
-t_NOIGUALR = r'!='
+t_NOIGUALR = r'\!='
 t_MAYORR = r'>'
 t_MENORR = r'<'
 t_CORA = r'\['
 t_CORB = r'\]'
 
 
-def t_INT(t):
-    r'\d+'
-    try:
-        t.value = int(t.value)
-    except ValueError:
-        print("Not a Valid %d", t.value)
-        t.value = 0
-    return t
-
-def t_CHAR(t):
-    r'\'.*?\''
-    t.value = t.value[1:-1]
-    return t
-
-def t_FLOAT(t):
-    r'\d+\.\d+'
-    try:
-        t.value = float(t.value)
-    except ValueError:
-        print("Not a Valid %d", t.value)
-    return 0
-
 def t_COMENTARIO(t):
-    r'(\#)(\w+)\n'
+    r'(\#).*\n'
     t.lexer.lineno += 1
 
 def t_NEWLINE(t):

@@ -60,14 +60,20 @@ def p_ESTRUCTURAMAIN(p):
 
 def p_ESTRUCTURAMAIN_ERROR1(p):
     'ESTRUCTURAMAIN : error DOSPUNTOS PRECUERPO'
+    p[0] = None
+    p.parser.error += 1
 
 
 def p_ESTRUCTURAMAIN_ERROR2(p):
     'ESTRUCTURAMAIN : main error PRECUERPO'
+    p[0] = None
+    p.parser.error += 1
 
 
 def p_ESTRUCTURAMAIN_ERROR3(p):
     'ESTRUCTURAMAIN : main DOSPUNTOS error'
+    p[0] = None
+    p.parser.error += 1
 
 
 def p_PRECUERPO(p):
@@ -75,6 +81,19 @@ def p_PRECUERPO(p):
     # print('precuerpo.eval = precuerpo.eval + cuerpo.eval')
     p[1].append(p[2])
     p[0] = p[1]
+
+def p_PRECUERPO_ERROR(p):
+    'PRECUERPO : PRECUERPO error'
+    # print('precuerpo.eval = precuerpo.eval + cuerpo.eval')
+    p[0] = None
+    p.parser.error += 1
+
+
+def p_PRECUERPO_ERROR1(p):
+    'PRECUERPO : error CUERPO'
+    # print('precuerpo.eval = precuerpo.eval + cuerpo.eval')
+    p[0] = None
+    p.parser.error += 1
 
 
 def p_PRECUERPO_CUERPO(p):
@@ -101,6 +120,9 @@ def p_ETIQUETA(p):
 
     p[0] = etiqueta(TIPO_INSTRUCCION.BANDERA,p[1],p.lexer.lineno, p[3])
 
+def p_ETIQUETA_ERROR(p):
+    'ETIQUETA : error DOSPUNTOS PRECUERPO'
+    # print('label.eval = precuerpo.eval')
 
 def p_GOTO_LABEL(p):
     'GOTO_LABEL : goto ID PTCOMA'
@@ -134,6 +156,17 @@ def p_EXPRESION(p):
     'EXPRESION : VALOR'
     # print('expresion.eval = value.eval')
     p[0] = p[1]
+
+def p_EXPRESION_ERROR(p):
+    'EXPRESION : error'
+    # print('expresion.eval = value.eval')
+    p[0] = p[1]
+
+def p_EXPRESIONP(p):
+    'EXPRESION : PARA EXPRESION PARB'
+    # print('expresion.eval = value.eval')
+    p[0] = p[2]
+
 
 
 def p_VALOR_VARIABLE(p):
@@ -181,7 +214,6 @@ def p_VALOR_NUEVO_ARREGLO(p):
 def p_VALOR_LEER(p):
     '''VALOR : read PARA PARB'''
     # print"('valor.eval = read')
-    p[0] = valor(None, METHOD_VALUE.READ, None)
 
 
 def p_EXPRESION_ARITMETICAS(p):
@@ -196,11 +228,11 @@ def p_ARITMETICAS_NEGATIVO(p):
 
 
 def p_ARITMETICAS(p):
-    '''ARITMETICAS : VALOR MAS VALOR
-                   | VALOR MENOS VALOR
-                   | VALOR MULTIPLICACION VALOR
-                   | VALOR DIVIDIR VALOR
-                   | VALOR RESIDUO VALOR'''
+    '''ARITMETICAS : EXPRESION MAS EXPRESION
+                   | EXPRESION MENOS EXPRESION
+                   | EXPRESION MULTIPLICACION EXPRESION
+                   | EXPRESION DIVIDIR EXPRESION
+                   | EXPRESION RESIDUO EXPRESION'''
 
     if p[2] == '+':
         p[0] = operacionesAritmeticas(OPERACION_ARITMETICA.SUMA, p[1], p[3])
@@ -215,7 +247,7 @@ def p_ARITMETICAS(p):
 
 
 def p_ARITMETICAS_ABS(p):
-    '''ARITMETICAS : abs PARA VALOR PARB'''
+    '''ARITMETICAS : abs PARA EXPRESION PARB'''
 
     p[0] = operacionesAritmeticas(OPERACION_ARITMETICA.ABSOLUTO, p[3], None)
 
@@ -250,10 +282,10 @@ def p_EXPRESION_RELACIONAL(p):
 
 
 def p_RELACIONAL(p):
-    '''RELACIONAL : VALOR IGUALR VALOR
-                  | VALOR NOIGUALR VALOR
-                  | VALOR MAYORR IGUALR VALOR
-                  | VALOR MENORR IGUALR VALOR
+    '''RELACIONAL : VALOR IGUALR  VALOR
+                  | VALOR NOIGUALR  VALOR
+                  | VALOR MAYORR IGUAL VALOR
+                  | VALOR MENORR IGUAL VALOR
                   | VALOR MAYORR VALOR
                   | VALOR MENORR VALOR'''
 
@@ -262,9 +294,9 @@ def p_RELACIONAL(p):
     elif p[2] == '!=':
         p[0] = operacionesRelacionales(OPERACION_RELACIONAL.NOTEQUALS, p[1], p[3])
     elif p[2] == '>' and p[3] == '=':
-        p[0] = operacionesRelacionales(OPERACION_RELACIONAL.MAYOR_EQUALS, p[1], p[3])
+        p[0] = operacionesRelacionales(OPERACION_RELACIONAL.MAYOR_EQUALS, p[1], p[4])
     elif p[2] == '<' and p[3] == '=':
-        p[0] = operacionesRelacionales(OPERACION_RELACIONAL.MENOR_EQUALS, p[1], p[3])
+        p[0] = operacionesRelacionales(OPERACION_RELACIONAL.MENOR_EQUALS, p[1], p[4])
     elif p[2] == '>':
         p[0] = operacionesRelacionales(OPERACION_RELACIONAL.MAYOR, p[1], p[3])
     elif p[2] == '<':
@@ -296,9 +328,9 @@ def p_BIT(p):
     elif p[2] == '^':
         p[0] = operacionesBit(OPERACION_BIT.XORB, p[1], p[3])
     elif p[2] == '<' and p[3] == '<':
-        p[0] = operacionesBit(OPERACION_BIT.SHIFTA, p[1], p[3])
+        p[0] = operacionesBit(OPERACION_BIT.SHIFTA, p[1], p[4])
     elif p[2] == '>' and p[3] == '>':
-        p[0] = operacionesBit(OPERACION_BIT.SHIFTB, p[1], p[3])
+        p[0] = operacionesBit(OPERACION_BIT.SHIFTB, p[1], p[4])
 
 
 def p_LLAMADA_ARREGLO(p):
@@ -353,7 +385,7 @@ def p_EXPRESION_PUNTERO(p):
 def p_PUNTERO(p):
     '''PUNTERO : ANDB VARIABLE'''
 
-    p[0] = valor(p[2], METHOD_VALUE.APUNTADOR, TYPE_VALUE.APUNTADOR)
+    p[0] = valor('&'+p[2], METHOD_VALUE.APUNTADOR, TYPE_VALUE.APUNTADOR)
 
 
 def p_ESTRUCTURA_IF(p):
@@ -369,7 +401,7 @@ def p_DESTRUYE_VARIABLE(p):
 
 
 def p_IMPRIME(p):
-    '''IMPRIME : print PARA VALOR PARB PTCOMA'''
+    '''IMPRIME : print PARA EXPRESION PARB PTCOMA'''
 
     p[0] = imprimir(TIPO_INSTRUCCION.IMPRIMIR, p.lexer.lineno,p[3])
 

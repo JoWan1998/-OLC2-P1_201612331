@@ -207,49 +207,58 @@ class asignacion(instruccion):
                             if simbol.valor == None: simbol.valor = {}
                             if isinstance(value,simbolo):
                                 lis = self.insertInArray(ts,simbol.valor,self.pos,value.valor,pila)
-                                ts.update(simbol.id, lis)
+                                ts.update(simbol.id, lis,simbol.tipo)
                             elif isinstance(value,dict):
                                 lis = self.insertInArray(ts,simbol.valor, self.pos, value['valor'], pila)
-                                ts.update(simbol.id, lis)
+                                ts.update(simbol.id, lis,simbol.tipo)
                         else:
                             print("Uncaugth Error, no ha podido asignar el arreglo, linea: " + str(self.linea))
                     else:
                         print("Uncaugth Error, no ha podido asignar el arreglo, linea: " + str(self.linea))
 
-        except:
+        except Exception as e:
+            print(e)
             print("Uncaught Error, La operacion no puede completarse o definirse, en la linea: "+str(self.linea))
 
     def setList(self,ts,dictt,valor,pila,pos,cont):
-        cont -= 1
-        el = next(pos)
-        vl = el.get_Value(ts, pila)
-        if cont ==0:
-            if isinstance(vl,simbolo):
-                if vl.valor in dictt:
-                    dictt[vl.valor] = (valor)
-                else:
-                    dictt[vl.valor] = (valor)
-                return dictt
-            elif isinstance(vl,dict):
-                if vl['valor'] in dictt:
-                    dictt[vl['valor']] = (valor)
-                else:
-                    dictt[vl['valor']] = (valor)
-                return dictt
-        else:
-                if isinstance(vl, simbolo):
+        try:
+            cont -= 1
+            el = next(pos)
+            vl = el.get_Value(ts, pila)
+            if cont ==0:
+                if isinstance(vl,simbolo):
+                    if isinstance(vl.valor, int) or isinstance(vl.valor, float): vl.valor = int(vl.valor)
                     if vl.valor in dictt:
-                        dictt[vl.valor] = (self.setList(ts, dictt[vl.valor], valor, pila, pos, cont))
-                    else:
-                        dictt[vl.valor] = (self.setList(ts, {}, valor, pila, pos, cont))
-                    return dictt
-                elif isinstance(vl, dict):
-                    if vl['valor'] in dictt:
-                        dictt[vl['valor']] = (self.setList(ts, dictt[vl['valor']], valor, pila, pos, cont))
-                    else:
-                        dictt[vl['valor']] = (self.setList(ts, {}, valor, pila, pos, cont))
-                    return dictt
 
+                        dictt[vl.valor] = (valor)
+                    else:
+                        dictt[vl.valor] = (valor)
+                    return dictt
+                elif isinstance(vl,dict):
+                    if isinstance(vl['valor'], int) or isinstance(vl['valor'], float): vl['valor'] = int(vl['valor'])
+                    if vl['valor'] in dictt:
+                        dictt[vl['valor']] = (valor)
+                    else:
+                        dictt[vl['valor']] = (valor)
+                    return dictt
+            else:
+                    if isinstance(vl, simbolo):
+                        if isinstance(vl.valor, int) or isinstance(vl.valor, float): vl.valor = int(vl.valor)
+                        if vl.valor in dictt:
+                            dictt[vl.valor] = (self.setList(ts, dictt[vl.valor], valor, pila, pos, cont))
+                        else:
+                            dictt[vl.valor] = (self.setList(ts, {}, valor, pila, pos, cont))
+                        return dictt
+                    elif isinstance(vl, dict):
+                        if isinstance(vl['valor'], int) or isinstance(vl['valor'], float): vl['valor'] = int(vl['valor'])
+                        if vl['valor'] in dictt:
+                            dictt[vl['valor']] = (self.setList(ts, dictt[vl['valor']], valor, pila, pos, cont))
+                        else:
+                            dictt[vl['valor']] = (self.setList(ts, {}, valor, pila, pos, cont))
+                        return dictt
+        except Exception as e:
+            print(e)
+            return None
 
     def insertInArray(self,ts,lists,pos,valor,pila):
         try:
@@ -260,6 +269,7 @@ class asignacion(instruccion):
             vl = mm.get_Value(ts, pila)
             if con > 0:
                 if isinstance(vl, simbolo):
+                    if isinstance(vl.valor, int) or isinstance(vl.valor, float): vl.valor = int(vl.valor)
                     if vl.valor in lists:
                         m = lists[vl.valor]
                         if isinstance(m,str):
@@ -271,6 +281,7 @@ class asignacion(instruccion):
                         lists[vl.valor] = (self.setList(ts, {}, valor, pila, posi, con))
                     return lists
                 elif isinstance(vl, dict):
+                    if isinstance(vl['valor'], int) or isinstance(vl['valor'], float): vl['valor'] = int(vl['valor'])
                     if vl['valor'] in lists:
                         m = lists[vl['valor']]
                         if isinstance(m, str):
@@ -283,12 +294,15 @@ class asignacion(instruccion):
                     return lists
             else:
                 if isinstance(vl, simbolo):
+                    if isinstance(vl.valor, int) or isinstance(vl.valor, float): vl.valor = int(vl.valor)
                     lists[vl.valor] =  valor
                     return lists
                 elif isinstance(vl, dict):
+                    if isinstance(vl['valor'], int) or isinstance(vl['valor'], float): vl['valor'] = int(vl['valor'])
                     lists[vl['valor']] =  valor
                     return lists
-        except:
+        except Exception as e:
+            print(e)
             return None
 
     def strlist(self,ts,lists,valor,pila,posi):
@@ -314,7 +328,7 @@ class asignacion(instruccion):
                     kls[vl.valor] = valor
         elif isinstance(vl,dict):
             if isinstance(vl['valor'], int) or isinstance(vl['valor'], float):
-                vl.valor = int(vl['valor'])
+                vl['valor'] = int(vl['valor'])
                 if  (len(kls)-1) < vl['valor']:
                     value = ''
                     for nn in kls:

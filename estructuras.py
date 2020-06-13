@@ -46,6 +46,7 @@ class array_s:
         vl = el.get_Value(ts, pila)
         if cont ==0:
             if isinstance(vl,simbolo):
+                if isinstance(vl.valor,int) or isinstance(vl.valor,float): vl.valor = int(vl.valor)
                 mm = dictt[vl.valor]
                 if isinstance(mm, dict):
                     value1 = {'valor': mm, 'tipo': TYPE_VALUE.ARREGLO, 'method': 'valor'}
@@ -57,6 +58,7 @@ class array_s:
                     value1 = {'valor': int(mm), 'tipo': TYPE_VALUE.NUMERIC, 'method': 'valor'}
                     return value1
             elif isinstance(vl,dict):
+                if isinstance(vl['valor'], int) or isinstance(vl['valor'], float): vl['valor'] = int(vl['valor'])
                 mm = dictt[vl['valor']]
                 if isinstance(mm,dict):
                     value1 = {'valor': mm, 'tipo': TYPE_VALUE.ARREGLO, 'method': 'valor'}
@@ -69,8 +71,10 @@ class array_s:
                     return value1
         else:
             if isinstance(vl, simbolo):
+                if isinstance(vl.valor, int) or isinstance(vl.valor, float): vl.valor = int(vl.valor)
                 return self.setList(ts,dictt[vl.valor],pila,pos,cont)
             elif isinstance(vl, dict):
+                if isinstance(vl['valor'], int) or isinstance(vl['valor'], float): vl['valor'] = int(vl['valor'])
                 return self.setList(ts,dictt[vl['valor']],pila,pos,cont)
 
     def insertInArray(self,ts,lists,pos,pila):
@@ -82,14 +86,18 @@ class array_s:
             vl = mm.get_Value(ts, pila)
             if con > 0:
                 if isinstance(vl, simbolo):
+                    if isinstance(vl.valor, int) or isinstance(vl.valor, float): vl.valor = int(vl.valor)
                     return (self.setList(ts,lists[vl.valor],pila,posi,con))
                 elif isinstance(vl, dict):
+                    if isinstance(vl['valor'], int) or isinstance(vl['valor'], float): vl['valor'] = int(vl['valor'])
                     return (self.setList(ts, lists[vl['valor']], pila, posi, con))
             else:
 
                 if isinstance(vl, simbolo):
+                    if isinstance(vl.valor, int) or isinstance(vl.valor, float): vl.valor = int(vl.valor)
                     mm = lists[vl.valor]
                     if isinstance(mm, dict):
+
                         value1 = {'valor': mm, 'tipo': TYPE_VALUE.ARREGLO, 'method': 'valor'}
                         return value1
                     elif isinstance(mm, str):
@@ -100,6 +108,7 @@ class array_s:
                         return value1
 
                 elif isinstance(vl, dict):
+                    if isinstance(vl['valor'], int) or isinstance(vl['valor'], float): vl['valor'] = int(vl['valor'])
                     mm = lists[vl['valor']]
                     if isinstance(mm, dict):
                         value1 = {'valor': mm, 'tipo': TYPE_VALUE.ARREGLO, 'method': 'valor'}

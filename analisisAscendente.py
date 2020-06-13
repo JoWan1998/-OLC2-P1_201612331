@@ -41,7 +41,7 @@ def semantic(result):
         print("Ah ocurrido un error durante la ejecucion")
 
 
-file = open("./value1.txt", 'r')
+file = open("./value.txt", 'r')
 data = file.read()
 errores = errotk.errores()
 result = parseas(errores,data,1)

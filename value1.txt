@@ -29,11 +29,12 @@ $t3 = $t1*$t2;
 print('La multiplicación de los numeros es: ');
 print($t3);
 print('\n');
-$t3 = $t1/$t2;
 if ( $t2 == 0 ) goto error;
+$t3 = $t1/$t2;
 print('La division de los numeros es: ');
 print($t3);
 #--------------conversion--------------------
+conv:
  $t4 = (int)$t1;
  print($t4);
  print('\n');
@@ -43,10 +44,8 @@ print($t3);
  $t5 = $t4+1;
  print('Resultado de la suma: \n');
  print($t5);
-
+exit;
 
 error:
-print('\nERROR: no se puede realizar una divisi�n entre 0.');
-
-
-exit;
+    print('\nERROR: no se puede realizar una divisi�n entre 0.');
+    exit;

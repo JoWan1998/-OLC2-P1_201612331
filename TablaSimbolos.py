@@ -4,6 +4,12 @@ class ts:
     def __init__(self):
         self.simbolos = []
 
+    def destruir(self,id):
+        for simi in self.simbolos:
+            if simi.id == id:
+                self.simbolos.remove(simi)
+                return
+
     def getValue(self,id):
         for simbolito in self.simbolos:
             if simbolito.id == id:
@@ -95,10 +101,11 @@ class ts:
                     return simbolito
         return None
 
-    def update(self,id,valor):
+    def update(self,id,valor,tipo):
         for simbolo in self.simbolos:
             if simbolo.id == id:
                 simbolo.valor = valor
+                simbolo.tipo = tipo
                 return True
 
         print("no existe la variable: "+id)

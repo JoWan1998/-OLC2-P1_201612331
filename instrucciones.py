@@ -19,14 +19,33 @@ class etiqueta(instruccion):
         self.instruccionesd = instrucciones
         self.principal = principal
 
-    def implements(self,ts,pila):
-        for intruccion in self.instruccionesd:
-            if isinstance(intruccion,asignacion):
-                intruccion.implements(ts,pila)
-            elif isinstance(intruccion,imprimir):
-                intruccion.implements(ts,pila)
-            elif isinstance(intruccion,etiqueta):
-                intruccion.implements(ts,pila)
+    def implements(self,ts,pila,instrucciones):
+        try:
+
+            for intruccion in self.instruccionesd:
+                if isinstance(intruccion,asignacion):
+                    intruccion.implements(ts,pila,instrucciones)
+                elif isinstance(intruccion,destructor):
+                    intruccion.implements(ts,pila,instrucciones)
+                elif isinstance(intruccion,imprimir):
+                    intruccion.implements(ts,pila,instrucciones)
+                elif isinstance(intruccion,etiqueta):
+                    md =  intruccion.implements(ts,pila,instrucciones)
+                    if md == 1:
+                        return 1
+                elif isinstance(intruccion,sentencia_control):
+                    md = intruccion.implements(ts,pila,instrucciones)
+                    if md == 1:
+                        return 1
+                elif isinstance(intruccion,salto_bandera):
+                    md = intruccion.implements(ts,pila,instrucciones)
+                    if md ==1 :
+                        return 1
+                elif isinstance(intruccion,salida):
+                    return 1
+            return 0
+        except:
+            return -1
 
 class salto_bandera(instruccion):
 
@@ -35,8 +54,15 @@ class salto_bandera(instruccion):
         self.bandera = bandera
         self.linea = linea
 
-    def implements(self,ts,pila):
-        print("salto_bandera")
+    def implements(self,ts,pila,instrucciones):
+        for inst in instrucciones:
+            if isinstance(inst,etiqueta):
+                if inst.nombre == self.bandera:
+                    md = inst.implements(ts,pila,instrucciones)
+                    if md == 1:
+                        return 1
+
+        return 0
 
 class asignacion(instruccion):
 
@@ -47,7 +73,7 @@ class asignacion(instruccion):
         self.valor = valor
         self.pos = pos
 
-    def implements(self,ts,pila):
+    def implements(self,ts,pila,instrucciones):
         try:
             simbol = ts.getSimbolo(self.variable,pila)
             if self.pos == -1:
@@ -138,23 +164,23 @@ class asignacion(instruccion):
                         if value.registro == REGISTRO.APUNTADORPILA:
                             value = ts.getpilaApuntada(value.valor,pila)
                             if simbol.tipo != TYPE_VALUE.ARREGLO and simbol.tipo != TYPE_VALUE.APUNTADOR:
-                                vl = ts.update(self.variable, value.valor)
+                                vl = ts.update(self.variable, value.valor,value.tipo)
                             elif simbol.tipo == TYPE_VALUE.ARREGLO:
-                                vl = ts.update(self.variable, value.valor)
+                                vl = ts.update(self.variable, value.valor,value.tipo)
                             elif simbol.tipo == TYPE_VALUE.APUNTADOR:
                                 vl = ts.updatePuntero(self.variable, value.valor, pila)
                         else:
                             if simbol.tipo != TYPE_VALUE.ARREGLO and simbol.tipo != TYPE_VALUE.APUNTADOR:
-                                vl = ts.update(self.variable, value.valor)
+                                vl = ts.update(self.variable, value.valor,value.tipo)
                             elif simbol.tipo == TYPE_VALUE.ARREGLO:
-                                vl = ts.update(self.variable, value.valor)
+                                vl = ts.update(self.variable, value.valor,value.tipo)
                             elif simbol.tipo == TYPE_VALUE.APUNTADOR:
                                 vl = ts.updatePuntero(self.variable, value.valor, pila)
                     else:
                         if simbol.tipo != TYPE_VALUE.ARREGLO and simbol.tipo != TYPE_VALUE.APUNTADOR:
-                            vl = ts.update(self.variable, value['valor'])
+                            vl = ts.update(self.variable, value['valor'],value['tipo'])
                         elif simbol.tipo == TYPE_VALUE.ARREGLO:
-                            vl = ts.update(self.variable,value['valor'])
+                            vl = ts.update(self.variable,value['valor'],value['tipo'])
                         elif simbol.tipo == TYPE_VALUE.APUNTADOR:
                             vl =ts.updatePuntero(self.variable, value['valor'],pila)
 
@@ -178,6 +204,7 @@ class asignacion(instruccion):
                     if simbol.tipo == TYPE_VALUE.ARREGLO:
                         if isinstance(self.pos,list):
                             value = self.valor.get_Value(ts, pila)
+                            if simbol.valor == None: simbol.valor = {}
                             if isinstance(value,simbolo):
                                 lis = self.insertInArray(ts,simbol.valor,self.pos,value.valor,pila)
                                 ts.update(simbol.id, lis)
@@ -234,13 +261,23 @@ class asignacion(instruccion):
             if con > 0:
                 if isinstance(vl, simbolo):
                     if vl.valor in lists:
-                        lists[vl.valor] = (self.setList(ts, lists[vl.valor], valor, pila, posi, con))
+                        m = lists[vl.valor]
+                        if isinstance(m,str):
+                            if con == 1:
+                                lists[vl.valor] = (self.strlist(ts, lists[vl.valor], valor, pila, posi))
+                        else:
+                            lists[vl.valor] = (self.setList(ts, lists[vl.valor], valor, pila, posi, con))
                     else:
                         lists[vl.valor] = (self.setList(ts, {}, valor, pila, posi, con))
                     return lists
                 elif isinstance(vl, dict):
                     if vl['valor'] in lists:
-                        lists[vl['valor']] = (self.setList(ts,  lists[vl['valor']], valor, pila, posi, con))
+                        m = lists[vl['valor']]
+                        if isinstance(m, str):
+                            if con == 1:
+                                lists[vl['valor']] = (self.strlist(ts, lists[vl['valor']], valor, pila, posi))
+                        else:
+                            lists[vl['valor']] = (self.setList(ts, lists[vl['valor']], valor, pila, posi, con))
                     else:
                         lists[vl['valor']] = (self.setList(ts, {}, valor, pila, posi, con))
                     return lists
@@ -254,6 +291,51 @@ class asignacion(instruccion):
         except:
             return None
 
+    def strlist(self,ts,lists,valor,pila,posi):
+        el = next(posi)
+        vl = el.get_Value(ts, pila)
+        kls = list(lists)
+        if isinstance(vl,simbolo):
+            if isinstance(vl.valor,int) or isinstance(vl.valor,float):
+                vl.valor = int(vl.valor)
+                if (len(kls)-1) < vl.valor:
+                    value = ''
+                    for nn in kls:
+                        value += nn
+                    c = len(kls)
+                    if (vl.valor) > c:
+                        for a in range((vl.valor)):
+                            if a >= c:
+                                value += ' '
+                    value += valor
+                    lists = value
+                    return lists
+                else:
+                    kls[vl.valor] = valor
+        elif isinstance(vl,dict):
+            if isinstance(vl['valor'], int) or isinstance(vl['valor'], float):
+                vl.valor = int(vl['valor'])
+                if  (len(kls)-1) < vl['valor']:
+                    value = ''
+                    for nn in kls:
+                        value += nn
+                    c = len(kls)
+                    if (vl['valor']) > c:
+                        for a in range((vl['valor'])):
+                            if a >= c:
+                                value += ' '
+                    value += valor
+                    lists = value
+                    return lists
+                else:
+                    kls[vl['valor']] = valor
+
+        value = ''
+        for nn in kls:
+            value += nn
+        lists = value
+        return lists
+
 class sentencia_control(instruccion):
 
     def __init__(self,enum,linea,condicion,bandera):
@@ -262,8 +344,24 @@ class sentencia_control(instruccion):
         self.bandera = bandera
         self.linea = linea
 
-    def implements(self,ts,pila):
-        print("sentencia de control")
+    def implements(self,ts,pila,instrucciones):
+        try:
+            pasd = self.condicion.get_Value(ts,pila)
+            pp = -1
+            if isinstance(pasd,simbolo): pp = pasd.valor
+            elif isinstance(pasd,dict): pp = pasd['valor']
+
+            if pp == 1:
+                for ins in instrucciones:
+                    if isinstance(ins, etiqueta):
+                        if ins.nombre == self.bandera:
+                            md = ins.implements(ts, pila, instrucciones)
+                            if md == 1:
+                                return 1
+
+                return 0
+        except:
+            print("Error Desconocido en la linea: "+str(self.linea))
 
 class destructor(instruccion):
 
@@ -272,8 +370,12 @@ class destructor(instruccion):
         self.variable = variable
         self.linea = linea
 
-    def implements(self,ts,pila):
-        print("destructor")
+    def implements(self,ts,pila,instrucciones):
+        id = self.variable.get_Value(ts,pila)
+        if isinstance(id,simbolo):
+            ts.destruir(id.id)
+        elif isinstance(id,dict):
+            ts.destruir(id['valor'])
 
 class imprimir(instruccion):
 
@@ -282,13 +384,21 @@ class imprimir(instruccion):
         self.valor = valor
         self.linea = linea
 
-    def implements(self,ts,pila):
+    def implements(self,ts,pila,instrucciones):
         try:
             vl = self.valor.get_Value(ts,pila)
             if isinstance(vl,simbolo):
-                print(vl.valor)
+                if vl.valor == '\\n':
+                    print('')
+                else:
+                    if isinstance(vl.valor,str): vl.valor = vl.valor.replace('\\n','')
+                    print(vl.valor)
             elif isinstance(vl,dict):
-                print(vl['valor'])
+                if vl['valor'] == '\\n':
+                    print('')
+                else:
+                    if isinstance(vl['valor'], str): vl['valor'] = vl['valor'].replace('\\n', '')
+                    print(vl['valor'])
         except:
             print("Error Inesperado, no se puede imprimir el valor, linea: "+str(self.linea))
 
@@ -298,7 +408,7 @@ class salida(instruccion):
         self.tipo_instruccion = enum
         self.linea = linea
 
-    def implements(self,ts,pila):
+    def implements(self,ts,pila,instrucciones):
         print("Adios")
 
 

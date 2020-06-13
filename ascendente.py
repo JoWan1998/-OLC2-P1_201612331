@@ -178,7 +178,7 @@ def p_VALOR_NUMERO(p):
 def p_VALOR_FLOAT(p):
     'VALOR : FLOAT'
     # print('valor.eval = FLOAT')
-    p[0] = valor(p[1], METHOD_VALUE.VALOR_UNICO, TYPE_VALUE.NUMERIC)
+    p[0] = valor(p[1], METHOD_VALUE.VALOR_UNICO, TYPE_VALUE.FLOAT)
 
 
 def p_VALOR_CARACTER(p):

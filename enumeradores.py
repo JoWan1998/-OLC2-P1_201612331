@@ -50,6 +50,7 @@ class ARRAY_METHOD(Enum):
     
 class TYPE_VALUE(Enum):
     NUMERIC = 1
+    FLOAT = 5
     CHARACTER = 2
     ARREGLO = 3
     APUNTADOR = 4

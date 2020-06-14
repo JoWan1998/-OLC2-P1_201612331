@@ -99,15 +99,38 @@ def p_CUERPO(p):
     # print('cuerpo.eval = value.eval')
     p[0] = p[1]
 
+def p_PRECUERPOE(p):
+    'PRECUERPOE : PRECUERPOE CUERPOE'
+    # print('precuerpo.eval = precuerpo.eval + cuerpo.eval')
+    p[1].append(p[2])
+    p[0] = p[1]
+
+
+def p_PRECUERPO_CUERPOE(p):
+    'PRECUERPOE : CUERPOE'
+    # print('precuerpo.eval = cuerpo.eval')
+    p[0] = [p[1]]
+
+
+def p_CUERPOE(p):
+    '''CUERPOE : GOTO_LABEL
+              | ASIGNACION
+              | DESTRUYE_VARIABLE
+              | IMPRIME
+              | ESTRUCTURA_IF
+              | EXIT'''
+    # print('cuerpo.eval = value.eval')
+    p[0] = p[1]
+
 
 def p_ETIQUETA(p):
-    'ETIQUETA : ID DOSPUNTOS PRECUERPO'
+    'ETIQUETA : ID DOSPUNTOS PRECUERPOE'
     # print('label.eval = precuerpo.eval')
 
     p[0] = etiqueta(TIPO_INSTRUCCION.BANDERA,p[1],p.lexer.lineno, p[3])
 
 def p_ETIQUETA_ERROR(p):
-    'ETIQUETA : error DOSPUNTOS PRECUERPO'
+    'ETIQUETA : error DOSPUNTOS PRECUERPOE'
     # print('label.eval = precuerpo.eval')
 
 def p_GOTO_LABEL(p):

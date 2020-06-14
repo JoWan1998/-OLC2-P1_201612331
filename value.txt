@@ -22,10 +22,9 @@ main:
 
   #imprimir nombres y direccion
   $t2 = 0;
-  print($t1[0]);
   while0:
 	if ($t2>=4) goto end0;
-	print($t2);
+	print('- nombre: ');
 	print($t1[$t2]['nombre']);
 	print('- direccion: ');
 	print($t1[$t2]['direccion']);
@@ -35,7 +34,6 @@ main:
 	$t2 = $t2 + 1;
 	goto while0;
   end0:
-  print('end0');
   #-----------------Arreglos---------------------
   $t3 = array();
   $t3[0]=0;
@@ -69,6 +67,7 @@ main:
   #-------------------Recursividad--------------
   unset($t3);
   exit;
+
 #SALIDA Et20ERADA SIN ERRORES
 #Hugo,zona 4,45784565
 #Paco,zona 8, villa nueva,45784125
@@ -81,5 +80,3 @@ main:
 #Carlo
 #Carlos
 #Carlos s
-#9
-

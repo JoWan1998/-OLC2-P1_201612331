@@ -229,7 +229,6 @@ class asignacion(instruccion):
                 if isinstance(vl,simbolo):
                     if isinstance(vl.valor, int) or isinstance(vl.valor, float): vl.valor = int(vl.valor)
                     if vl.valor in dictt:
-
                         dictt[vl.valor] = (valor)
                     else:
                         dictt[vl.valor] = (valor)

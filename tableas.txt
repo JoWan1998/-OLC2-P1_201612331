@@ -1,0 +1,309 @@
+<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<TR><TD> S </TD><TD> S -ESTRUCTURAMAIN </TD><TD> S.val = val[tope]" </TD></TR>
+<TR><TD> ESTRUCTURAMAIN </TD><TD> ESTRUCTURAMAIN - main : LCUERPO </TD><TD> ESTRUCTURAMAIN.val = val[tope+3] </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t0; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - ( EXPRESION )' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = ARCHIVO BASICO; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t0; val[tope] = T;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - LLAMADA_ARREGLO' </TD><TD> 'val[tope] = val[tope+1]' </TD></TR>
+<TR><TD> 'LLAMADA_ARREGLO' </TD><TD> 'LLAMADA_ARREGLO  - VARIABLE LISTAPOS' </TD><TD> 'T = new LLamadaA(); T.var = t0; T.pos = val[top+2]; val[tope] = T;' </TD></TR>
+<TR><TD> 'POS' </TD><TD> 'POS  - [ VALOR ]' </TD><TD> 'val[tope] = val[tope+2];' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - INT' </TD><TD> 'entero = 0; val[tope] = entero;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - LLAMADA_ARREGLO' </TD><TD> 'val[tope] = val[tope+1]' </TD></TR>
+<TR><TD> 'LLAMADA_ARREGLO' </TD><TD> 'LLAMADA_ARREGLO  - VARIABLE LISTAPOS' </TD><TD> 'T = new LLamadaA(); T.var = t0; T.pos = val[top+2]; val[tope] = T;' </TD></TR>
+<TR><TD> 'POS' </TD><TD> 'POS  - [ VALOR ]' </TD><TD> 'val[tope] = val[tope+2];' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - INT' </TD><TD> 'entero = 8; val[tope] = entero;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - LLAMADA_ARREGLO' </TD><TD> 'val[tope] = val[tope+1]' </TD></TR>
+<TR><TD> 'LLAMADA_ARREGLO' </TD><TD> 'LLAMADA_ARREGLO  - VARIABLE LISTAPOS' </TD><TD> 'T = new LLamadaA(); T.var = t0; T.pos = val[top+2]; val[tope] = T;' </TD></TR>
+<TR><TD> 'POS' </TD><TD> 'POS  - [ VALOR ]' </TD><TD> 'val[tope] = val[tope+2];' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - INT' </TD><TD> 'entero = 12; val[tope] = entero;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - DESTRUYE_VARIABLE' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'DESTRUYE_VARIABLE' </TD><TD> 'DESTRUYE_VARIABLE  - unset ( VALOR ) ;' </TD><TD> 'T = new destruct(); T.var = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t0; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = Ingresa un numero: \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t1; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - INT' </TD><TD> 'entero = 1; val[tope] = entero;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = Ingreso un segundo numero: ; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t2; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - INT' </TD><TD> 'entero = 1; val[tope] = entero;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t3; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - ARITMETICAS' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'ARITMETICAS' </TD><TD> 'ARITMETICAS  - EXPRESION + EXPRESION' </TD><TD> 'val[tope] = val[tope+1] + val[tope+3];' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t1; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t2; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = La suma de los numeros es: ; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t3; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t3; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - ARITMETICAS' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'ARITMETICAS' </TD><TD> 'ARITMETICAS  - EXPRESION - EXPRESION' </TD><TD> 'val[tope] = val[tope+1] - val[tope+3];' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t1; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t2; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = La resta de los numeros es: ; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t3; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t3; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - ARITMETICAS' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'ARITMETICAS' </TD><TD> 'ARITMETICAS  - EXPRESION * EXPRESION' </TD><TD> 'val[tope] = val[tope+1] * val[tope+3];' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t1; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t2; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = La multiplicación de los numeros es: ; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t3; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - EXTRUCTURA_IF' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IF' </TD><TD> 'IF  - if ( EXPRESION ) goto ID ;' </TD><TD> 'T = new conditional(); T.condicion = val[tope+3]; T.salto = error;  val[tope] = T;' </TD></TR>
+<TR><TD> 'RELACIONAL' </TD><TD> 'EXPRESION  - RELACIONAL' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'RELACIONAL' </TD><TD> 'RELACIONAL  - VALOR == VALOR' </TD><TD> 'val[tope] = val[tope+1] == val[tope+3];' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t2; val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t2; val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - INT' </TD><TD> 'entero = 0; val[tope] = entero;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t3; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - ARITMETICAS' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'ARITMETICAS' </TD><TD> 'ARITMETICAS  - EXPRESION / EXPRESION' </TD><TD> 'val[tope] = val[tope+1] / val[tope+3];' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t1; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t2; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = La division de los numeros es: ; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t3; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ETIQUETA' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ETIQUETA' </TD><TD> 'T = new Etiqueta(); id = conv; T.id = id; T.addCuerpo(val[tope+2]); val[tope] = T;' </TD><TD> '' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t4; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - CONVERSION' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'CONVERSION' </TD><TD> 'CONVERSION  - ( TIPO ) VALOR' </TD><TD> 'T = new Convertion(); T.tipo = val[tope+2]; T.value = val[tope+4]; val[tope] = T;' </TD></TR>
+<TR><TD> 'TIPO' </TD><TD> 'TIPO  - int' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'TIPO' </TD><TD> 'TIPO  - int' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t1; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t4; val[tope] = T;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t4; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - CONVERSION' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'CONVERSION' </TD><TD> 'CONVERSION  - ( TIPO ) VALOR' </TD><TD> 'T = new Convertion(); T.tipo = val[tope+2]; T.value = val[tope+4]; val[tope] = T;' </TD></TR>
+<TR><TD> 'TIPO' </TD><TD> 'TIPO  - float' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'TIPO' </TD><TD> 'TIPO  - float' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t3; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t4; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - ASIGNACION' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ASIGNACION' </TD><TD> 'ASIGNACION  - NORMAL' </TD><TD> 'T = new asignacion(); T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'NORMAL' </TD><TD> 'NORMAL  - VARIABLE = EXPRESION' </TD><TD> 'T = new Normal(); var = t5; T.var = var; T.val = val[tope+3];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - ARITMETICAS' </TD><TD> 'val[tope] = val[tope+1];' </TD></TR>
+<TR><TD> 'ARITMETICAS' </TD><TD> 'ARITMETICAS  - EXPRESION + EXPRESION' </TD><TD> 'val[tope] = val[tope+1] + val[tope+3];' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t4; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - INT' </TD><TD> 'entero = 1; val[tope] = entero;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = Resultado de la suma: \n; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - VARIABLE' </TD><TD> 'T = new Variable(); T.var = t5; val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - EXIT' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXIT' </TD><TD> 'EXIT - exit ;' </TD><TD> 'T = new Exit(); T.defined = 1 val[tope] = T;' </TD></TR>
+<TR><TD> 'LCUERPO' </TD><TD> 'LCUERPO  - LCUERPO CUERPO' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPO' </TD><TD> 'CUERPO  - ETIQUETA' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'ETIQUETA' </TD><TD> 'T = new Etiqueta(); id = error; T.id = id; T.addCuerpo(val[tope+2]); val[tope] = T;' </TD><TD> '' </TD></TR>
+<TR><TD> 'LCUERPOE' </TD><TD> 'LCUERPOE  - LCUERPOE CUERPOE' </TD><TD> 'N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - IMPRIME' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXPRESION' </TD><TD> 'EXPRESION  - VALOR' </TD><TD> 'T = new Valor();  T.value = val[tope+1];  val[tope] = T;' </TD></TR>
+<TR><TD> 'VALOR' </TD><TD> 'VALOR  - CHAR' </TD><TD> 'caracteres = \nERROR: no se puede realizar una divisi�n entre 0.; val[tope] = caracteres;' </TD></TR>
+<TR><TD> 'IMPRIME' </TD><TD> 'IMPRIME  - print ( EXPRESION ) ;' </TD><TD> 'T = new print(); T.exp = val[tope+3]; val[tope] = T;' </TD></TR>
+<TR><TD> 'CUERPOE' </TD><TD> 'CUERPOE - EXIT' </TD><TD> 'T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;' </TD></TR>
+<TR><TD> 'EXIT' </TD><TD> 'EXIT - exit ;' </TD><TD> 'T = new Exit(); T.defined = 1 val[tope] = T;' </TD></TR>
+</TABLE>
+>

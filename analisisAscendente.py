@@ -13,6 +13,8 @@ from stack import *
 from ArbolAscendente import *
 from ArbolDescendente import *
 from graphviz import Digraph
+import tempfile
+
 import os
 os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
 
@@ -68,26 +70,46 @@ res = arparsedes(data)
 if resul != None:
     dot = Digraph("ARBOL_ASCENDENTE","ARBOL_ASCENDENTE")
     dot.attr(size='1000,1000')
-    #f= open("./arbolascendente.txt","w+")
-    #f.write('digraph G {\n')
-    #f.write('size="100,100";\n')
-    #resul.getData(resul,0,f)
-    #f.write('}')
-    #f.close()
     getDot(resul,0,0,dot)
-    dot.render('test-output/ARBOL_ASCENDENTE.dot',view=True)
+    dot.render(tempfile.mktemp('.dot'),view=True)
+
+    val = tempfile.mktemp('.txt')
+    f = open(val,"w+")
+    f.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
+    resul.createReglaS(resul,f,0)
+    f.write('</TABLE>\n>')
+    f.close()
+
+
+    filetable = open(val, 'r')
+    datatable = filetable.read()
+
+    dot = Digraph("DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE", "DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE", node_attr={'shape': 'plaintext'})
+    dot.attr(size='1000,1000')
+    dot.node('struct',datatable)
+    dot.render(tempfile.mktemp('.dot'),view=True)
+
 if res != None:
 
     dot1 = Digraph("ARBOL_DESCENDENTE")
     dot1.attr(size='1000,1000')
-    #f= open("./arbolascendente.txt","w+")
-    #f.write('digraph G {\n')
-    #f.write('size="100,100";\n')
-    #resul.getData(resul,0,f)
-    #f.write('}')
-    #f.close()
     getDot(res,0,0,dot1)
-    dot1.render('test-output/ARBOL_DESCENDENTE.dot',view=True)
+    dot1.render(tempfile.mktemp('.dot'),view=True)
+
+    val = tempfile.mktemp('.txt')
+    f = open(val, "w+")
+    f.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
+    res.createReglaS(res, f,0)
+    f.write('</TABLE>\n>')
+    f.close()
+
+    filetable = open(val, 'r')
+    datatable = filetable.read()
+
+    dot = Digraph("DEFINICION_DIRIGIDA_SINTAXIS_DESCENDENTE", "DEFINICION_DIRIGIDA_SINTAXIS_DESCENDENTE", node_attr={'shape': 'plaintext'})
+    dot.attr(size='1000,1000')
+    dot.node('struct', datatable)
+    dot.render(tempfile.mktemp('.dot'), view=True)
 
 print('-----------------------------[LEXICOS]---------------------------------------')
 lexicos = errores.errores_lexicos

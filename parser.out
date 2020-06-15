@@ -34,8 +34,8 @@ Rule 24    CUERPOE -> IMPRIME
 Rule 25    CUERPOE -> ESTRUCTURA_IF
 Rule 26    CUERPOE -> EXIT
 Rule 27    CUERPOE -> <empty>
-Rule 28    ETIQUETA -> ID DOSPUNTOS PRECUERPOE1
-Rule 29    ETIQUETA -> error DOSPUNTOS PRECUERPOE1
+Rule 28    ETIQUETA -> ID DOSPUNTOS PRECUERPOE
+Rule 29    ETIQUETA -> error DOSPUNTOS PRECUERPO
 Rule 30    GOTO_LABEL -> goto ID PTCOMA
 Rule 31    ASIGNACION -> NORMAL PTCOMA
 Rule 32    ASIGNACION -> ARRAY PTCOMA
@@ -165,10 +165,10 @@ LLAMADA_ARREGLO      : 39
 LOGICAS              : 53
 NORMAL               : 31
 POS                  : 73 74 75
-PRECUERPO            : 4 5 7
+PRECUERPO            : 4 5 7 29
 PRECUERPO1           : 3 8
-PRECUERPOE           : 18
-PRECUERPOE1          : 19 28 29
+PRECUERPOE           : 18 28
+PRECUERPOE1          : 19
 PUNTERO              : 83
 RELACIONAL           : 58
 S                    : 0
@@ -238,8 +238,8 @@ state 5
     (15) CUERPO -> . ESTRUCTURA_IF
     (16) CUERPO -> . EXIT
     (17) CUERPO -> .
-    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE1
-    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPOE1
+    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE
+    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPO
     (30) GOTO_LABEL -> . goto ID PTCOMA
     (31) ASIGNACION -> . NORMAL PTCOMA
     (32) ASIGNACION -> . ARRAY PTCOMA
@@ -302,8 +302,8 @@ state 6
     (15) CUERPO -> . ESTRUCTURA_IF
     (16) CUERPO -> . EXIT
     (17) CUERPO -> .
-    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE1
-    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPOE1
+    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE
+    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPO
     (30) GOTO_LABEL -> . goto ID PTCOMA
     (31) ASIGNACION -> . NORMAL PTCOMA
     (32) ASIGNACION -> . ARRAY PTCOMA
@@ -366,8 +366,8 @@ state 7
     (15) CUERPO -> . ESTRUCTURA_IF
     (16) CUERPO -> . EXIT
     (17) CUERPO -> .
-    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE1
-    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPOE1
+    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE
+    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPO
     (30) GOTO_LABEL -> . goto ID PTCOMA
     (31) ASIGNACION -> . NORMAL PTCOMA
     (32) ASIGNACION -> . ARRAY PTCOMA
@@ -419,7 +419,7 @@ state 7
 
 state 8
 
-    (29) ETIQUETA -> error . DOSPUNTOS PRECUERPOE1
+    (29) ETIQUETA -> error . DOSPUNTOS PRECUERPO
 
     DOSPUNTOS       shift and go to state 31
 
@@ -444,8 +444,8 @@ state 10
     (15) CUERPO -> . ESTRUCTURA_IF
     (16) CUERPO -> . EXIT
     (17) CUERPO -> .
-    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE1
-    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPOE1
+    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE
+    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPO
     (30) GOTO_LABEL -> . goto ID PTCOMA
     (31) ASIGNACION -> . NORMAL PTCOMA
     (32) ASIGNACION -> . ARRAY PTCOMA
@@ -457,6 +457,14 @@ state 10
     (34) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
 
   ! reduce/reduce conflict for $end resolved using rule 9 (PRECUERPO -> CUERPO .)
+  ! reduce/reduce conflict for ID resolved using rule 9 (PRECUERPO -> CUERPO .)
+  ! reduce/reduce conflict for error resolved using rule 9 (PRECUERPO -> CUERPO .)
+  ! reduce/reduce conflict for goto resolved using rule 9 (PRECUERPO -> CUERPO .)
+  ! reduce/reduce conflict for unset resolved using rule 9 (PRECUERPO -> CUERPO .)
+  ! reduce/reduce conflict for print resolved using rule 9 (PRECUERPO -> CUERPO .)
+  ! reduce/reduce conflict for if resolved using rule 9 (PRECUERPO -> CUERPO .)
+  ! reduce/reduce conflict for exit resolved using rule 9 (PRECUERPO -> CUERPO .)
+  ! reduce/reduce conflict for VARIABLE resolved using rule 9 (PRECUERPO -> CUERPO .)
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for error resolved as shift
   ! shift/reduce conflict for goto resolved as shift
@@ -475,6 +483,15 @@ state 10
     exit            shift and go to state 25
     VARIABLE        shift and go to state 26
 
+  ! ID              [ reduce using rule 9 (PRECUERPO -> CUERPO .) ]
+  ! error           [ reduce using rule 9 (PRECUERPO -> CUERPO .) ]
+  ! goto            [ reduce using rule 9 (PRECUERPO -> CUERPO .) ]
+  ! unset           [ reduce using rule 9 (PRECUERPO -> CUERPO .) ]
+  ! print           [ reduce using rule 9 (PRECUERPO -> CUERPO .) ]
+  ! if              [ reduce using rule 9 (PRECUERPO -> CUERPO .) ]
+  ! exit            [ reduce using rule 9 (PRECUERPO -> CUERPO .) ]
+  ! VARIABLE        [ reduce using rule 9 (PRECUERPO -> CUERPO .) ]
+  ! $end            [ reduce using rule 17 (CUERPO -> .) ]
   ! ID              [ reduce using rule 17 (CUERPO -> .) ]
   ! error           [ reduce using rule 17 (CUERPO -> .) ]
   ! goto            [ reduce using rule 17 (CUERPO -> .) ]
@@ -483,7 +500,6 @@ state 10
   ! if              [ reduce using rule 17 (CUERPO -> .) ]
   ! exit            [ reduce using rule 17 (CUERPO -> .) ]
   ! VARIABLE        [ reduce using rule 17 (CUERPO -> .) ]
-  ! $end            [ reduce using rule 17 (CUERPO -> .) ]
 
     CUERPO                         shift and go to state 29
     PRECUERPO1                     shift and go to state 32
@@ -604,7 +620,7 @@ state 17
 
 state 18
 
-    (28) ETIQUETA -> ID . DOSPUNTOS PRECUERPOE1
+    (28) ETIQUETA -> ID . DOSPUNTOS PRECUERPOE
 
     DOSPUNTOS       shift and go to state 33
 
@@ -686,7 +702,7 @@ state 27
 state 28
 
     (6) ESTRUCTURAMAIN -> main DOSPUNTOS error .
-    (29) ETIQUETA -> error . DOSPUNTOS PRECUERPOE1
+    (29) ETIQUETA -> error . DOSPUNTOS PRECUERPO
 
     $end            reduce using rule 6 (ESTRUCTURAMAIN -> main DOSPUNTOS error .)
     DOSPUNTOS       shift and go to state 31
@@ -705,8 +721,8 @@ state 29
     (15) CUERPO -> . ESTRUCTURA_IF
     (16) CUERPO -> . EXIT
     (17) CUERPO -> .
-    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE1
-    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPOE1
+    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE
+    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPO
     (30) GOTO_LABEL -> . goto ID PTCOMA
     (31) ASIGNACION -> . NORMAL PTCOMA
     (32) ASIGNACION -> . ARRAY PTCOMA
@@ -765,15 +781,19 @@ state 30
 
 state 31
 
-    (29) ETIQUETA -> error DOSPUNTOS . PRECUERPOE1
-    (18) PRECUERPOE1 -> . CUERPOE PRECUERPOE
-    (21) CUERPOE -> . GOTO_LABEL
-    (22) CUERPOE -> . ASIGNACION
-    (23) CUERPOE -> . DESTRUYE_VARIABLE
-    (24) CUERPOE -> . IMPRIME
-    (25) CUERPOE -> . ESTRUCTURA_IF
-    (26) CUERPOE -> . EXIT
-    (27) CUERPOE -> .
+    (29) ETIQUETA -> error DOSPUNTOS . PRECUERPO
+    (8) PRECUERPO -> . CUERPO PRECUERPO1
+    (9) PRECUERPO -> . CUERPO
+    (10) CUERPO -> . ETIQUETA
+    (11) CUERPO -> . GOTO_LABEL
+    (12) CUERPO -> . ASIGNACION
+    (13) CUERPO -> . DESTRUYE_VARIABLE
+    (14) CUERPO -> . IMPRIME
+    (15) CUERPO -> . ESTRUCTURA_IF
+    (16) CUERPO -> . EXIT
+    (17) CUERPO -> .
+    (28) ETIQUETA -> . ID DOSPUNTOS PRECUERPOE
+    (29) ETIQUETA -> . error DOSPUNTOS PRECUERPO
     (30) GOTO_LABEL -> . goto ID PTCOMA
     (31) ASIGNACION -> . NORMAL PTCOMA
     (32) ASIGNACION -> . ARRAY PTCOMA
@@ -784,15 +804,17 @@ state 31
     (33) NORMAL -> . VARIABLE IGUAL EXPRESION
     (34) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
 
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for error resolved as shift
   ! shift/reduce conflict for goto resolved as shift
   ! shift/reduce conflict for unset resolved as shift
   ! shift/reduce conflict for print resolved as shift
   ! shift/reduce conflict for if resolved as shift
   ! shift/reduce conflict for exit resolved as shift
   ! shift/reduce conflict for VARIABLE resolved as shift
-    ID              reduce using rule 27 (CUERPOE -> .)
-    error           reduce using rule 27 (CUERPOE -> .)
-    $end            reduce using rule 27 (CUERPOE -> .)
+    $end            reduce using rule 17 (CUERPO -> .)
+    ID              shift and go to state 18
+    error           shift and go to state 8
     goto            shift and go to state 19
     unset           shift and go to state 22
     print           shift and go to state 23
@@ -800,21 +822,24 @@ state 31
     exit            shift and go to state 25
     VARIABLE        shift and go to state 26
 
-  ! goto            [ reduce using rule 27 (CUERPOE -> .) ]
-  ! unset           [ reduce using rule 27 (CUERPOE -> .) ]
-  ! print           [ reduce using rule 27 (CUERPOE -> .) ]
-  ! if              [ reduce using rule 27 (CUERPOE -> .) ]
-  ! exit            [ reduce using rule 27 (CUERPOE -> .) ]
-  ! VARIABLE        [ reduce using rule 27 (CUERPOE -> .) ]
+  ! ID              [ reduce using rule 17 (CUERPO -> .) ]
+  ! error           [ reduce using rule 17 (CUERPO -> .) ]
+  ! goto            [ reduce using rule 17 (CUERPO -> .) ]
+  ! unset           [ reduce using rule 17 (CUERPO -> .) ]
+  ! print           [ reduce using rule 17 (CUERPO -> .) ]
+  ! if              [ reduce using rule 17 (CUERPO -> .) ]
+  ! exit            [ reduce using rule 17 (CUERPO -> .) ]
+  ! VARIABLE        [ reduce using rule 17 (CUERPO -> .) ]
 
-    PRECUERPOE1                    shift and go to state 46
-    CUERPOE                        shift and go to state 47
-    GOTO_LABEL                     shift and go to state 48
-    ASIGNACION                     shift and go to state 49
-    DESTRUYE_VARIABLE              shift and go to state 50
-    IMPRIME                        shift and go to state 51
-    ESTRUCTURA_IF                  shift and go to state 52
-    EXIT                           shift and go to state 53
+    PRECUERPO                      shift and go to state 46
+    CUERPO                         shift and go to state 10
+    ETIQUETA                       shift and go to state 11
+    GOTO_LABEL                     shift and go to state 12
+    ASIGNACION                     shift and go to state 13
+    DESTRUYE_VARIABLE              shift and go to state 14
+    IMPRIME                        shift and go to state 15
+    ESTRUCTURA_IF                  shift and go to state 16
+    EXIT                           shift and go to state 17
     NORMAL                         shift and go to state 20
     ARRAY                          shift and go to state 21
 
@@ -823,12 +848,21 @@ state 32
     (8) PRECUERPO -> CUERPO PRECUERPO1 .
 
     $end            reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
+    ID              reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
+    error           reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
+    goto            reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
+    unset           reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
+    print           reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
+    if              reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
+    exit            reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
+    VARIABLE        reduce using rule 8 (PRECUERPO -> CUERPO PRECUERPO1 .)
 
 
 state 33
 
-    (28) ETIQUETA -> ID DOSPUNTOS . PRECUERPOE1
-    (18) PRECUERPOE1 -> . CUERPOE PRECUERPOE
+    (28) ETIQUETA -> ID DOSPUNTOS . PRECUERPOE
+    (19) PRECUERPOE -> . CUERPOE PRECUERPOE1
+    (20) PRECUERPOE -> . CUERPOE
     (21) CUERPOE -> . GOTO_LABEL
     (22) CUERPOE -> . ASIGNACION
     (23) CUERPOE -> . DESTRUYE_VARIABLE
@@ -869,14 +903,14 @@ state 33
   ! exit            [ reduce using rule 27 (CUERPOE -> .) ]
   ! VARIABLE        [ reduce using rule 27 (CUERPOE -> .) ]
 
-    PRECUERPOE1                    shift and go to state 54
-    CUERPOE                        shift and go to state 47
-    GOTO_LABEL                     shift and go to state 48
-    ASIGNACION                     shift and go to state 49
-    DESTRUYE_VARIABLE              shift and go to state 50
-    IMPRIME                        shift and go to state 51
-    ESTRUCTURA_IF                  shift and go to state 52
-    EXIT                           shift and go to state 53
+    PRECUERPOE                     shift and go to state 47
+    CUERPOE                        shift and go to state 48
+    GOTO_LABEL                     shift and go to state 49
+    ASIGNACION                     shift and go to state 50
+    DESTRUYE_VARIABLE              shift and go to state 51
+    IMPRIME                        shift and go to state 52
+    ESTRUCTURA_IF                  shift and go to state 53
+    EXIT                           shift and go to state 54
     NORMAL                         shift and go to state 20
     ARRAY                          shift and go to state 21
 
@@ -1229,28 +1263,51 @@ state 45
     (7) PRECUERPO1 -> CUERPO PRECUERPO .
 
     $end            reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
+    ID              reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
+    error           reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
+    goto            reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
+    unset           reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
+    print           reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
+    if              reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
+    exit            reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
+    VARIABLE        reduce using rule 7 (PRECUERPO1 -> CUERPO PRECUERPO .)
 
 
 state 46
 
-    (29) ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .
+    (29) ETIQUETA -> error DOSPUNTOS PRECUERPO .
 
-    ID              reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
-    error           reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
-    goto            reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
-    unset           reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
-    print           reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
-    if              reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
-    exit            reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
-    VARIABLE        reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
-    $end            reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPOE1 .)
+    ID              reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
+    error           reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
+    goto            reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
+    unset           reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
+    print           reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
+    if              reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
+    exit            reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
+    VARIABLE        reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
+    $end            reduce using rule 29 (ETIQUETA -> error DOSPUNTOS PRECUERPO .)
 
 
 state 47
 
-    (18) PRECUERPOE1 -> CUERPOE . PRECUERPOE
-    (19) PRECUERPOE -> . CUERPOE PRECUERPOE1
-    (20) PRECUERPOE -> . CUERPOE
+    (28) ETIQUETA -> ID DOSPUNTOS PRECUERPOE .
+
+    ID              reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+    error           reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+    goto            reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+    unset           reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+    print           reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+    if              reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+    exit            reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+    VARIABLE        reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+    $end            reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE .)
+
+
+state 48
+
+    (19) PRECUERPOE -> CUERPOE . PRECUERPOE1
+    (20) PRECUERPOE -> CUERPOE .
+    (18) PRECUERPOE1 -> . CUERPOE PRECUERPOE
     (21) CUERPOE -> . GOTO_LABEL
     (22) CUERPOE -> . ASIGNACION
     (23) CUERPOE -> . DESTRUYE_VARIABLE
@@ -1268,15 +1325,24 @@ state 47
     (33) NORMAL -> . VARIABLE IGUAL EXPRESION
     (34) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
 
+  ! reduce/reduce conflict for goto resolved using rule 20 (PRECUERPOE -> CUERPOE .)
+  ! reduce/reduce conflict for unset resolved using rule 20 (PRECUERPOE -> CUERPOE .)
+  ! reduce/reduce conflict for print resolved using rule 20 (PRECUERPOE -> CUERPOE .)
+  ! reduce/reduce conflict for if resolved using rule 20 (PRECUERPOE -> CUERPOE .)
+  ! reduce/reduce conflict for exit resolved using rule 20 (PRECUERPOE -> CUERPOE .)
+  ! reduce/reduce conflict for VARIABLE resolved using rule 20 (PRECUERPOE -> CUERPOE .)
+  ! reduce/reduce conflict for ID resolved using rule 20 (PRECUERPOE -> CUERPOE .)
+  ! reduce/reduce conflict for error resolved using rule 20 (PRECUERPOE -> CUERPOE .)
+  ! reduce/reduce conflict for $end resolved using rule 20 (PRECUERPOE -> CUERPOE .)
   ! shift/reduce conflict for goto resolved as shift
   ! shift/reduce conflict for unset resolved as shift
   ! shift/reduce conflict for print resolved as shift
   ! shift/reduce conflict for if resolved as shift
   ! shift/reduce conflict for exit resolved as shift
   ! shift/reduce conflict for VARIABLE resolved as shift
-    ID              reduce using rule 27 (CUERPOE -> .)
-    error           reduce using rule 27 (CUERPOE -> .)
-    $end            reduce using rule 27 (CUERPOE -> .)
+    ID              reduce using rule 20 (PRECUERPOE -> CUERPOE .)
+    error           reduce using rule 20 (PRECUERPOE -> CUERPOE .)
+    $end            reduce using rule 20 (PRECUERPOE -> CUERPOE .)
     goto            shift and go to state 19
     unset           shift and go to state 22
     print           shift and go to state 23
@@ -1284,25 +1350,34 @@ state 47
     exit            shift and go to state 25
     VARIABLE        shift and go to state 26
 
+  ! goto            [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
+  ! unset           [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
+  ! print           [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
+  ! if              [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
+  ! exit            [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
+  ! VARIABLE        [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
   ! goto            [ reduce using rule 27 (CUERPOE -> .) ]
   ! unset           [ reduce using rule 27 (CUERPOE -> .) ]
   ! print           [ reduce using rule 27 (CUERPOE -> .) ]
   ! if              [ reduce using rule 27 (CUERPOE -> .) ]
   ! exit            [ reduce using rule 27 (CUERPOE -> .) ]
   ! VARIABLE        [ reduce using rule 27 (CUERPOE -> .) ]
+  ! ID              [ reduce using rule 27 (CUERPOE -> .) ]
+  ! error           [ reduce using rule 27 (CUERPOE -> .) ]
+  ! $end            [ reduce using rule 27 (CUERPOE -> .) ]
 
     CUERPOE                        shift and go to state 85
-    PRECUERPOE                     shift and go to state 86
-    GOTO_LABEL                     shift and go to state 48
-    ASIGNACION                     shift and go to state 49
-    DESTRUYE_VARIABLE              shift and go to state 50
-    IMPRIME                        shift and go to state 51
-    ESTRUCTURA_IF                  shift and go to state 52
-    EXIT                           shift and go to state 53
+    PRECUERPOE1                    shift and go to state 86
+    GOTO_LABEL                     shift and go to state 49
+    ASIGNACION                     shift and go to state 50
+    DESTRUYE_VARIABLE              shift and go to state 51
+    IMPRIME                        shift and go to state 52
+    ESTRUCTURA_IF                  shift and go to state 53
+    EXIT                           shift and go to state 54
     NORMAL                         shift and go to state 20
     ARRAY                          shift and go to state 21
 
-state 48
+state 49
 
     (21) CUERPOE -> GOTO_LABEL .
 
@@ -1317,7 +1392,7 @@ state 48
     $end            reduce using rule 21 (CUERPOE -> GOTO_LABEL .)
 
 
-state 49
+state 50
 
     (22) CUERPOE -> ASIGNACION .
 
@@ -1332,7 +1407,7 @@ state 49
     $end            reduce using rule 22 (CUERPOE -> ASIGNACION .)
 
 
-state 50
+state 51
 
     (23) CUERPOE -> DESTRUYE_VARIABLE .
 
@@ -1347,7 +1422,7 @@ state 50
     $end            reduce using rule 23 (CUERPOE -> DESTRUYE_VARIABLE .)
 
 
-state 51
+state 52
 
     (24) CUERPOE -> IMPRIME .
 
@@ -1362,7 +1437,7 @@ state 51
     $end            reduce using rule 24 (CUERPOE -> IMPRIME .)
 
 
-state 52
+state 53
 
     (25) CUERPOE -> ESTRUCTURA_IF .
 
@@ -1377,7 +1452,7 @@ state 52
     $end            reduce using rule 25 (CUERPOE -> ESTRUCTURA_IF .)
 
 
-state 53
+state 54
 
     (26) CUERPOE -> EXIT .
 
@@ -1390,21 +1465,6 @@ state 53
     ID              reduce using rule 26 (CUERPOE -> EXIT .)
     error           reduce using rule 26 (CUERPOE -> EXIT .)
     $end            reduce using rule 26 (CUERPOE -> EXIT .)
-
-
-state 54
-
-    (28) ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .
-
-    ID              reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
-    error           reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
-    goto            reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
-    unset           reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
-    print           reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
-    if              reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
-    exit            reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
-    VARIABLE        reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
-    $end            reduce using rule 28 (ETIQUETA -> ID DOSPUNTOS PRECUERPOE1 .)
 
 
 state 55
@@ -2081,9 +2141,9 @@ state 84
 
 state 85
 
-    (19) PRECUERPOE -> CUERPOE . PRECUERPOE1
-    (20) PRECUERPOE -> CUERPOE .
-    (18) PRECUERPOE1 -> . CUERPOE PRECUERPOE
+    (18) PRECUERPOE1 -> CUERPOE . PRECUERPOE
+    (19) PRECUERPOE -> . CUERPOE PRECUERPOE1
+    (20) PRECUERPOE -> . CUERPOE
     (21) CUERPOE -> . GOTO_LABEL
     (22) CUERPOE -> . ASIGNACION
     (23) CUERPOE -> . DESTRUYE_VARIABLE
@@ -2101,24 +2161,15 @@ state 85
     (33) NORMAL -> . VARIABLE IGUAL EXPRESION
     (34) ARRAY -> . VARIABLE LISTA_POS IGUAL EXPRESION
 
-  ! reduce/reduce conflict for goto resolved using rule 20 (PRECUERPOE -> CUERPOE .)
-  ! reduce/reduce conflict for unset resolved using rule 20 (PRECUERPOE -> CUERPOE .)
-  ! reduce/reduce conflict for print resolved using rule 20 (PRECUERPOE -> CUERPOE .)
-  ! reduce/reduce conflict for if resolved using rule 20 (PRECUERPOE -> CUERPOE .)
-  ! reduce/reduce conflict for exit resolved using rule 20 (PRECUERPOE -> CUERPOE .)
-  ! reduce/reduce conflict for VARIABLE resolved using rule 20 (PRECUERPOE -> CUERPOE .)
-  ! reduce/reduce conflict for ID resolved using rule 20 (PRECUERPOE -> CUERPOE .)
-  ! reduce/reduce conflict for error resolved using rule 20 (PRECUERPOE -> CUERPOE .)
-  ! reduce/reduce conflict for $end resolved using rule 20 (PRECUERPOE -> CUERPOE .)
   ! shift/reduce conflict for goto resolved as shift
   ! shift/reduce conflict for unset resolved as shift
   ! shift/reduce conflict for print resolved as shift
   ! shift/reduce conflict for if resolved as shift
   ! shift/reduce conflict for exit resolved as shift
   ! shift/reduce conflict for VARIABLE resolved as shift
-    ID              reduce using rule 20 (PRECUERPOE -> CUERPOE .)
-    error           reduce using rule 20 (PRECUERPOE -> CUERPOE .)
-    $end            reduce using rule 20 (PRECUERPOE -> CUERPOE .)
+    ID              reduce using rule 27 (CUERPOE -> .)
+    error           reduce using rule 27 (CUERPOE -> .)
+    $end            reduce using rule 27 (CUERPOE -> .)
     goto            shift and go to state 19
     unset           shift and go to state 22
     print           shift and go to state 23
@@ -2126,46 +2177,37 @@ state 85
     exit            shift and go to state 25
     VARIABLE        shift and go to state 26
 
-  ! goto            [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
-  ! unset           [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
-  ! print           [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
-  ! if              [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
-  ! exit            [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
-  ! VARIABLE        [ reduce using rule 20 (PRECUERPOE -> CUERPOE .) ]
   ! goto            [ reduce using rule 27 (CUERPOE -> .) ]
   ! unset           [ reduce using rule 27 (CUERPOE -> .) ]
   ! print           [ reduce using rule 27 (CUERPOE -> .) ]
   ! if              [ reduce using rule 27 (CUERPOE -> .) ]
   ! exit            [ reduce using rule 27 (CUERPOE -> .) ]
   ! VARIABLE        [ reduce using rule 27 (CUERPOE -> .) ]
-  ! ID              [ reduce using rule 27 (CUERPOE -> .) ]
-  ! error           [ reduce using rule 27 (CUERPOE -> .) ]
-  ! $end            [ reduce using rule 27 (CUERPOE -> .) ]
 
-    CUERPOE                        shift and go to state 47
-    PRECUERPOE1                    shift and go to state 121
-    GOTO_LABEL                     shift and go to state 48
-    ASIGNACION                     shift and go to state 49
-    DESTRUYE_VARIABLE              shift and go to state 50
-    IMPRIME                        shift and go to state 51
-    ESTRUCTURA_IF                  shift and go to state 52
-    EXIT                           shift and go to state 53
+    CUERPOE                        shift and go to state 48
+    PRECUERPOE                     shift and go to state 121
+    GOTO_LABEL                     shift and go to state 49
+    ASIGNACION                     shift and go to state 50
+    DESTRUYE_VARIABLE              shift and go to state 51
+    IMPRIME                        shift and go to state 52
+    ESTRUCTURA_IF                  shift and go to state 53
+    EXIT                           shift and go to state 54
     NORMAL                         shift and go to state 20
     ARRAY                          shift and go to state 21
 
 state 86
 
-    (18) PRECUERPOE1 -> CUERPOE PRECUERPOE .
+    (19) PRECUERPOE -> CUERPOE PRECUERPOE1 .
 
-    ID              reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
-    error           reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
-    goto            reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
-    unset           reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
-    print           reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
-    if              reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
-    exit            reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
-    VARIABLE        reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
-    $end            reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    ID              reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    error           reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    goto            reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    unset           reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    print           reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    if              reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    exit            reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    VARIABLE        reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    $end            reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
 
 
 state 87
@@ -3042,17 +3084,17 @@ state 120
 
 state 121
 
-    (19) PRECUERPOE -> CUERPOE PRECUERPOE1 .
+    (18) PRECUERPOE1 -> CUERPOE PRECUERPOE .
 
-    ID              reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
-    error           reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
-    goto            reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
-    unset           reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
-    print           reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
-    if              reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
-    exit            reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
-    VARIABLE        reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
-    $end            reduce using rule 19 (PRECUERPOE -> CUERPOE PRECUERPOE1 .)
+    ID              reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    error           reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    goto            reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    unset           reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    print           reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    if              reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    exit            reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    VARIABLE        reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
+    $end            reduce using rule 18 (PRECUERPOE1 -> CUERPOE PRECUERPOE .)
 
 
 state 122
@@ -3673,6 +3715,8 @@ WARNING: shift/reduce conflict for print in state 29 resolved as shift
 WARNING: shift/reduce conflict for if in state 29 resolved as shift
 WARNING: shift/reduce conflict for exit in state 29 resolved as shift
 WARNING: shift/reduce conflict for VARIABLE in state 29 resolved as shift
+WARNING: shift/reduce conflict for ID in state 31 resolved as shift
+WARNING: shift/reduce conflict for error in state 31 resolved as shift
 WARNING: shift/reduce conflict for goto in state 31 resolved as shift
 WARNING: shift/reduce conflict for unset in state 31 resolved as shift
 WARNING: shift/reduce conflict for print in state 31 resolved as shift
@@ -3685,12 +3729,12 @@ WARNING: shift/reduce conflict for print in state 33 resolved as shift
 WARNING: shift/reduce conflict for if in state 33 resolved as shift
 WARNING: shift/reduce conflict for exit in state 33 resolved as shift
 WARNING: shift/reduce conflict for VARIABLE in state 33 resolved as shift
-WARNING: shift/reduce conflict for goto in state 47 resolved as shift
-WARNING: shift/reduce conflict for unset in state 47 resolved as shift
-WARNING: shift/reduce conflict for print in state 47 resolved as shift
-WARNING: shift/reduce conflict for if in state 47 resolved as shift
-WARNING: shift/reduce conflict for exit in state 47 resolved as shift
-WARNING: shift/reduce conflict for VARIABLE in state 47 resolved as shift
+WARNING: shift/reduce conflict for goto in state 48 resolved as shift
+WARNING: shift/reduce conflict for unset in state 48 resolved as shift
+WARNING: shift/reduce conflict for print in state 48 resolved as shift
+WARNING: shift/reduce conflict for if in state 48 resolved as shift
+WARNING: shift/reduce conflict for exit in state 48 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE in state 48 resolved as shift
 WARNING: shift/reduce conflict for goto in state 85 resolved as shift
 WARNING: shift/reduce conflict for unset in state 85 resolved as shift
 WARNING: shift/reduce conflict for print in state 85 resolved as shift
@@ -3699,7 +3743,7 @@ WARNING: shift/reduce conflict for exit in state 85 resolved as shift
 WARNING: shift/reduce conflict for VARIABLE in state 85 resolved as shift
 WARNING: reduce/reduce conflict in state 10 resolved using rule (PRECUERPO -> CUERPO)
 WARNING: rejected rule (CUERPO -> <empty>) in state 10
+WARNING: reduce/reduce conflict in state 48 resolved using rule (PRECUERPOE -> CUERPOE)
+WARNING: rejected rule (CUERPOE -> <empty>) in state 48
 WARNING: reduce/reduce conflict in state 57 resolved using rule (VALOR -> VARIABLE)
 WARNING: rejected rule (LISTA_POS -> <empty>) in state 57
-WARNING: reduce/reduce conflict in state 85 resolved using rule (PRECUERPOE -> CUERPOE)
-WARNING: rejected rule (CUERPOE -> <empty>) in state 85

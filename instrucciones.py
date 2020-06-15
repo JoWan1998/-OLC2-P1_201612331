@@ -19,45 +19,45 @@ class etiqueta(instruccion):
         self.instruccionesd = instrucciones
         self.principal = principal
 
-    def implements(self,ts,pila,instrucciones,linea=-1,lineant = -1):
+    def implements(self,ts,pila,instrucciones,linea=-1):
         try:
             if linea != -1:
                 for intruccion in self.instruccionesd:
                     if isinstance(intruccion,asignacion):
-                        if intruccion.linea in (linea,linea+1,linea-1):
+                        if intruccion.linea == linea:
                             return 2
                         else:
                             intruccion.implements(ts, pila, instrucciones)
                     elif isinstance(intruccion,destructor):
-                        if intruccion.linea in (linea,linea+1,linea-1):
+                        if intruccion.linea == linea:
                             return 2
                         else:
                             intruccion.implements(ts, pila, instrucciones)
                     elif isinstance(intruccion,imprimir):
-                        if intruccion.linea in (linea,linea+1,linea-1):
+                        if intruccion.linea-2 == linea or intruccion.linea-1 == linea:
                             return 2
                         else:
                             intruccion.implements(ts, pila, instrucciones)
                     elif isinstance(intruccion,etiqueta):
-                        if intruccion.linea in (linea,linea+1,linea-1):
+                        if intruccion.linea == linea:
                             return 2
                         else:
-                            md =  intruccion.implements(ts,pila,instrucciones,linea)
-                            if md == 1 or md == 2:
+                            md = intruccion.implements(ts, pila, instrucciones, linea)
+                            if md in (1, 2):
                                 return 1
                     elif isinstance(intruccion,sentencia_control):
-                        if intruccion.linea in (linea,linea+1,linea-1):
+                        if intruccion.linea == linea:
                             return 2
                         else:
-                            md = intruccion.implements(ts,pila,instrucciones)
-                            if md == 1:
+                            md = intruccion.implements(ts, pila, instrucciones)
+                            if md in (1, 2):
                                 return 1
                     elif isinstance(intruccion,salto_bandera):
-                        if intruccion.linea in (linea,linea+1,linea-1):
+                        if intruccion.linea == linea:
                             return 2
                         else:
-                            md = intruccion.implements(ts,pila,instrucciones)
-                            if md ==1 :
+                            md = intruccion.implements(ts, pila, instrucciones)
+                            if md in(1,2):
                                 return 1
                     elif isinstance(intruccion,salida):
                         return 1

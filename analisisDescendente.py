@@ -31,19 +31,19 @@ def semantic(result,linea):
     iniciar = result
     print('-----------------------------[SEMANTICOS]---------------------------------------')
     banderas = obtainbanderas(iniciar.instruccionesd, [])
-    m = iniciar.implements(tablasimbolos, pl, banderas,linea)
-    if m >0:
+    for line in linea:
+        print('-----------------------------[MODO DEBUG {LINEA: ' + str(line) + '}]---------------------------------------')
+        m = iniciar.implements(tablasimbolos, pl, banderas,line)
         print('--------------------------------------------------------------------')
-        #simbolos = tablasimbolos.simbolos
-        #for sm in simbolos:
-        #    print('simbolo: ' + str(sm.id) + '- ' + str(sm.valor) + '- ' + str(sm.registro))
-
-        print('--------------------------------------------------------------------')
-        #for pls in pl.pila:
-        #    print('pila: ' + str(pls.direccion) + '- ' + str(pls.valor))
-        print("Executed Finished")
-    else:
-        print("Ah ocurrido un error durante la ejecucion")
+        simbolos = tablasimbolos.simbolos
+        for sm in simbolos:
+            print('simbolo: ' + str(sm.id) + '- ' + str(sm.valor) + '- ' + str(sm.registro))
+        if m == 1 or m == -1:
+            print("Executed Finished")
+        elif m == 2:
+            print("MODO DEBUG - LINEA: "+str(line)+"-----------")
+        else:
+            print("Ah ocurrido un error durante la ejecucion")
 
 def getDot(padre,cont,contpadre,dot):
         if contpadre == cont:
@@ -161,7 +161,7 @@ file = open("./value1.txt", 'r')
 data = file.read()
 errores = errotk.errores()
 result = parsedes(errores,data,1)
-linea = 10
+linea = [6,11,27]
 
 semantic(result,linea)
 

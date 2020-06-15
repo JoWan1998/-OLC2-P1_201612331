@@ -12,7 +12,7 @@ from TablaSimbolos import *
 from stack import *
 from ArbolAscendente import *
 from ArbolDescendente import *
-from graphviz import Digraph
+from graphviz import Digraph,render
 import tempfile
 
 import os
@@ -61,65 +61,109 @@ def getDot(padre,cont,contpadre,dot):
                 cont += 1
         return cont
 
-file = open("./value1.txt", 'r')
-data = file.read()
-errores = errotk.errores()
-#result = parseas(errores,data,1)
-resul = arparseas(data)
-res = arparsedes(data)
-if resul != None:
-    dot = Digraph("ARBOL_ASCENDENTE","ARBOL_ASCENDENTE")
-    dot.attr(size='1000,1000')
-    getDot(resul,0,0,dot)
-    dot.render(tempfile.mktemp('.dot'),view=True)
+def getInfoASCE(data):
+    resul = arparseas(data)
+    if resul != None:
+        dot = Digraph("ARBOL_ASCENDENTE", "ARBOL_ASCENDENTE")
+        dot.attr(size='1000,1000')
+        getDot(resul, 0, 0, dot)
+        dot.render(tempfile.mktemp('.dot'), view=True)
 
-    val = tempfile.mktemp('.txt')
-    f = open(val,"w+")
-    f.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
-    resul.createReglaS(resul,f,0)
-    f.write('</TABLE>\n>')
-    f.close()
+        val = tempfile.mktemp('.txt')
+        f = open(val, "w+")
+        f.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
+        resul.createReglaS(resul, f, 0)
+        f.write('</TABLE>\n>')
+        f.close()
 
+        filetable = open(val, 'r')
+        datatable = filetable.read()
 
-    filetable = open(val, 'r')
-    datatable = filetable.read()
+        dot = Digraph("DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE", "DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE",
+                      node_attr={'shape': 'plaintext'})
+        dot.attr(size='1000,1000')
+        dot.node('struct', datatable)
+        dot.render(tempfile.mktemp('.dot'), view=True)
 
-    dot = Digraph("DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE", "DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE", node_attr={'shape': 'plaintext'})
-    dot.attr(size='1000,1000')
-    dot.node('struct',datatable)
-    dot.render(tempfile.mktemp('.dot'),view=True)
+def getInfoDES(data):
+    res = arparsedes(data)
 
-if res != None:
+    if res != None:
+        dot1 = Digraph("ARBOL_DESCENDENTE")
+        dot1.attr(size='1000,1000')
+        getDot(res, 0, 0, dot1)
+        dot1.render(tempfile.mktemp('.dot'), view=True)
 
-    dot1 = Digraph("ARBOL_DESCENDENTE")
-    dot1.attr(size='1000,1000')
-    getDot(res,0,0,dot1)
-    dot1.render(tempfile.mktemp('.dot'),view=True)
+        val = tempfile.mktemp('.txt')
+        f = open(val, "w+")
+        f.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
+        res.createReglaS(res, f, 0)
+        f.write('</TABLE>\n>')
+        f.close()
 
+        filetable = open(val, 'r')
+        datatable = filetable.read()
+
+        dot = Digraph("DEFINICION_DIRIGIDA_SINTAXIS_DESCENDENTE", "DEFINICION_DIRIGIDA_SINTAXIS_DESCENDENTE",
+                      node_attr={'shape': 'plaintext'})
+        dot.attr(size='1000,1000')
+        dot.node('struct', datatable)
+        dot.render(tempfile.mktemp('.dot'), view=True)
+
+def reportes(errores):
+    print('-----------------------------[LEXICOS]---------------------------------------')
     val = tempfile.mktemp('.txt')
     f = open(val, "w+")
     f.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
-    res.createReglaS(res, f,0)
+    lexicos = errores.errores_lexicos
+    f.write('<TR><TD COLSPAN=\"4\">ERRORES LEXICOS</TD></TR>\n')
+    f.write('<TR>')
+    f.write('<TD>LINEA</TD>')
+    f.write('<TD>COLUMNA</TD>')
+    f.write('<TD>TOKEN</TD>')
+    f.write('<TD>VALUE</TD>')
+    f.write('</TR>\n')
+    for errorsito in lexicos:
+        f.write('<TR>')
+        f.write('<TD>' + str(errorsito.linea) + '</TD>')
+        f.write('<TD>' + str(errorsito.columna) + '</TD>')
+        f.write('<TD>' + str(errorsito.token) + '</TD>')
+        f.write('<TD>' + errorsito.value + '</TD>')
+        f.write('</TR>\n')
+        print(errorsito.get_value())
+    print('-----------------------------[SINTACTICOS]---------------------------------------')
+    f.write('<TR><TD COLSPAN=\"4\">ERRORES SINTACTICOS</TD></TR>\n')
+    f.write('<TR>')
+    f.write('<TD>LINEA</TD>')
+    f.write('<TD>COLUMNA</TD>')
+    f.write('<TD>TOKEN</TD>')
+    f.write('<TD>VALUE</TD>')
+    f.write('</TR>\n')
+    sintatico = errores.errores_sintacticos
+    for errorsito in sintatico:
+        f.write('<TR>')
+        f.write('<TD>' + str(errorsito.linea) + '</TD>')
+        f.write('<TD>' + str(errorsito.columna) + '</TD>')
+        f.write('<TD>' + str(errorsito.token) + '</TD>')
+        f.write('<TD>' + errorsito.value + '</TD>')
+        f.write('</TR>\n')
+        print(errorsito.get_value())
     f.write('</TABLE>\n>')
     f.close()
+    f = open(val, 'r')
+    da = f.read()
 
-    filetable = open(val, 'r')
-    datatable = filetable.read()
-
-    dot = Digraph("DEFINICION_DIRIGIDA_SINTAXIS_DESCENDENTE", "DEFINICION_DIRIGIDA_SINTAXIS_DESCENDENTE", node_attr={'shape': 'plaintext'})
+    dot = Digraph("ERRORES", node_attr={'shape': 'plaintext'})
     dot.attr(size='1000,1000')
-    dot.node('struct', datatable)
+    dot.node('struct', da)
     dot.render(tempfile.mktemp('.dot'), view=True)
 
-print('-----------------------------[LEXICOS]---------------------------------------')
-lexicos = errores.errores_lexicos
-for errorsito in lexicos:
-    print(errorsito.get_value())
-print('-----------------------------[SINTACTICOS]---------------------------------------')
-sintatico = errores.errores_sintacticos
-for errorsito in sintatico:
-    print(errorsito.get_value())
-#semantic(result)
+file = open("./value1.txt", 'r')
+data = file.read()
+errores = errotk.errores()
+result = parseas(errores,data,1)
+
+semantic(result)
 
 
 

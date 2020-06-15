@@ -9,7 +9,7 @@ unset($t0);
 print('\n');
 #-------------ingreso de datos------------
 print('Ingresa un numero: \n');
-print('\n');
+print('\n');_
 #$t1 = read();  #se debe habilitar para las pruebas en su aplicación
 $t1 = 1;
 print('\n');

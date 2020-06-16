@@ -5,12 +5,14 @@ import os
 from tkinter import *
 import tkinter.filedialog
 import tkinter.messagebox
+from analisisAscendente import *
+from analisisDescendente import  *
 
 PROGRAM_NAME = "Augus IDE"
 file_name = None
 
 root = Tk()
-root.geometry('500x500')
+root.geometry('1000x700')
 root.title(PROGRAM_NAME)
 
 # show pop-up menu
@@ -45,10 +47,10 @@ def change_theme(event=None):
 
 def update_line_numbers(event=None):
     line_numbers = get_line_numbers()
-    line_number_bar.config(state='normal')
-    line_number_bar.delete('1.0', 'end')
-    line_number_bar.insert('1.0', line_numbers)
-    line_number_bar.config(state='disabled')
+    #line_number_bar.config(state='normal')
+    #line_number_bar.delete('1.0', 'end')
+    #line_number_bar.insert('1.0', line_numbers)
+    #line_number_bar.config(state='disabled')
 
 
 def highlight_line(interval=100):
@@ -147,6 +149,12 @@ def save(event=None):
     else:
         write_to_file(file_name)
     return "break"
+
+def ejecutar(event=None):
+    val = content_text.get('1.0',END)
+    #analisisas(val)
+    getInfoASCE1(val)
+    getInfoDES1(val)
 
 
 def select_all(event=None):
@@ -271,6 +279,8 @@ edit_menu.add_command(label='Find', underline=0,
 edit_menu.add_separator()
 edit_menu.add_command(label='Select All', underline=7,
                       accelerator='Ctrl+A', command=select_all)
+edit_menu.add_separator()
+edit_menu.add_command(label="Ejecutar",underline=8,accelerator='Ctrl+J',command =ejecutar)
 menu_bar.add_cascade(label='Edit', menu=edit_menu)
 
 
@@ -291,7 +301,7 @@ view_menu.add_cascade(label='Themes', menu=themes_menu)
 
 color_schemes = {
     'Default': '#000000.#FFFFFF',
-    'Greygarious': '#83406A.#D1D4D1',
+    'Dark': '#1B2631.#D1D4D1',
     'Aquamarine': '#5B8340.#D1E7E0',
     'Bold Beige': '#4B4620.#FFF0E1',
     'Cobalt Blue': '#ffffBB.#3333aa',
@@ -312,7 +322,7 @@ about_menu.add_command(label='Help', command=display_help_messagebox)
 menu_bar.add_cascade(label='About',  menu=about_menu)
 root.config(menu=menu_bar)
 
-shortcut_bar = Frame(root,  height=25, background='DeepSkyBlue2')
+shortcut_bar = Frame(root,  height=25, background='#424949')
 shortcut_bar.pack(expand='no', fill='x')
 
 icons = ('new_file', 'open_file', 'save', 'cut', 'copy', 'paste',
@@ -324,19 +334,48 @@ for i, icon in enumerate(icons):
     tool_bar.image = tool_bar_icon
     tool_bar.pack(side='left')
 
-line_number_bar = Text(root, width=4, padx=3, takefocus=0,  border=0,
-                       background='DarkOliveGreen1', state='disabled',  wrap='none')
-line_number_bar.pack(side='left',  fill='y')
+
+#line_number_bar = Text(root, width=4, padx=3, takefocus=0,  border=0,
+#                       background='DarkOliveGreen1', state='disabled',  wrap='none')
+#line_number_bar.pack(side='left',  fill='y',anchor="n")
+
+mi_Label1 = Label(root, text="Editor") #Creación del Label
+mi_Label1.pack(anchor='w')
+mi_Label1.config(font=('Century Gothic', 20)) #Cambiar tipo y tamaño de fuente
+mi_Label1.config(fg="black")
+mi_Label1.config(bg='white')
+
+line_number_bar2 = Text(root, width=4, padx=3, takefocus=0,  border=0,
+                       background='#424949', state='disabled',  wrap='none')
+line_number_bar2.pack(side='left',  fill='y',anchor='w')
 
 content_text = Text(root, wrap='word', undo=1)
-content_text.pack(expand='yes', fill='both')
+content_text.pack(expand='yes', fill='both',side='top',anchor='n')
 scroll_bar = Scrollbar(content_text)
 content_text.configure(yscrollcommand=scroll_bar.set)
+content_text.config(font=('Century Gothic', 12))
 scroll_bar.config(command=content_text.yview)
 scroll_bar.pack(side='right', fill='y')
 cursor_info_bar = Label(content_text, text='Line: 1 | Column: 1')
 cursor_info_bar.pack(expand='no', fill=None, side='right', anchor='se')
 
+mi_Label = Label(root, text="Consola") #Creación del Label
+mi_Label.pack(anchor='w')
+mi_Label.config(font=('Century Gothic', 20)) #Cambiar tipo y tamaño de fuente
+mi_Label.config(fg="black")
+mi_Label.config(bg='white')
+
+line_number_bar1 = Text(root, width=4, padx=3, takefocus=0,  border=0,
+                       background='#424949', state='disabled',  wrap='none')
+line_number_bar1.pack(side='left',  fill='y',anchor='w')
+
+
+content_text1 = Text(root, wrap='word', undo=1)
+content_text1.pack(expand='yes', fill='both',side='bottom',anchor='s')
+scroll_bar1 = Scrollbar(content_text1)
+content_text1.configure(yscrollcommand=scroll_bar1.set)
+scroll_bar1.config(command=content_text1.yview)
+scroll_bar1.pack(side='right', fill='y')
 
 content_text.bind('<KeyPress-F1>', display_help_messagebox)
 content_text.bind('<Control-N>', new_file)
@@ -369,4 +408,5 @@ content_text.bind('<Button-3>', show_popup_menu)
 content_text.focus_set()
 
 root.protocol('WM_DELETE_WINDOW', exit_editor)
+root.config(bg='white')
 root.mainloop()

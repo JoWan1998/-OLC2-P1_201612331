@@ -524,16 +524,32 @@ def p_RELACIONAL(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR ' + p[2] + p[3] + ' VALOR')
-        expresion.reglaSemantica('val[tope] = val[tope+1] ' + p[2] + p[3] + ' val[tope+4];')
+        expresion.produccion('RELACIONAL  - VALOR mayorigual VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] mayoroigual val[tope+4];')
         p[0] = expresion
     elif p[2] == '<' and p[3] == '=':
         expresion = Nodo('RELACIONAL')
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR ' + p[2] +p[3] + ' VALOR')
-        expresion.reglaSemantica('val[tope] = val[tope+1] ' + p[2]+p[3] + ' val[tope+4];')
+        expresion.produccion('RELACIONAL  - VALOR menorigual VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] menorigual val[tope+4];')
+        p[0] = expresion
+    elif p[2] == '<' :
+        expresion = Nodo('RELACIONAL')
+        expresion.hijos.append(p[1])
+        expresion.hijos.append(Nodo(p[2]+p[3]))
+        expresion.hijos.append(p[4])
+        expresion.produccion('RELACIONAL  - VALOR menor VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] menor val[tope+4];')
+        p[0] = expresion
+    elif p[2] == '>' :
+        expresion = Nodo('RELACIONAL')
+        expresion.hijos.append(p[1])
+        expresion.hijos.append(Nodo(p[2]+p[3]))
+        expresion.hijos.append(p[4])
+        expresion.produccion('RELACIONAL  - VALOR mayor VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] mayor val[tope+4];')
         p[0] = expresion
     else:
         expresion = Nodo('RELACIONAL')
@@ -576,16 +592,16 @@ def p_BIT(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('BIT  - VALOR ' + p[2]+p[3] + ' VALOR')
-        expresion.reglaSemantica('val[tope] = val[tope+1] ' + p[2] + ' val[tope+4];')
+        expresion.produccion('BIT  - VALOR shifta VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] shifta val[tope+4];')
         p[0] = expresion
     elif p[2] == '>' and p[3] == '>':
         expresion = Nodo('BIT')
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2] + p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR ' + p[2]+p[3] + ' VALOR')
-        expresion.reglaSemantica('val[tope] = val[tope+1] ' + p[2]+p[3] + ' val[tope+4];')
+        expresion.produccion('RELACIONAL  - VALOR shiftb VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] shiftb val[tope+4];')
         p[0] = expresion
     else:
         expresion = Nodo('BIT')

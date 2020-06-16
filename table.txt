@@ -1,8 +1,4 @@
-// DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE
-digraph DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE {
-	node [shape=plaintext]
-	size="1000,1000"
-	struct [label=<
+<
 <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
 <TR><TD> S </TD><TD> S -ESTRUCTURAMAIN </TD><TD> S.val = val[tope] </TD></TR>
 <TR><TD> ESTRUCTURAMAIN </TD><TD> ESTRUCTURAMAIN - main : LCUERPO </TD><TD> ESTRUCTURAMAIN.val = val[tope+3] </TD></TR>
@@ -284,7 +280,7 @@ digraph DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE {
 <TR><TD> CUERPOE </TD><TD> CUERPOE - ESTRUCTURA_IF </TD><TD> T = new cuerpo(); T.value = val[tope+1]; val[tope] = T; </TD></TR>
 <TR><TD> IF </TD><TD> IF  - if ( EXPRESION ) goto ID ; </TD><TD> T = new conditional(); T.condicion = val[tope+3]; T.salto = end0;  val[tope] = T; </TD></TR>
 <TR><TD> RELACIONAL </TD><TD> EXPRESION  - RELACIONAL </TD><TD> val[tope] = val[tope+1]; </TD></TR>
-<TR><TD> RELACIONAL </TD><TD> RELACIONAL  - VALOR >= VALOR </TD><TD> val[tope] = val[tope+1] >= val[tope+4]; </TD></TR>
+<TR><TD> RELACIONAL </TD><TD> RELACIONAL  - VALOR >= VALOR </TD><TD> val[tope] = val[tope+1] mayoroigual val[tope+4]; </TD></TR>
 <TR><TD> VALOR </TD><TD> VALOR  - VARIABLE </TD><TD> T = new Variable(); T.var = t2; val[tope] = T; </TD></TR>
 <TR><TD> VALOR </TD><TD> VALOR  - VARIABLE </TD><TD> T = new Variable(); T.var = t2; val[tope] = T; </TD></TR>
 <TR><TD> VALOR </TD><TD> VALOR  - INT </TD><TD> entero = 4; val[tope] = entero; </TD></TR>
@@ -634,5 +630,4 @@ digraph DEFINICION_DIRIGIDA_SINTAXIS_ASCENDENTE {
 <TR><TD> CUERPOE </TD><TD> CUERPOE - EXIT </TD><TD> T = new cuerpo(); T.value = val[tope+1]; val[tope] = T; </TD></TR>
 <TR><TD> EXIT </TD><TD> EXIT - exit ; </TD><TD> T = new Exit(); T.defined = 1 val[tope] = T; </TD></TR>
 </TABLE>
->]
-}
+>

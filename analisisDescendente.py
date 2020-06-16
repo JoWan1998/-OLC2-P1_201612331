@@ -25,7 +25,7 @@ def obtainbanderas(instrucciones, lista):
             lista.append(inst)
     return lista
 
-def semantic(result,linea):
+def semantic1(result,linea):
     tablasimbolos = ts()
     pl = pila()
     iniciar = result
@@ -157,13 +157,11 @@ def reportes(errores):
     dot.node('struct', da)
     dot.render(tempfile.mktemp('.dot'), view=True)
 
-file = open("./value1.txt", 'r')
-data = file.read()
-errores = errotk.errores()
-result = parsedes(errores,data,1)
-linea = [6,11,27]
-
-semantic(result,linea)
+def analizar(data):
+    errores = errotk.errores()
+    result = parsedes(errores,data,1)
+    linea = [6,11,27]
+    semantic1(result,linea)
 
 
 

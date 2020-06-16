@@ -61,7 +61,7 @@ def getDot(padre,cont,contpadre,dot):
                 cont += 1
         return cont
 
-def getInfoASCE(data):
+def getInfoASCE1(data):
     resul = arparseas(data)
     if resul != None:
         dot = Digraph("ARBOL_ASCENDENTE", "ARBOL_ASCENDENTE")
@@ -70,6 +70,7 @@ def getInfoASCE(data):
         dot.render(tempfile.mktemp('.dot'), view=True)
 
         val = tempfile.mktemp('.txt')
+        #val = './table.txt'
         f = open(val, "w+")
         f.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
         resul.createReglaS(resul, f, 0)
@@ -83,9 +84,10 @@ def getInfoASCE(data):
                       node_attr={'shape': 'plaintext'})
         dot.attr(size='1000,1000')
         dot.node('struct', datatable)
-        dot.render(tempfile.mktemp('.dot'), view=True)
+        vv= tempfile.mktemp('.dot')
+        dot.render(vv, view=True)
 
-def getInfoDES(data):
+def getInfoDES1(data):
     res = arparsedes(data)
 
     if res != None:
@@ -110,7 +112,7 @@ def getInfoDES(data):
         dot.node('struct', datatable)
         dot.render(tempfile.mktemp('.dot'), view=True)
 
-def reportes(errores):
+def reportes1(errores):
     print('-----------------------------[LEXICOS]---------------------------------------')
     val = tempfile.mktemp('.txt')
     f = open(val, "w+")
@@ -158,12 +160,10 @@ def reportes(errores):
     dot.node('struct', da)
     dot.render(tempfile.mktemp('.dot'), view=True)
 
-file = open("./value1.txt", 'r')
-data = file.read()
-errores = errotk.errores()
-result = parseas(errores,data,1)
-
-semantic(result)
+def analisisas(data):
+    errores = errotk.errores()
+    result = parseas(errores,data,1)
+    semantic(result)
 
 
 

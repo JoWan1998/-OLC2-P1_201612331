@@ -26,7 +26,7 @@ class Nodo:
     def createReglaS(self,padre,file,cont):
         data =''
         if padre.production != '' and cont ==0:
-            data += '<TR><TD> '+padre.value+' </TD><TD> '+padre.production+' </TD><TD> '+padre.rule+'\" </TD></TR>\n'
+            data += '<TR><TD> '+padre.value+' </TD><TD> '+padre.production+' </TD><TD> '+padre.rule+' </TD></TR>\n'
             for p in padre.hijos:
                 data += '<TR><TD> ' + p.value + ' </TD><TD> ' + p.production + ' </TD><TD> ' + p.rule + ' </TD></TR>\n'
                 file.write(data)
@@ -34,7 +34,7 @@ class Nodo:
         elif padre.production != '':
             for p in padre.hijos:
                 if p.production != '':
-                    data += '<TR><TD> \'' + p.value + '\' </TD><TD> \'' + p.production + '\' </TD><TD> \'' + p.rule + '\' </TD></TR>\n'
+                    data += '<TR><TD> ' + p.value + ' </TD><TD> ' + p.production + ' </TD><TD> ' + p.rule + ' </TD></TR>\n'
                     file.write(data)
                     self.createReglaS(p,file,cont+1)
 

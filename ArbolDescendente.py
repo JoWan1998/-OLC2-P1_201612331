@@ -395,7 +395,7 @@ def p_ARITMETICAS_NEGATIVO(p):
     '''ARITMETICAS : MENOS VALOR'''
     expresion = Nodo('ARITMETICAS')
     expresion.hijos.append(Nodo('-'))
-    expresion.hijos.append(p[1])
+    expresion.hijos.append(p[2])
     expresion.produccion('ARITMETICAS  - - EXPRESION')
     expresion.reglaSemantica('val[tope] = -1 * val[tope+1];')
     p[0] = expresion
@@ -548,9 +548,9 @@ def p_BIT(p):
     if p[2] == '<' and p[3] == '<':
         expresion = Nodo('BIT')
         expresion.hijos.append(p[1])
-        expresion.hijos.append(Nodo(p[2] + p[3]))
+        expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('BIT  - VALOR shifta VALOR')
+        expresion.produccion('BIT  = VALOR shifta VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] shifta val[tope+4];')
         p[0] = expresion
     elif p[2] == '>' and p[3] == '>':
@@ -558,15 +558,31 @@ def p_BIT(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2] + p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR shiftb VALOR')
+        expresion.produccion('RELACIONAL  = VALOR shiftb VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] shiftb val[tope+4];')
+        p[0] = expresion
+    elif p[2] == '&':
+        expresion = Nodo('BIT')
+        expresion.hijos.append(p[1])
+        expresion.hijos.append(Nodo(p[2]))
+        expresion.hijos.append(p[3])
+        expresion.produccion('BIT  = VALOR  andb VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] andb val[tope+3];')
+        p[0] = expresion
+    elif p[2] == '|':
+        expresion = Nodo('BIT')
+        expresion.hijos.append(p[1])
+        expresion.hijos.append(Nodo(p[2]))
+        expresion.hijos.append(p[3])
+        expresion.produccion('BIT  = VALOR  orb VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] orb val[tope+3];')
         p[0] = expresion
     else:
         expresion = Nodo('BIT')
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]))
         expresion.hijos.append(p[3])
-        expresion.produccion('BIT  - VALOR ' + p[2] + ' VALOR')
+        expresion.produccion('BIT  = VALOR  ' + p[2] + ' VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] ' + p[2] + ' val[tope+3];')
         p[0] = expresion
 

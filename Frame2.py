@@ -5,6 +5,8 @@ import os
 from tkinter import *
 import tkinter.filedialog
 import tkinter.messagebox
+from tkinter import ttk
+
 from analisisAscendente import *
 from analisisDescendente import  *
 
@@ -12,7 +14,7 @@ PROGRAM_NAME = "Augus IDE"
 file_name = None
 
 root = Tk()
-root.geometry('1000x700')
+root.geometry('1000x600')
 root.title(PROGRAM_NAME)
 
 # show pop-up menu
@@ -47,34 +49,112 @@ def change_theme(event=None):
 
 def update_line_numbers(event=None):
     line_numbers = get_line_numbers()
-    #line_number_bar.config(state='normal')
-    #line_number_bar.delete('1.0', 'end')
-    #line_number_bar.insert('1.0', line_numbers)
-    #line_number_bar.config(state='disabled')
+    line_number_bar.config(state='normal')
+    line_number_bar.delete('1.0', 'end')
+    line_number_bar.insert('1.0', line_numbers)
+    line_number_bar.config(state='disabled')
+    highligths(content_text)
 
+def highligths(content_text, if_ignore_case = 0):
+
+    needle = [
+        'if',
+        'goto',
+        'read',
+        'print',
+        'unset',
+        'exit',
+        'abs',
+        'array',
+        'main'
+    ]
+
+    content_text.tag_remove('matchmain', '1.0', END)
+    start_pos = '1.0'
+    while True:
+        start_pos = content_text.search('main', start_pos, stopindex=END)
+        if not start_pos:
+            break
+        end_pos = '{}+{}c'.format(start_pos, len('main'))
+        content_text.tag_add('matchmain', start_pos, end_pos)
+        start_pos = end_pos
+    content_text.tag_config('matchmain', foreground='blue')
+
+    content_text.tag_remove('matchif', '1.0', END)
+    start_pos = '1.0'
+    while True:
+        start_pos = content_text.search('if', start_pos, stopindex=END)
+        if not start_pos:
+            break
+        end_pos = '{}+{}c'.format(start_pos, len('if'))
+        content_text.tag_add('matchif', start_pos, end_pos)
+        start_pos = end_pos
+    content_text.tag_config('matchif', foreground='blue')  # , background='yellow')
+
+    content_text.tag_remove('matchgoto', '1.0', END)
+    start_pos = '1.0'
+    while True:
+        start_pos = content_text.search('goto', start_pos, stopindex=END)
+        if not start_pos:
+            break
+        end_pos = '{}+{}c'.format(start_pos, len('goto'))
+        content_text.tag_add('matchgoto', start_pos, end_pos)
+        start_pos = end_pos
+    content_text.tag_config('matchgoto', foreground='blue')
+
+    content_text.tag_remove('matchprint', '1.0', END)
+    start_pos = '1.0'
+    while True:
+        start_pos = content_text.search('print', start_pos, stopindex=END)
+        if not start_pos:
+            break
+        end_pos = '{}+{}c'.format(start_pos, len('print'))
+        content_text.tag_add('matchprint', start_pos, end_pos)
+        start_pos = end_pos
+    content_text.tag_config('matchprint', foreground='blue')
+
+    content_text.tag_remove('matchexit', '1.0', END)
+    start_pos = '1.0'
+    while True:
+        start_pos = content_text.search('exit', start_pos, stopindex=END)
+        if not start_pos:
+            break
+        end_pos = '{}+{}c'.format(start_pos, len('exit'))
+        content_text.tag_add('matchexit', start_pos, end_pos)
+        start_pos = end_pos
+    content_text.tag_config('matchexit', foreground='blue')
+
+    content_text.tag_remove('matchabs', '1.0', END)
+    start_pos = '1.0'
+    while True:
+        start_pos = content_text.search('abs', start_pos, stopindex=END)
+        if not start_pos:
+            break
+        end_pos = '{}+{}c'.format(start_pos, len('abs'))
+        content_text.tag_add('matchabs', start_pos, end_pos)
+        start_pos = end_pos
+    content_text.tag_config('matchabs', foreground='blue')
 
 def highlight_line(interval=100):
+    print(interval)
     content_text.tag_remove("active_line", 1.0, "end")
     content_text.tag_add(
         "active_line", "insert linestart", "insert lineend+1c")
     content_text.after(interval, toggle_highlight)
 
-
 def undo_highlight():
     content_text.tag_remove("active_line", 1.0, "end")
 
-
 def toggle_highlight(event=None):
+    print(to_highlight_line.get())
     if to_highlight_line.get():
         highlight_line()
     else:
         undo_highlight()
 
-
 def on_content_changed(event=None):
     update_line_numbers()
     update_cursor_info_bar()
-
 
 def get_line_numbers():
     output = ''
@@ -84,11 +164,9 @@ def get_line_numbers():
             output += str(i) + '\n'
     return output
 
-
 def display_about_messagebox(event=None):
     tkinter.messagebox.showinfo(
         "About", "{}{}".format(PROGRAM_NAME, "\nAugus IDE\nJosé Wannan\n2993999310101@ingenieria.usac.edu.gt"))
-
 
 def display_help_messagebox(event=None):
     tkinter.messagebox.showinfo(
@@ -151,11 +229,44 @@ def save(event=None):
     return "break"
 
 def ejecutar(event=None):
+    vals = content_text.get('1.0',END)
+    analisisas(vals)
+    val = "C:\\Windows\\Temp\\salida.txt"
+    file = open(val, 'r')
+    content_text1.delete(1.0,END)
+    data = file.read()
+    content_text1.insert(1.0,data)
+
+def debug(event=None):
+    vals = content_text.get('1.0',END)
+    lin = linea.get()
+    analizardes(vals,int(lin))
+    val = "C:\\Windows\\Temp\\salida.txt"
+    file = open(val, 'r')
+    content_text1.delete(1.0,END)
+    data = file.read()
+    content_text1.insert(1.0,data)
+    content_text.tag_remove("active_line", 1.0, "end")
+    content_text.tag_add(
+        "active_line", "insert linestart", "insert lineend+1c")
+    content_text.after(100, toggle_highlight)
+
+def debug1(event=None):
+    vals = content_text.get('1.0',END)
+    lin = int(linea.get()) + 1
+    linea.delete(0,END)
+    linea.insert(0,str(lin))
+    analizardes(vals,int(lin))
+    val = "C:\\Windows\\Temp\\salida.txt"
+    file = open(val, 'r')
+    content_text1.delete(1.0,END)
+    data = file.read()
+    content_text1.insert(1.0,data)
+
+def report(event=None):
     val = content_text.get('1.0',END)
-    #analisisas(val)
     getInfoASCE1(val)
     getInfoDES1(val)
-
 
 def select_all(event=None):
     content_text.tag_add('sel', '1.0', 'end')
@@ -246,6 +357,10 @@ copy_icon = PhotoImage(file='icons/copy.png')
 paste_icon = PhotoImage(file='icons/paste.png')
 undo_icon = PhotoImage(file='icons/undo.png')
 redo_icon = PhotoImage(file='icons/redo.png')
+report_icon = PhotoImage(file='icons/txt-file.png')
+ejecuta_icon = PhotoImage(file='icons/command-line.png')
+debug_icon = PhotoImage(file='icons/bugs-search-1.png')
+debug_icon1 = PhotoImage(file='icons/continuar.png')
 
 menu_bar = Menu(root)
 file_menu = Menu(menu_bar, tearoff=0)
@@ -267,21 +382,18 @@ edit_menu.add_command(label='Undo', accelerator='Ctrl+Z',
 edit_menu.add_command(label='Redo', accelerator='Ctrl+Y',
                       compound='left', image=redo_icon, command=redo)
 edit_menu.add_separator()
-edit_menu.add_command(label='Cut', accelerator='Ctrl+X',
-                      compound='left', image=cut_icon, command=cut)
-edit_menu.add_command(label='Copy', accelerator='Ctrl+C',
-                      compound='left', image=copy_icon, command=copy)
-edit_menu.add_command(label='Paste', accelerator='Ctrl+V',
-                      compound='left', image=paste_icon, command=paste)
-edit_menu.add_separator()
-edit_menu.add_command(label='Find', underline=0,
-                      accelerator='Ctrl+F', command=find_text)
-edit_menu.add_separator()
-edit_menu.add_command(label='Select All', underline=7,
-                      accelerator='Ctrl+A', command=select_all)
-edit_menu.add_separator()
-edit_menu.add_command(label="Ejecutar",underline=8,accelerator='Ctrl+J',command =ejecutar)
 menu_bar.add_cascade(label='Edit', menu=edit_menu)
+
+edit_menu1 = Menu(menu_bar, tearoff=0)
+edit_menu1.add_command(label='Reportes',
+                      compound='left', image=report_icon, command=report)
+edit_menu1.add_command(label="Ejecutar",
+                        compound='left', image=ejecuta_icon, command=ejecutar)
+edit_menu1.add_separator()
+edit_menu1.add_command(label='Find', underline=0,
+                      accelerator='Ctrl+F', command=find_text)
+edit_menu1.add_separator()
+menu_bar.add_cascade(label='Desarollador', menu=edit_menu1)
 
 
 view_menu = Menu(menu_bar, tearoff=0)
@@ -322,34 +434,44 @@ about_menu.add_command(label='Help', command=display_help_messagebox)
 menu_bar.add_cascade(label='About',  menu=about_menu)
 root.config(menu=menu_bar)
 
-shortcut_bar = Frame(root,  height=25, background='#424949')
+shortcut_bar = Frame(root,  height=30, background='#424949')
 shortcut_bar.pack(expand='no', fill='x')
+linea = ttk.Entry(shortcut_bar)
+linea.place(x=750,y=5)
+Butt = Button(shortcut_bar, image=debug_icon, command=debug)
+Butt.pack(side='right')
+Butt = Button(shortcut_bar, image=debug_icon1, command=debug1)
+Butt.pack(side='right')
 
-icons = ('new_file', 'open_file', 'save', 'cut', 'copy', 'paste',
-         'undo', 'redo', 'find_text')
-for i, icon in enumerate(icons):
-    tool_bar_icon = PhotoImage(file='icons/{}.png'.format(icon))
-    cmd = eval(icon)
-    tool_bar = Button(shortcut_bar, image=tool_bar_icon, command=cmd)
-    tool_bar.image = tool_bar_icon
-    tool_bar.pack(side='left')
+#icons = ('new_file', 'open_file', 'save', 'cut', 'copy', 'paste',
+#         'undo', 'redo', 'find_text')
+#for i, icon in enumerate(icons):
+#    tool_bar_icon = PhotoImage(file='icons/{}.png'.format(icon))
+#    cmd = eval(icon)
+#    tool_bar = Button(shortcut_bar, image=tool_bar_icon, command=cmd)
+#    tool_bar.image = tool_bar_icon
+#    tool_bar.pack(side='left')
 
 
-#line_number_bar = Text(root, width=4, padx=3, takefocus=0,  border=0,
-#                       background='DarkOliveGreen1', state='disabled',  wrap='none')
-#line_number_bar.pack(side='left',  fill='y',anchor="n")
 
-mi_Label1 = Label(root, text="Editor") #Creación del Label
-mi_Label1.pack(anchor='w')
-mi_Label1.config(font=('Century Gothic', 20)) #Cambiar tipo y tamaño de fuente
-mi_Label1.config(fg="black")
-mi_Label1.config(bg='white')
+shortcut_bar1 = Frame(root,  height=300, background='#424949')
+shortcut_bar1.pack(expand='no', fill='x')
 
-line_number_bar2 = Text(root, width=4, padx=3, takefocus=0,  border=0,
+#mi_Label1 = Label(shortcut_bar1, text="Editor") #Creación del Label
+#mi_Label1.pack(anchor='w')
+#mi_Label1.config(font=('Century Gothic', 20)) #Cambiar tipo y tamaño de fuente
+#mi_Label1.config(fg="black")
+#mi_Label1.config(bg='white')
+line_number_bar = Text(shortcut_bar1, width=4, padx=3, takefocus=0,  border=0,
                        background='#424949', state='disabled',  wrap='none')
-line_number_bar2.pack(side='left',  fill='y',anchor='w')
+line_number_bar.config(font=('Century Gothic', 12))
+line_number_bar.config(foreground='white')
+line_number_bar.pack(side='left',  fill='y',anchor="n")
+#line_number_bar2 = Text(shortcut_bar1, width=4, padx=3, takefocus=0,  border=0,
+#                       background='#424949', state='disabled',  wrap='none')
+#line_number_bar2.pack(side='left',  fill='y',anchor='w')
 
-content_text = Text(root, wrap='word', undo=1)
+content_text = Text(shortcut_bar1, wrap='word', undo=1)
 content_text.pack(expand='yes', fill='both',side='top',anchor='n')
 scroll_bar = Scrollbar(content_text)
 content_text.configure(yscrollcommand=scroll_bar.set)
@@ -359,18 +481,21 @@ scroll_bar.pack(side='right', fill='y')
 cursor_info_bar = Label(content_text, text='Line: 1 | Column: 1')
 cursor_info_bar.pack(expand='no', fill=None, side='right', anchor='se')
 
-mi_Label = Label(root, text="Consola") #Creación del Label
-mi_Label.pack(anchor='w')
-mi_Label.config(font=('Century Gothic', 20)) #Cambiar tipo y tamaño de fuente
-mi_Label.config(fg="black")
-mi_Label.config(bg='white')
+shortcut_bar2 = Frame(root,  height=500, background='#424949')
+shortcut_bar2.pack(expand='no', fill='x')
+linea.insert(0,"0")
+#mi_Label = Label(shortcut_bar2, text="Consola") #Creación del Label
+#mi_Label.pack(anchor='w')
+#mi_Label.config(font=('Century Gothic', 20)) #Cambiar tipo y tamaño de fuente
+#mi_Label.config(fg="black")
+#mi_Label.config(bg='white')
 
-line_number_bar1 = Text(root, width=4, padx=3, takefocus=0,  border=0,
-                       background='#424949', state='disabled',  wrap='none')
-line_number_bar1.pack(side='left',  fill='y',anchor='w')
+#line_number_bar1 = Text(shortcut_bar2, width=4, padx=3, takefocus=0,  border=0,
+#                       background='#424949', state='disabled',  wrap='none')
+#line_number_bar1.pack(side='left',  fill='y',anchor='w')
 
 
-content_text1 = Text(root, wrap='word', undo=1)
+content_text1 = Text(shortcut_bar2, wrap='word', undo=1)
 content_text1.pack(expand='yes', fill='both',side='bottom',anchor='s')
 scroll_bar1 = Scrollbar(content_text1)
 content_text1.configure(yscrollcommand=scroll_bar1.set)

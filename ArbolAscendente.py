@@ -61,7 +61,7 @@ def p_ESTRUCTURAMAIN(p):
     estructuramain.hijos.append(Nodo('main'))
     estructuramain.hijos.append(Nodo(':'))
     estructuramain.hijos.append(p[3])
-    estructuramain.produccion('ESTRUCTURAMAIN - main : LCUERPO')
+    estructuramain.produccion('ESTRUCTURAMAIN = main : LCUERPO')
     estructuramain.reglaSemantica('ESTRUCTURAMAIN.val = val[tope+3]')
     p[0] = estructuramain
 
@@ -92,14 +92,14 @@ def p_PRECUERPO(p):
         p[1][0].hijos.append(p[2])
         expresion = Nodo('LCUERPO')
         expresion.hijos.append(p[1])
-        expresion.produccion('LCUERPO  - LCUERPO CUERPO')
+        expresion.produccion('LCUERPO  = LCUERPO CUERPO')
         expresion.reglaSemantica('N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;')
         p[0] = expresion
     else:
         p[1].hijos.append(p[2])
         expresion = Nodo('LCUERPO')
         expresion.hijos.append(p[1])
-        expresion.produccion('LCUERPO  - LCUERPO CUERPO')
+        expresion.produccion('LCUERPO  = LCUERPO CUERPO')
         expresion.reglaSemantica('N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;')
         p[0] = expresion
 
@@ -113,7 +113,7 @@ def p_CUERPO(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPO')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPO  - ETIQUETA')
+    expresion.produccion('CUERPO  = ETIQUETA')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -122,7 +122,7 @@ def p_CUERPO1(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPO')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPO  - GOTOLABEL')
+    expresion.produccion('CUERPO  = GOTOLABEL')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -131,7 +131,7 @@ def p_CUERPO2(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPO')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPO  - ASIGNACION')
+    expresion.produccion('CUERPO  = ASIGNACION')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -140,7 +140,7 @@ def p_CUERPO3(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPO')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPO  - DESTRUYE_VARIABLE')
+    expresion.produccion('CUERPO  = DESTRUYE_VARIABLE')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -149,7 +149,7 @@ def p_CUERPO4(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPO')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPO  - IMPRIME')
+    expresion.produccion('CUERPO  = IMPRIME')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -158,7 +158,7 @@ def p_CUERPO5(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPO')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPO  - EXTRUCTURA_IF')
+    expresion.produccion('CUERPO  = EXTRUCTURA_IF')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -167,7 +167,7 @@ def p_CUERPO6(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPO')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPO  - EXIT')
+    expresion.produccion('CUERPO  = EXIT')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -178,14 +178,14 @@ def p_PRECUERPOE(p):
         p[1][0].hijos.append(p[2])
         expresion = Nodo('LCUERPOE')
         expresion.hijos.append(p[1])
-        expresion.produccion('LCUERPOE  - LCUERPOE CUERPOE')
+        expresion.produccion('LCUERPOE  = LCUERPOE CUERPOE')
         expresion.reglaSemantica('N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;')
         p[0] = expresion
     else:
         p[1].hijos.append(p[2])
         expresion = Nodo('LCUERPOE')
         expresion.hijos.append(p[1])
-        expresion.produccion('LCUERPOE  - LCUERPOE CUERPOE')
+        expresion.produccion('LCUERPOE  = LCUERPOE CUERPOE')
         expresion.reglaSemantica('N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;')
         p[0] = expresion
 
@@ -200,7 +200,7 @@ def p_CUERPOE(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPOE')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPOE - GOTO_LABEL')
+    expresion.produccion('CUERPOE = GOTO_LABEL')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -209,7 +209,7 @@ def p_CUERPOE1(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPOE')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPOE - ASIGNACION')
+    expresion.produccion('CUERPOE = ASIGNACION')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -218,7 +218,7 @@ def p_CUERPOE2(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPOE')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPOE - DESTRUYE_VARIABLE')
+    expresion.produccion('CUERPOE = DESTRUYE_VARIABLE')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -228,7 +228,7 @@ def p_CUERPOE3(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPOE')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPOE - IMPRIME')
+    expresion.produccion('CUERPOE = IMPRIME')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -237,7 +237,7 @@ def p_CUERPOE4(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPOE')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPOE - ESTRUCTURA_IF')
+    expresion.produccion('CUERPOE = ESTRUCTURA_IF')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -246,7 +246,7 @@ def p_CUERPOE5(p):
     # print('cuerpo.eval = value.eval')
     expresion = Nodo('CUERPOE')
     expresion.hijos.append(p[1])
-    expresion.produccion('CUERPOE - EXIT')
+    expresion.produccion('CUERPOE = EXIT')
     expresion.reglaSemantica('T = new cuerpo(); T.value = val[tope+1]; val[tope] = T;')
     p[0] = expresion
 
@@ -257,7 +257,7 @@ def p_ETIQUETA(p):
     expresion.hijos.append(Nodo(p[1]))
     expresion.hijos.append(Nodo(':'))
     expresion.hijos.append(p[3])
-    expresion.produccion('ETIQUETA  - ID : PRECUERPOE')
+    expresion.produccion('ETIQUETA  = ID : PRECUERPOE')
     expresion.reglaSemantica('T = new Etiqueta(); id = '+p[1]+'; T.id = id; T.addCuerpo(val[tope+2]); val[tope] = T;')
     p[0] = expresion
 
@@ -272,7 +272,7 @@ def p_GOTO_LABEL(p):
     saltobandera.hijos.append(Nodo('goto'))
     saltobandera.hijos.append(Nodo(p[2]))
     saltobandera.hijos.append(Nodo(';'))
-    saltobandera.produccion('GOTO_LABEL - goto ID ;')
+    saltobandera.produccion('GOTO_LABEL = goto ID ;')
     saltobandera.reglaSemantica('T = new Return(); id = '+p[2]+'; T.val = id.val; val[tope] = T;')
     p[0] = saltobandera
 
@@ -283,7 +283,7 @@ def p_ASIGNACION(p):
     asignacion = Nodo('ASIGNACION')
     asignacion.hijos.append(p[1])
     asignacion.hijos.append(Nodo(';'))
-    asignacion.produccion('ASIGNACION  - NORMAL')
+    asignacion.produccion('ASIGNACION  = NORMAL')
     asignacion.reglaSemantica('T = new asignacion(); T.value = val[tope+1];  val[tope] = T;')
     p[0] = asignacion
 
@@ -293,7 +293,7 @@ def p_ASIGNACION1(p):
     asignacion = Nodo('ASIGNACION')
     asignacion.hijos.append(p[1])
     asignacion.hijos.append(Nodo(';'))
-    asignacion.produccion('ASIGNACION  - ARRAY')
+    asignacion.produccion('ASIGNACION  = ARRAY')
     asignacion.reglaSemantica('T = new asignacion(); T.value = val[tope+1];  val[tope] = T;')
     p[0] = asignacion
 
@@ -305,7 +305,7 @@ def p_NORMAL(p):
     aNormal.hijos.append(Nodo(p[1]))
     aNormal.hijos.append(Nodo('='))
     aNormal.hijos.append(p[3])
-    aNormal.produccion('NORMAL  - VARIABLE = EXPRESION')
+    aNormal.produccion('NORMAL  = VARIABLE = EXPRESION')
     aNormal.reglaSemantica('T = new Normal(); var = '+p[1]+'; T.var = var; T.val = val[tope+3];  val[tope] = T;')
     p[0] = aNormal
 
@@ -318,7 +318,7 @@ def p_ARRAY(p):
     aArray.hijos.append(p[2])
     aArray.hijos.append(Nodo('='))
     aArray.hijos.append(p[4])
-    aArray.produccion('ARRAY  - VARIABLE LISTA_POS = EXPRESION')
+    aArray.produccion('ARRAY  = VARIABLE LISTA_POS = EXPRESION')
     aArray.reglaSemantica('T = new Array(); var = '+p[1]+'; T.var = var; T.pos = val[tope+2]; T.val = val[tope+4];  val[tope] = T;')
     p[0] = aArray
 
@@ -328,7 +328,7 @@ def p_EXPRESION(p):
     # print('expresion.eval = value.eval')
     expresion = Nodo('EXPRESION')
     expresion.hijos.append(p[1])
-    expresion.produccion('EXPRESION  - VALOR')
+    expresion.produccion('EXPRESION  = VALOR')
     expresion.reglaSemantica('T = new Valor();  T.value = val[tope+1];  val[tope] = T;')
     p[0] = expresion
 
@@ -344,7 +344,7 @@ def p_EXPRESIONP(p):
     expresion.hijos.append(Nodo('('))
     expresion.hijos.append(p[2])
     expresion.hijos.append(Nodo(')'))
-    expresion.produccion('EXPRESION  - ( EXPRESION )')
+    expresion.produccion('EXPRESION  = ( EXPRESION )')
     expresion.reglaSemantica('val[tope] = val[tope+1];')
     p[0] = expresion
 
@@ -355,7 +355,7 @@ def p_VALOR_VARIABLE(p):
     # print('valor.eval = variable.eval')
     valor = Nodo('VALOR')
     valor.hijos.append(Nodo(p[1]))
-    valor.produccion('VALOR  - VARIABLE')
+    valor.produccion('VALOR  = VARIABLE')
     valor.reglaSemantica('T = new Variable(); T.var = '+p[1]+'; val[tope] = T;')
     p[0] = valor
 
@@ -365,7 +365,7 @@ def p_VALOR_LLAMADA_ARREGLO(p):
     # print('valor.eval = llamada_arreglo.eval')
     valor = Nodo('VALOR')
     valor.hijos.append(p[1])
-    valor.produccion('VALOR  - LLAMADA_ARREGLO')
+    valor.produccion('VALOR  = LLAMADA_ARREGLO')
     valor.reglaSemantica('val[tope] = val[tope+1]')
     p[0] = valor
 
@@ -375,7 +375,7 @@ def p_VALOR_NUMERO(p):
     # print('valor.eval = INT')
     valor = Nodo('VALOR')
     valor.hijos.append(Nodo(str(p[1])))
-    valor.produccion('VALOR  - INT')
+    valor.produccion('VALOR  = INT')
     valor.reglaSemantica('entero = '+str(p[1])+'; val[tope] = entero;')
     p[0] = valor
 
@@ -385,7 +385,7 @@ def p_VALOR_FLOAT(p):
     # print('valor.eval = FLOAT')
     valor = Nodo('VALOR')
     valor.hijos.append(Nodo(str(p[1])))
-    valor.produccion('VALOR  - FLOAT')
+    valor.produccion('VALOR  = FLOAT')
     valor.reglaSemantica('float = ' + str(p[1]) + '; val[tope] = float;')
     p[0] = valor
 
@@ -395,7 +395,7 @@ def p_VALOR_CARACTER(p):
     # print('valor.eval = CHAR')
     valor = Nodo('VALOR')
     valor.hijos.append(Nodo(p[1]))
-    valor.produccion('VALOR  - CHAR')
+    valor.produccion('VALOR  = CHAR')
     valor.reglaSemantica('caracteres = ' + str(p[1]) + '; val[tope] = caracteres;')
     p[0] = valor
 
@@ -407,7 +407,7 @@ def p_VALOR_NUEVO_ARREGLO(p):
     valor.hijos.append(Nodo('array'))
     valor.hijos.append(Nodo('('))
     valor.hijos.append(Nodo(')'))
-    valor.produccion('VALOR  - array ( )')
+    valor.produccion('VALOR  = array ( )')
     valor.reglaSemantica('array = {} ; val[tope] = array;')
     p[0] = valor
 
@@ -419,7 +419,7 @@ def p_VALOR_LEER(p):
     valor.hijos.append(Nodo('read'))
     valor.hijos.append(Nodo('('))
     valor.hijos.append(Nodo(')'))
-    valor.produccion('VALOR  - read ( )')
+    valor.produccion('VALOR  = read ( )')
     valor.reglaSemantica('valor = system.interrup_system_call; val[tope] = valor;')
     p[0] = valor
 
@@ -428,7 +428,7 @@ def p_EXPRESION_ARITMETICAS(p):
     '''EXPRESION : ARITMETICAS'''
     expresion = Nodo('EXPRESION')
     expresion.hijos.append(p[1])
-    expresion.produccion('EXPRESION  - ARITMETICAS')
+    expresion.produccion('EXPRESION  = ARITMETICAS')
     expresion.reglaSemantica('val[tope] = val[tope+1];')
     p[0] = expresion
 
@@ -437,8 +437,8 @@ def p_ARITMETICAS_NEGATIVO(p):
     '''ARITMETICAS : MENOS VALOR'''
     expresion = Nodo('ARITMETICAS')
     expresion.hijos.append(Nodo('-'))
-    expresion.hijos.append(p[1])
-    expresion.produccion('ARITMETICAS  - - EXPRESION')
+    expresion.hijos.append(p[2])
+    expresion.produccion('ARITMETICAS  = - EXPRESION')
     expresion.reglaSemantica('val[tope] = -1 * val[tope+1];')
     p[0] = expresion
 
@@ -454,7 +454,7 @@ def p_ARITMETICAS(p):
     expresion.hijos.append(p[1])
     expresion.hijos.append(Nodo(p[2]))
     expresion.hijos.append(p[3])
-    expresion.produccion('ARITMETICAS  - EXPRESION '+p[2]+' EXPRESION')
+    expresion.produccion('ARITMETICAS  = EXPRESION '+p[2]+' EXPRESION')
     expresion.reglaSemantica('val[tope] = val[tope+1] '+p[2]+' val[tope+3];')
     p[0] = expresion
 
@@ -466,7 +466,7 @@ def p_ARITMETICAS_ABS(p):
     expresion.hijos.append(Nodo('('))
     expresion.hijos.append(p[3])
     expresion.hijos.append(Nodo(')'))
-    expresion.produccion('ARITMETICAS  - abs ( EXPRESION )')
+    expresion.produccion('ARITMETICAS  = abs ( EXPRESION )')
     expresion.reglaSemantica('val[tope] = val[tope+2];')
     p[0] = expresion
 
@@ -483,7 +483,7 @@ def p_LOGICAS_NOT(p):
     expresion = Nodo('LOGICAS')
     expresion.hijos.append(Nodo(p[1]))
     expresion.hijos.append(p[2])
-    expresion.produccion('EXPRESION  - LOGICAS')
+    expresion.produccion('EXPRESION  = LOGICAS')
     expresion.reglaSemantica('val[tope] = val[tope+1];')
     p[0] = expresion
 
@@ -497,7 +497,7 @@ def p_LOGICAS(p):
     expresion.hijos.append(p[1])
     expresion.hijos.append(Nodo(p[2]))
     expresion.hijos.append(p[3])
-    expresion.produccion('LOGICAS  - VALOR ' + p[2] + ' VALOR')
+    expresion.produccion('LOGICAS  = VALOR ' + p[2] + ' VALOR')
     expresion.reglaSemantica('val[tope] = val[tope+1] ' + p[2] + ' val[tope+3];')
     p[0] = expresion
 
@@ -506,7 +506,7 @@ def p_EXPRESION_RELACIONAL(p):
     '''EXPRESION : RELACIONAL'''
     expresion = Nodo('RELACIONAL')
     expresion.hijos.append(p[1])
-    expresion.produccion('EXPRESION  - RELACIONAL')
+    expresion.produccion('EXPRESION  = RELACIONAL')
     expresion.reglaSemantica('val[tope] = val[tope+1];')
     p[0] = expresion
 
@@ -524,7 +524,7 @@ def p_RELACIONAL(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR mayorigual VALOR')
+        expresion.produccion('RELACIONAL  = VALOR mayorigual VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] mayoroigual val[tope+4];')
         p[0] = expresion
     elif p[2] == '<' and p[3] == '=':
@@ -532,7 +532,7 @@ def p_RELACIONAL(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR menorigual VALOR')
+        expresion.produccion('RELACIONAL  = VALOR menorigual VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] menorigual val[tope+4];')
         p[0] = expresion
     elif p[2] == '<' :
@@ -540,7 +540,7 @@ def p_RELACIONAL(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR menor VALOR')
+        expresion.produccion('RELACIONAL  = VALOR menor VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] menor val[tope+4];')
         p[0] = expresion
     elif p[2] == '>' :
@@ -548,7 +548,7 @@ def p_RELACIONAL(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR mayor VALOR')
+        expresion.produccion('RELACIONAL  = VALOR mayor VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] mayor val[tope+4];')
         p[0] = expresion
     else:
@@ -556,7 +556,7 @@ def p_RELACIONAL(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]))
         expresion.hijos.append(p[3])
-        expresion.produccion('RELACIONAL  - VALOR ' + p[2] + ' VALOR')
+        expresion.produccion('RELACIONAL  = VALOR ' + p[2] + ' VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] ' + p[2] + ' val[tope+3];')
         p[0] = expresion
 
@@ -565,7 +565,7 @@ def p_EXPRESION_BIT(p):
     '''EXPRESION : BIT'''
     expresion = Nodo('EXPRESION')
     expresion.hijos.append(p[1])
-    expresion.produccion('EXPRESION  - BIT')
+    expresion.produccion('EXPRESION  = BIT')
     expresion.reglaSemantica('val[tope] = val[tope+1];')
     p[0] = expresion
 
@@ -575,7 +575,7 @@ def p_BIT_NOT(p):
     expresion = Nodo('BIT')
     expresion.hijos.append(Nodo(p[1]))
     expresion.hijos.append(p[2])
-    expresion.produccion('BIT  - ~ VALOR')
+    expresion.produccion('BIT  = ~ VALOR')
     expresion.reglaSemantica('val[tope] = ~val[tope+1];')
     p[0] = expresion
 
@@ -592,7 +592,7 @@ def p_BIT(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]+p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('BIT  - VALOR shifta VALOR')
+        expresion.produccion('BIT  = VALOR shifta VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] shifta val[tope+4];')
         p[0] = expresion
     elif p[2] == '>' and p[3] == '>':
@@ -600,15 +600,31 @@ def p_BIT(p):
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2] + p[3]))
         expresion.hijos.append(p[4])
-        expresion.produccion('RELACIONAL  - VALOR shiftb VALOR')
+        expresion.produccion('RELACIONAL  = VALOR shiftb VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] shiftb val[tope+4];')
+        p[0] = expresion
+    elif p[2] == '&':
+        expresion = Nodo('BIT')
+        expresion.hijos.append(p[1])
+        expresion.hijos.append(Nodo(p[2]))
+        expresion.hijos.append(p[3])
+        expresion.produccion('BIT  = VALOR  andb VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] andb val[tope+3];')
+        p[0] = expresion
+    elif p[2] == '|':
+        expresion = Nodo('BIT')
+        expresion.hijos.append(p[1])
+        expresion.hijos.append(Nodo(p[2]))
+        expresion.hijos.append(p[3])
+        expresion.produccion('BIT  = VALOR  orb VALOR')
+        expresion.reglaSemantica('val[tope] = val[tope+1] orb val[tope+3];')
         p[0] = expresion
     else:
         expresion = Nodo('BIT')
         expresion.hijos.append(p[1])
         expresion.hijos.append(Nodo(p[2]))
         expresion.hijos.append(p[3])
-        expresion.produccion('BIT  - VALOR ' + p[2] + ' VALOR')
+        expresion.produccion('BIT  = VALOR  ' + p[2] + ' VALOR')
         expresion.reglaSemantica('val[tope] = val[tope+1] ' + p[2] + ' val[tope+3];')
         p[0] = expresion
 
@@ -619,7 +635,7 @@ def p_LLAMADA_ARREGLO(p):
     expresion = Nodo('LLAMADA_ARREGLO')
     expresion.hijos.append(Nodo(p[1]))
     expresion.hijos.append(p[2])
-    expresion.produccion('LLAMADA_ARREGLO  - VARIABLE LISTAPOS')
+    expresion.produccion('LLAMADA_ARREGLO  = VARIABLE LISTAPOS')
     expresion.reglaSemantica('T = new LLamadaA(); T.var = '+p[1]+'; T.pos = val[top+2]; val[tope] = T;')
     p[0] = expresion
 
@@ -630,14 +646,14 @@ def p_LISTA_POS_L(p):
         p[1][0].hijos.append(p[2])
         expresion = Nodo('LISTA_POS')
         expresion.hijos.append(p[1])
-        expresion.produccion('LISTA_POS  - LISTAPOS POS')
+        expresion.produccion('LISTA_POS  = LISTAPOS POS')
         expresion.reglaSemantica('N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;')
         p[0] = expresion
     else:
         p[1].hijos.append(p[2])
         expresion = Nodo('LISTA_POS')
         expresion.hijos.append(p[1])
-        expresion.produccion('LISTA_POS  - LISTAPOS POS')
+        expresion.produccion('LISTA_POS  = LISTAPOS POS')
         expresion.reglaSemantica('N = []; N.append(val[tope+1]; N.append(val[tope+2]; val[tope] = N;')
         p[0] = expresion
 
@@ -654,7 +670,7 @@ def p_POS(p):
     expresion.hijos.append(Nodo(p[1]))
     expresion.hijos.append(p[2])
     expresion.hijos.append(Nodo(p[3]))
-    expresion.produccion('POS  - [ VALOR ]')
+    expresion.produccion('POS  = [ VALOR ]')
     expresion.reglaSemantica('val[tope] = val[tope+2];')
     p[0] = expresion
 
@@ -663,7 +679,7 @@ def p_EXPRESION_CONVERSION(p):
     '''EXPRESION : CONVERSION'''
     expresion = Nodo('EXPRESION')
     expresion.hijos.append(p[1])
-    expresion.produccion('EXPRESION  - CONVERSION')
+    expresion.produccion('EXPRESION  = CONVERSION')
     expresion.reglaSemantica('val[tope] = val[tope+1];')
     p[0] = expresion
 
@@ -676,7 +692,7 @@ def p_CONVERSION(p):
     expresion.hijos.append(p[2])
     expresion.hijos.append(Nodo(p[3]))
     expresion.hijos.append(p[4])
-    expresion.produccion('CONVERSION  - ( TIPO ) VALOR')
+    expresion.produccion('CONVERSION  = ( TIPO ) VALOR')
     expresion.reglaSemantica('T = new Convertion(); T.tipo = val[tope+2]; T.value = val[tope+4]; val[tope] = T;')
     p[0] = expresion
 
@@ -688,7 +704,7 @@ def p_TIPO_CONVERSION(p):
 
     expresion = Nodo('TIPO')
     expresion.hijos.append(Nodo(p[1]))
-    expresion.produccion('TIPO  - '+p[1])
+    expresion.produccion('TIPO  = '+p[1])
     expresion.reglaSemantica('val[tope] = val[tope+1];')
     p[0] = expresion
 
@@ -697,7 +713,7 @@ def p_EXPRESION_PUNTERO(p):
     '''EXPRESION : PUNTERO'''
     expresion = Nodo('EXPRESION')
     expresion.hijos.append(p[1])
-    expresion.produccion('EXPRESION  - PRODUCCION')
+    expresion.produccion('EXPRESION  = PRODUCCION')
     expresion.reglaSemantica('val[tope] = val[tope+1];')
     p[0] = expresion
 
@@ -707,7 +723,7 @@ def p_PUNTERO(p):
     expresion = Nodo('PUNTERO')
     expresion.hijos.append(Nodo(p[1]))
     expresion.hijos.append(Nodo(p[2]))
-    expresion.produccion('PUNTERO  - & VARIABLE')
+    expresion.produccion('PUNTERO  = & VARIABLE')
     expresion.produccion('var = '+p[2]+';  val[tope] = var;')
     p[0] = expresion
 
@@ -723,7 +739,7 @@ def p_ESTRUCTURA_IF(p):
     expresion.hijos.append(Nodo(p[5]))
     expresion.hijos.append(Nodo(p[6]))
     expresion.hijos.append(Nodo(p[7]))
-    expresion.produccion('IF  - if ( EXPRESION ) goto ID ;')
+    expresion.produccion('IF  = if ( EXPRESION ) goto ID ;')
     expresion.reglaSemantica('T = new conditional(); T.condicion = val[tope+3]; T.salto = '+p[6]+';  val[tope] = T;')
     p[0] = expresion
 
@@ -736,7 +752,7 @@ def p_DESTRUYE_VARIABLE(p):
     expresion.hijos.append(p[3])
     expresion.hijos.append(Nodo(p[4]))
     expresion.hijos.append(Nodo(p[5]))
-    expresion.produccion('DESTRUYE_VARIABLE  - unset ( VALOR ) ;')
+    expresion.produccion('DESTRUYE_VARIABLE  = unset ( VALOR ) ;')
     expresion.reglaSemantica('T = new destruct(); T.var = val[tope+3]; val[tope] = T;')
     p[0] = expresion
 
@@ -750,7 +766,7 @@ def p_IMPRIME(p):
     expresion.hijos.append(p[3])
     expresion.hijos.append(Nodo(p[4]))
     expresion.hijos.append(Nodo(p[5]))
-    expresion.produccion('IMPRIME  - print ( EXPRESION ) ;')
+    expresion.produccion('IMPRIME  = print ( EXPRESION ) ;')
     expresion.reglaSemantica('T = new print(); T.exp = val[tope+3]; val[tope] = T;')
     p[0] = expresion
 
@@ -760,7 +776,7 @@ def p_EXIT(p):
     expresion = Nodo('EXIT')
     expresion.hijos.append(Nodo(p[1]))
     expresion.hijos.append(Nodo(p[2]))
-    expresion.produccion('EXIT - exit ;')
+    expresion.produccion('EXIT = exit ;')
     expresion.reglaSemantica('T = new Exit(); T.defined = 1 val[tope] = T;')
     p[0] = expresion
 

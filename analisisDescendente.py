@@ -25,25 +25,59 @@ def obtainbanderas(instrucciones, lista):
             lista.append(inst)
     return lista
 
-def semantic1(result,linea):
+def semantic1(result,line):
     tablasimbolos = ts()
     pl = pila()
     iniciar = result
+    line += int(iniciar.linea)
+
     print('-----------------------------[SEMANTICOS]---------------------------------------')
     banderas = obtainbanderas(iniciar.instruccionesd, [])
-    for line in linea:
-        print('-----------------------------[MODO DEBUG {LINEA: ' + str(line) + '}]---------------------------------------')
-        m = iniciar.implements(tablasimbolos, pl, banderas,line)
-        print('--------------------------------------------------------------------')
-        simbolos = tablasimbolos.simbolos
-        for sm in simbolos:
-            print('simbolo: ' + str(sm.id) + '- ' + str(sm.valor) + '- ' + str(sm.registro))
-        if m == 1 or m == -1:
-            print("Executed Finished")
-        elif m == 2:
-            print("MODO DEBUG - LINEA: "+str(line)+"-----------")
-        else:
-            print("Ah ocurrido un error durante la ejecucion")
+    val = "C:\\Windows\\Temp\\salida.txt"
+    file = open(val, 'w+')
+    file.write('')
+    line -= int(iniciar.linea)
+    print('-----------------------------[MODO DEBUG {LINEA: ' + str(line) + '}]---------------------------------------')
+    m = iniciar.implements(tablasimbolos, pl, banderas,file,line)
+    print('--------------------------------------------------------------------')
+    file.close()
+    vali = tempfile.mktemp('.txt')
+    fil = open(vali, 'w+')
+    fil.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
+    fil.write('<TR><TD COLSPAN=\"5\">TABLA SIMBOLOS MODO DEBUG: LINEA{'+str(line)+'}</TD></TR>\n')
+    fil.write('<TR>')
+    fil.write('<TD>DIRECCION</TD>')
+    fil.write('<TD>IDENTIFICADOR</TD>')
+    fil.write('<TD>VALOR</TD>')
+    fil.write('<TD>REGISTRO</TD>')
+    fil.write('<TD>TIPO</TD>')
+    fil.write('</TR>\n')
+    print('--------------------------------------------------------------------')
+    simbolos = tablasimbolos.simbolos
+    for sm in simbolos:
+        print('simbolo: ' + str(sm.id) + '- ' + str(sm.valor) + '- ' + str(sm.registro))
+        fil.write('<TR>')
+        fil.write('<TD>' + str(sm.direccion) + '</TD>')
+        fil.write('<TD>' + str(sm.id) + '</TD>')
+        fil.write('<TD>' + str(sm.valor) + '</TD>')
+        fil.write('<TD>' + str(sm.registro) + '</TD>')
+        fil.write('<TD>' + str(sm.tipo) + '</TD>')
+        fil.write('</TR>\n')
+    fil.write('</TABLE>\n>')
+    fil.close()
+    f = open(vali, 'r')
+    da = f.read()
+
+    dot = Digraph("TABLA SIMBOLOS", node_attr={'shape': 'plaintext'})
+    dot.attr(size='1000,1000')
+    dot.node('struct', da)
+    dot.render(tempfile.mktemp('.dot'), view=True)
+    if m == 1 or m == -1:
+        print("Executed Finished")
+    elif m == 2:
+        print("MODO DEBUG - LINEA: "+str(line)+"-----------")
+    else:
+        print("Ah ocurrido un error durante la ejecucion")
 
 def getDot(padre,cont,contpadre,dot):
         if contpadre == cont:
@@ -157,10 +191,9 @@ def reportes(errores):
     dot.node('struct', da)
     dot.render(tempfile.mktemp('.dot'), view=True)
 
-def analizar(data):
+def analizardes(data,linea):
     errores = errotk.errores()
     result = parsedes(errores,data,1)
-    linea = [6,11,27]
     semantic1(result,linea)
 
 

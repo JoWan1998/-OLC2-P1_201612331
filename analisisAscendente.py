@@ -29,15 +29,48 @@ def semantic(result):
     tablasimbolos = ts()
     pl = pila()
     iniciar = result
+    val = "C:\\Windows\\Temp\\salida.txt"
+    file = open(val,'w+')
+    file.write('')
     print('-----------------------------[SEMANTICOS]---------------------------------------')
     banderas = obtainbanderas(iniciar.instruccionesd, [])
 
-    m = iniciar.implements(tablasimbolos, pl, banderas)
+    m = iniciar.implements(tablasimbolos, pl, banderas,file)
+    file.close()
+
+    vali = tempfile.mktemp('.txt')
+    fil = open(vali,'w+')
     if m >0:
+        fil.write('<\n<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">\n')
+        fil.write('<TR><TD COLSPAN=\"5\">TABLA SIMBOLOS</TD></TR>\n')
+        fil.write('<TR>')
+        fil.write('<TD>DIRECCION</TD>')
+        fil.write('<TD>IDENTIFICADOR</TD>')
+        fil.write('<TD>VALOR</TD>')
+        fil.write('<TD>REGISTRO</TD>')
+        fil.write('<TD>TIPO</TD>')
+        fil.write('</TR>\n')
         print('--------------------------------------------------------------------')
-        #simbolos = tablasimbolos.simbolos
-        #for sm in simbolos:
-        #    print('simbolo: ' + str(sm.id) + '- ' + str(sm.valor) + '- ' + str(sm.registro))
+        simbolos = tablasimbolos.simbolos
+        for sm in simbolos:
+            print('simbolo: ' + str(sm.id) + '- ' + str(sm.valor) + '- ' + str(sm.registro))
+            fil.write('<TR>')
+            fil.write('<TD>' + str(sm.direccion) + '</TD>')
+            fil.write('<TD>' + str(sm.id) + '</TD>')
+            fil.write('<TD>' + str(sm.valor) + '</TD>')
+            fil.write('<TD>' + str(sm.registro) + '</TD>')
+            fil.write('<TD>' + str(sm.tipo) + '</TD>')
+            fil.write('</TR>\n')
+
+        fil.write('</TABLE>\n>')
+        fil.close()
+        f = open(vali, 'r')
+        da = f.read()
+
+        dot = Digraph("TABLA SIMBOLOS", node_attr={'shape': 'plaintext'})
+        dot.attr(size='1000,1000')
+        dot.node('struct', da)
+        dot.render(tempfile.mktemp('.dot'), view=True)
 
         print('--------------------------------------------------------------------')
         #for pls in pl.pila:
@@ -55,6 +88,8 @@ def getDot(padre,cont,contpadre,dot):
             for p in padre.hijos:
                 father = 'Nodo_' + str(contpadre)
                 son = 'Nodo_'+str(cont)
+                print(p)
+                print(p.value)
                 dot.node(son,p.value)
                 dot.edge(father,son,arrowhead='none')
                 cont = getDot(p,cont+1,cont,dot)

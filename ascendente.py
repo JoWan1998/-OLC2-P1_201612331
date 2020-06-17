@@ -419,10 +419,11 @@ def p_EXIT(p):
     p[0] = salida(TIPO_INSTRUCCION.SALIDA,p.lexer.lineno)
 
 
-parser = yacc.yacc()
+
 
 
 def parseas(errors, data, debug=0):
+    parser = yacc.yacc()
     parser.error = 0
     p = parser.parse(data)
     errors.errores_sintacticos = parser.getErrores()

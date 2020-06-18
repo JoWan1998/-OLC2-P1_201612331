@@ -20,13 +20,12 @@ class etiqueta(instruccion):
         self.principal = principal
 
     def implements(self,ts,pila,instrucciones,file,linea=-1):
+        ln = 0
         try:
             if linea != -1:
                 linea += self.instruccionesd[0].linea
                 for intruccion in self.instruccionesd:
-                    print(linea)
-                    print('------')
-                    print(intruccion.linea)
+
                     if isinstance(intruccion,asignacion):
                         if intruccion.linea == linea:
                             return 2
@@ -49,6 +48,8 @@ class etiqueta(instruccion):
                             md = intruccion.implements(ts, pila, instrucciones, file,linea)
                             if md in (1, 2):
                                 return 1
+                            elif md < 0:
+                                return -1
                     elif isinstance(intruccion,sentencia_control):
                         if intruccion.linea == linea:
                             return 2
@@ -56,6 +57,8 @@ class etiqueta(instruccion):
                             md = intruccion.implements(ts, pila, instrucciones,file)
                             if md in (1, 2):
                                 return 1
+                            elif md < 0:
+                                return -1
                     elif isinstance(intruccion,salto_bandera):
                         if intruccion.linea == linea:
                             return 2
@@ -63,11 +66,14 @@ class etiqueta(instruccion):
                             md = intruccion.implements(ts, pila, instrucciones,file)
                             if md in(1,2):
                                 return 1
+                            elif md < 0:
+                                return -1
                     elif isinstance(intruccion,salida):
                         return 1
                 return 1
             else:
                 for intruccion in self.instruccionesd:
+                    ln = intruccion.linea
                     if isinstance(intruccion,asignacion):
                         intruccion.implements(ts,pila,instrucciones,file)
                     elif isinstance(intruccion,destructor):
@@ -78,19 +84,29 @@ class etiqueta(instruccion):
                         md =  intruccion.implements(ts,pila,instrucciones,file)
                         if md == 1:
                             return 1
+                        elif md <0:
+                            file.write("Excepcion llamada, en la instruccion: "+intruccion.nombre+", linea: "+str(intruccion.linea)+"\n")
+                            return -1
                     elif isinstance(intruccion,sentencia_control):
                         md = intruccion.implements(ts,pila,instrucciones,file)
                         if md == 1:
                             return 1
+                        elif md < 0:
+                            file.write("Excepcion llamada, en la sentencia if, linea: "+str(intruccion.linea)+"\n")
+                            return -1
                     elif isinstance(intruccion,salto_bandera):
                         md = intruccion.implements(ts,pila,instrucciones,file)
                         if md ==1 :
                             return 1
+                        elif md < 0:
+                            file.write("Excepcion llamada, en la sentencia goto, linea: " + str(intruccion.linea)+"\n")
+                            return -1
                     elif isinstance(intruccion,salida):
                         return 1
                 return 1
         except Exception as e:
             print(e)
+            file.write("Ah ocurrido una Excepcion. Metodo: "+self.nombre+", en la linea: "+str(ln)+"\n")
             return -1
 
 class salto_bandera(instruccion):
@@ -101,14 +117,20 @@ class salto_bandera(instruccion):
         self.linea = linea
 
     def implements(self,ts,pila,instrucciones,file):
-        for inst in instrucciones:
-            if isinstance(inst,etiqueta):
-                if inst.nombre == self.bandera:
-                    md = inst.implements(ts,pila,instrucciones,file)
-                    if md == 1:
-                        return 1
+        try:
+            for inst in instrucciones:
+                if isinstance(inst,etiqueta):
+                    if inst.nombre == self.bandera:
+                        md = inst.implements(ts,pila,instrucciones,file)
+                        if md == 1:
+                            return 1
+                        else:
+                            return -1
 
-        return 0
+            return 0
+        except:
+            file.write("Error, stack overflow, unset the var, en linea: "+self.linea+'\n')
+            return -1
 
 class asignacion(instruccion):
 
@@ -273,7 +295,7 @@ class asignacion(instruccion):
 
         except Exception as e:
             print(e)
-            print("Uncaught Error, La operacion no puede completarse o definirse, en la linea: " + str(self.linea))
+            print("Uncaught Error, La operacion no puede completarse o definirse, en la linea: " + str(self.linea)+"\n")
             file.write("Uncaught Error, La operacion no puede completarse o definirse, en la linea: "+str(self.linea)+'\n')
 
     def setList(self,ts,dictt,valor,pila,pos,cont):
@@ -428,9 +450,12 @@ class sentencia_control(instruccion):
                             md = ins.implements(ts, pila, instrucciones,file)
                             if md == 1:
                                 return 1
+                            else:
+                                return md
 
-                return 0
-        except:
+            return 0
+        except Exception as e:
+            print(e)
             file.write("Error Desconocido en la linea: "+str(self.linea)+'\n')
 
 class destructor(instruccion):

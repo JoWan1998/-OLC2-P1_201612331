@@ -1,18 +1,9 @@
-from ply import *
-import gramatica
-from instrucciones import *
-from enumeradores import *
-from operaciones import *
-from estructuras import *
-from ascendente import *
-from ply import *
 from descendente1 import *
-from wdes import *
 from TablaSimbolos import *
 from stack import *
 from ArbolAscendente import *
 from ArbolDescendente import *
-from graphviz import Digraph,render
+from graphviz import Digraph
 import tempfile
 
 import os
@@ -67,6 +58,7 @@ def semantic1(result,line):
     fil.close()
     f = open(vali, 'r')
     da = f.read()
+    f.close()
 
     dot = Digraph("TABLA SIMBOLOS", node_attr={'shape': 'plaintext'})
     dot.attr(size='1000,1000')
@@ -78,6 +70,14 @@ def semantic1(result,line):
         print("MODO DEBUG - LINEA: "+str(line)+"-----------")
     else:
         print("Ah ocurrido un error durante la ejecucion")
+
+    del tablasimbolos
+    del result
+    del pl
+    del f
+    del fil
+    del dot
+    del simbolos
 
 def getDot(padre,cont,contpadre,dot):
         if contpadre == cont:
@@ -195,6 +195,7 @@ def analizardes(data,linea):
     errores = errotk.errores()
     result = parsedes(errores,data,1)
     semantic1(result,linea)
+    reportes(errores)
 
 
 

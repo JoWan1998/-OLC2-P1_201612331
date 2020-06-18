@@ -23,6 +23,7 @@ main:
   #imprimir nombres y direccion
   $t2 = 0;
   while0:
+	print($t2);
 	if ($t2>=4) goto end0;
 	print('- nombre: ');
 	print($t1[$t2]['nombre']);
@@ -48,7 +49,6 @@ main:
   $t3[2][0] = 20;
   print($t3[2][0]);
   print('\n');
-  print($t3[1][3]); #error esta vacio el indice
   $t3['nombre']='Carla';
   print($t3['nombre']);
   print($t3);
@@ -80,3 +80,5 @@ main:
 #Carlo
 #Carlos
 #Carlos s
+
+

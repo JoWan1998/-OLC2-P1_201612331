@@ -1,13 +1,5 @@
-from ply import *
-import gramatica
-from instrucciones import *
-from enumeradores import *
-from operaciones import *
-from estructuras import *
 from ascendente import *
-from ply import *
 from descendente1 import *
-from wdes import *
 from TablaSimbolos import *
 from stack import *
 from ArbolAscendente import *
@@ -36,7 +28,6 @@ def semantic(result):
     banderas = obtainbanderas(iniciar.instruccionesd, [])
 
     m = iniciar.implements(tablasimbolos, pl, banderas,file)
-    file.close()
 
     vali = tempfile.mktemp('.txt')
     fil = open(vali,'w+')
@@ -66,7 +57,7 @@ def semantic(result):
         fil.close()
         f = open(vali, 'r')
         da = f.read()
-
+        f.close()
         dot = Digraph("TABLA SIMBOLOS", node_attr={'shape': 'plaintext'})
         dot.attr(size='1000,1000')
         dot.node('struct', da)
@@ -75,9 +66,12 @@ def semantic(result):
         print('--------------------------------------------------------------------')
         #for pls in pl.pila:
         #    print('pila: ' + str(pls.direccion) + '- ' + str(pls.valor))
-        print("Executed Finished")
+        file.write("Executed Finished"+"\n")
     else:
-        print("Ah ocurrido un error durante la ejecucion")
+        file.write("Ah ocurrido un error durante la ejecucion, retorno :"+str(m)+"\n")
+    file.close()
+    del tablasimbolos
+    del result
 
 def getDot(padre,cont,contpadre,dot):
         if contpadre == cont:
@@ -196,10 +190,16 @@ def reportes1(errores):
     dot.render(tempfile.mktemp('.dot'), view=True)
 
 def analisisas(data):
-    errores = errotk.errores()
-    result = parseas(errores,data,1)
-    semantic(result)
-
+    try:
+        errores = errotk.errores()
+        result = parseas(errores,data,1)
+        reportes1(errores)
+        semantic(result)
+    except Exception as e:
+        val = "C:\\Windows\\Temp\\salida.txt"
+        file = open(val, 'w+')
+        file.write('Excepcion encontrada de retorno -5, Existen errores no definidos como sintacticos o semanticos.\n')
+        file.close()
 
 
 

@@ -1,7 +1,5 @@
-### **UNIVERSIDAD DE SAN CARLOS DE GUATEMALA**
-## [OLC2]P1_201612331
+
 #
-######`Proyecto 1, Compiladores 2, Junio 2020`
 ######`IDE para compilacion del Lenguaje Augus`
 ######**_`Creado por José Wannan @2020`_**
 
